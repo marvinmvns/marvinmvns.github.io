@@ -173,7 +173,7 @@ h1.hero-title{font-family:'Space Grotesk';font-size:clamp(2.55rem,5.3vw,4.55rem)
 @keyframes scroll{to{transform:translateX(-50%)}}
 .marquee-track img{height:32px;width:auto;object-fit:contain;opacity:.78;transition:.3s}
 .marquee-track img:hover{opacity:1;transform:translateY(-2px)}
-.marquee-track img[src$="f1rst-logo.png"],.tl-when .logo img[src$="f1rst-logo.png"]{box-sizing:border-box;background:rgba(255,255,255,.94);border-radius:5px;padding:4px 7px}
+.marquee-track img[src$="f1rst-logo.svg"],.tl-when .logo img[src$="f1rst-logo.svg"]{box-sizing:border-box;background:rgba(255,255,255,.94);border-radius:5px;padding:4px 7px}
 
 /* MARKET PROFILE */
 .market-sec{position:relative;padding:94px 0 88px;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -258,6 +258,46 @@ h1.hero-title{font-family:'Space Grotesk';font-size:clamp(2.55rem,5.3vw,4.55rem)
 .contact-float::before{content:'';width:10px;height:10px;border-radius:50%;background:#28c840;box-shadow:0 0 0 0 rgba(40,200,64,.55);animation:contactPulse 2.2s infinite}
 .contact-float:hover{transform:translateY(-4px);box-shadow:0 20px 54px rgba(0,0,0,.5)}
 @keyframes contactPulse{70%{box-shadow:0 0 0 10px rgba(40,200,64,0)}100%{box-shadow:0 0 0 0 rgba(40,200,64,0)}}
+</style>
+<style>
+/* ===== REFINEMENTS — polish pass (camada aditiva, cascateia por último) ===== */
+
+/* tipografia: quebras de linha equilibradas em títulos, sem órfãs no corpo */
+h1,h2,h3,h4,.hero-title,.sec-head h2,.market-head h2,.about-txt h2{text-wrap:balance}
+.hero-sub,.sec-head p,.market-head p,.about-txt p,.svc p,.market-card p,.dfeat p{text-wrap:pretty}
+body{font-feature-settings:"kern","liga","calt";text-rendering:optimizeLegibility}
+
+/* contraste: leve elevação do texto mais apagado para legibilidade */
+:root{--txt-3:#6b7280}
+
+/* acessibilidade + polish: anel de foco consistente só no teclado */
+a:focus-visible,button:focus-visible,[onclick]:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--neon-2);outline-offset:3px;border-radius:8px}
+:focus:not(:focus-visible){outline:none}
+
+/* scrollbar temática (combina com a paleta) */
+html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-track{background:var(--bg-2)}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--gold-3),var(--gold-soft));border-radius:99px;border:3px solid var(--bg-2)}
+::-webkit-scrollbar-thumb:hover{background:var(--gold-2)}
+
+/* micro-interações: easing unificado + pressão tátil nos botões */
+.btn{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s cubic-bezier(.2,.8,.2,1),border-color .25s ease,color .25s ease,background .25s ease}
+.btn:active{transform:translateY(0) scale(.985)}
+
+/* elevação mais sofisticada (sombra em camadas) nos cards interativos */
+.glowcard:hover,.market-card:hover,.fvid:hover,.svc:hover{
+  box-shadow:0 28px 64px -22px rgba(0,0,0,.72),0 0 0 1px rgba(188,185,247,.09)}
+
+/* links de navegação: sublinhado um pouco mais nítido */
+.nav-links a::after{height:2px}
+
+/* respeita quem prefere menos movimento: acalma as animações pesadas do hero */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
@@ -354,21 +394,21 @@ h1.hero-title{font-family:'Space Grotesk';font-size:clamp(2.55rem,5.3vw,4.55rem)
   <div class="wrap">
     <div class="marquee-lbl" data-i18n="trust_label">// repertório construído em operação real, tecnologia e produto</div>
     <div class="marquee"><div class="marquee-track" id="mq">
-      <img src="assets/logos/f1rst-logo.png" alt="F1RST">
+      <img src="assets/logos/f1rst-logo.svg" alt="F1RST">
       <img src="assets/logos/itau-logo.png" alt="Itau">
-      <img src="assets/logos/ibm-logo.png" alt="IBM">
-      <img src="assets/logos/harlio-logo.png" alt="Harlio">
-      <img src="assets/logos/fastrackgps-logo.svg" alt="FastrackGPS">
+      <img src="assets/logos/ibm-logo.svg" alt="IBM">
+      <img src="assets/logos/harlio-logo.svg" alt="Harlio">
+      <img src="assets/logos/fastrackgps-logo.png" alt="FastrackGPS">
       <img src="assets/logos/systemplan-logo.svg" alt="Systemplan">
       <img src="assets/logos/mackenzie-logo.svg" alt="Mackenzie">
       <img src="assets/logos/oswaldo-cruz-logo.svg" alt="Oswaldo Cruz">
       <img src="assets/logos/fiap-logo.svg" alt="FIAP">
       <img src="assets/logos/fgv-logo.svg" alt="FGV">
-      <img src="assets/logos/f1rst-logo.png" alt="F1RST">
+      <img src="assets/logos/f1rst-logo.svg" alt="F1RST">
       <img src="assets/logos/itau-logo.png" alt="Itau">
-      <img src="assets/logos/ibm-logo.png" alt="IBM">
-      <img src="assets/logos/harlio-logo.png" alt="Harlio">
-      <img src="assets/logos/fastrackgps-logo.svg" alt="FastrackGPS">
+      <img src="assets/logos/ibm-logo.svg" alt="IBM">
+      <img src="assets/logos/harlio-logo.svg" alt="Harlio">
+      <img src="assets/logos/fastrackgps-logo.png" alt="FastrackGPS">
       <img src="assets/logos/systemplan-logo.svg" alt="Systemplan">
       <img src="assets/logos/mackenzie-logo.svg" alt="Mackenzie">
       <img src="assets/logos/oswaldo-cruz-logo.svg" alt="Oswaldo Cruz">
@@ -1086,6 +1126,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
       <div class="dfeat glowcard reveal"><div class="e">🔓</div><h4 data-i18n="df6_t">Plataforma aberta para evoluir</h4><p data-i18n="df6_p">A arquitetura permite adicionar comportamentos, integrações e novas experiências sem limitar o projeto ao modelo original.</p></div>
     </div>
     <div class="dog-gallery reveal">
+      <img src="assets/img/1.jpg" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
       <img src="assets/img/2.jpg" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
       <img src="assets/img/3.png" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
       <img src="assets/img/4.png" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
@@ -1153,7 +1194,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
         </div>
         <div class="prod-companion">
           <button class="localiza-video" onclick="openVid('DZoe0ncreDY')" type="button" aria-label="Assistir demonstração da LocalizaAuto">
-            <img src="assets/thumbs/yt-DZoe0ncreDY.jpg" alt="Interface mobile da LocalizaAuto" loading="lazy">
+            <img src="assets/img/localiza-mockup.jpg" alt="Interface mobile da LocalizaAuto" loading="lazy">
             <span class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
           </button>
           <div class="localiza-copy">
@@ -1276,7 +1317,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
     </div>
     <div class="timeline">
       <div class="tl-item reveal"><div class="tl-line"></div>
-        <div class="tl-when"><div class="logo"><img src="assets/logos/f1rst-logo.png" alt="F1RST"></div><div class="yr">2021—Hoje</div></div>
+        <div class="tl-when"><div class="logo"><img src="assets/logos/f1rst-logo.svg" alt="F1RST"></div><div class="yr">2021—Hoje</div></div>
         <div class="tl-body"><h4 data-i18n="tl1_role">Senior Lead / IT Lead</h4><div class="role-co">F1RST Digital Services · Santander</div><p data-i18n="tl1_p">Lidero um squad de 30+ engenheiros sustentando 40+ APIs a 99,95% de SLA nas jornadas de Open Finance e Open Insurance. FAPI/OAuth, Data Lake, FinOps (-60% custo cloud) e IA Generativa aplicada.</p><div class="tl-tags"><span>FAPI</span><span>OAuth 2.0</span><span>Data Lake</span><span>FinOps</span><span>Kubernetes</span></div></div>
       </div>
       <div class="tl-item reveal"><div class="tl-line"></div>
@@ -1284,15 +1325,15 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
         <div class="tl-body"><h4 data-i18n="tl2_role">Coordenador de Engenharia / Especialista QA</h4><div class="role-co">Itaú Unibanco</div><p data-i18n="tl2_p">10 anos no Itaú. Chapter Lead na Comunidade de Finanças, liderando a célula do IFRS 17 com 30 pessoas. Coordenação de automação de testes para Conta Corrente, Pagamentos e Empréstimos.</p><div class="tl-tags"><span>AWS</span><span>Java</span><span>IFRS 17</span><span>Selenium</span></div></div>
       </div>
       <div class="tl-item reveal"><div class="tl-line"></div>
-        <div class="tl-when"><div class="logo"><img src="assets/logos/fastrackgps-logo.svg" alt="FastrackGPS"></div><div class="yr">2006—2019</div></div>
+        <div class="tl-when"><div class="logo"><img src="assets/logos/fastrackgps-logo.png" alt="FastrackGPS"></div><div class="yr">2006—2019</div></div>
         <div class="tl-body"><h4 data-i18n="tl3_role">Founder & CTO</h4><div class="role-co" data-i18n="tl3_co">FastrackGPS · SaaS / IoT</div><p data-i18n="tl3_p">Fundei e operei por 13 anos um SaaS de rastreamento veicular que chegou a quase 10.000 clientes ativos. Desenvolvimento IoT, integração GPS e gestão de equipe técnica e comercial.</p><div class="tl-tags"><span>IoT</span><span>SaaS</span><span>GPS</span><span>Gestão</span></div></div>
       </div>
       <div class="tl-item reveal"><div class="tl-line"></div>
-        <div class="tl-when"><div class="logo"><img src="assets/logos/harlio-logo.png" alt="Harlio"></div><div class="yr">2016—2017</div></div>
+        <div class="tl-when"><div class="logo"><img src="assets/logos/harlio-logo.svg" alt="Harlio"></div><div class="yr">2016—2017</div></div>
         <div class="tl-body"><h4 data-i18n="tl4_role">Chief Technology Officer (CTO)</h4><div class="role-co" data-i18n="tl4_co">Harlio Bots · Chatbots com IA</div><p data-i18n="tl4_p">Criamos assistentes virtuais em Slack, Messenger, Telegram e Web usando IA para clientes globais, incluindo a Time Warner.</p><div class="tl-tags"><span>IA</span><span>NLP</span><span>Chatbots</span><span>Time Warner</span></div></div>
       </div>
       <div class="tl-item reveal"><div class="tl-line"></div>
-        <div class="tl-when"><div class="logo"><img src="assets/logos/ibm-logo.png" alt="IBM"></div><div class="yr">2007—2011</div></div>
+        <div class="tl-when"><div class="logo"><img src="assets/logos/ibm-logo.svg" alt="IBM"></div><div class="yr">2007—2011</div></div>
         <div class="tl-body"><h4 data-i18n="tl5_role">Desenvolvedor de Software</h4><div class="role-co" data-i18n="tl5_co">IBM · Mainframe & Sistemas Corporativos</div><p data-i18n="tl5_p">Analista programador em projetos para Itaú, TAM e Telefônica. Mainframe (Cobol, CICS, DB2), Oracle/PL-SQL, análise de performance e suporte de software.</p><div class="tl-tags"><span>Cobol</span><span>CICS</span><span>DB2</span><span>PL/SQL</span></div></div>
       </div>
     </div>
@@ -1331,7 +1372,7 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
         <div class="pbody"><div class="pmeta"><span class="tag">Voz · Embedded</span><span class="yr">2025</span></div><h3 data-i18n="pj5_t">ATOM Echo — Voz de Moeda</h3><p data-i18n="pj5_p">Assistente de voz completo num ESP32 do tamanho de uma moeda: transcrição, ChatGPT e ElevenLabs num wearable.</p><div class="stack"><span>ESP32</span><span>ChatGPT</span><span>ElevenLabs</span></div><div class="links"><a href="https://github.com/marvinmvns/atomechogptelevenlabs" target="_blank" rel="noopener" data-i18n="link_code">Código →</a></div></div>
       </div>
       <div class="proj glowcard reveal">
-        <div class="thumb novid" style="display:grid;place-items:center;background:#0a0c12"><img src="assets/logos/harlio-logo.png" alt="Harlio" style="width:auto;height:48%;object-fit:contain;opacity:.92"></div>
+        <div class="thumb novid" style="display:grid;place-items:center;background:#0a0c12"><img src="assets/logos/harlio-logo.svg" alt="Harlio" style="width:auto;height:48%;object-fit:contain;opacity:.92"></div>
         <div class="pbody"><div class="pmeta"><span class="tag">IA · Chatbots</span><span class="yr">2016—2017</span></div><h3 data-i18n="pj3_t">Harlio — Plataforma de ChatBots</h3><p data-i18n="pj3_p">Assistentes virtuais com IA para Slack, Messenger, Telegram e Web. Clientes globais, incluindo a Time Warner.</p><div class="stack"><span>NLP</span><span>Slack</span><span>Messenger</span><span>Telegram</span></div><div class="links"><a href="https://www.linkedin.com/in/marvin1986/" target="_blank" rel="noopener" data-i18n="link_more">Saiba mais →</a></div></div>
       </div>
     </div>
