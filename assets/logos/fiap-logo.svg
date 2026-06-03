@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <!-- FGV Navy Blue Background -->
+  <rect width="200" height="60" fill="#003366"/>
+
+  <!-- FGV text -->
+  <text x="100" y="42" font-family="Georgia, serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle">FGV</text>
+</svg>

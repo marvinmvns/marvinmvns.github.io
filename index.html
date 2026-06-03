@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcus Segundo | Liderança Técnica, Arquitetura e IA Aplicada</title>
+<meta name="author" content="Marcus Segundo">
+<meta name="description" content="Marcus Segundo: liderança técnica, arquitetura, Open Finance, Cloud e IA aplicada. Mais de 20 anos transformando desafios complexos em soluções que funcionam no mundo real.">
+<meta property="og:title" content="Marcus Segundo | Liderança Técnica, Arquitetura e IA Aplicada">
+<meta property="og:description" content="Senior Lead, arquiteto de soluções e consultor hands-on. Estratégia, profundidade técnica e execução para desafios que não aceitam improviso.">
+<meta property="og:image" content="assets/img/marcus-foto.jpg">
+<meta name="theme-color" content="#05060a">
+<meta name="robots" content="index, follow">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marcus Segundo | Liderança Técnica, Arquitetura e IA Aplicada">
+<meta name="twitter:description" content="Senior Lead, arquiteto de soluções e consultor hands-on. Estratégia, profundidade técnica e execução.">
+<meta name="twitter:image" content="assets/img/marcus-foto.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%239B98EC'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='19' font-weight='bold' text-anchor='middle' fill='%2305060a'%3EM%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Marcus Segundo","jobTitle":"Senior Lead · Consultor de Tecnologia","url":"https://marvinmvns.github.io/","image":"assets/img/marcus-foto.jpg","sameAs":["https://www.linkedin.com/in/marvin1986/","https://github.com/marvinmvns","https://www.doguia.com.br"],"knowsAbout":["Open Finance","Open Insurance","Cloud","Arquitetura de Software","Inteligência Artificial","FinOps","FAPI"],"worksFor":{"@type":"Organization","name":"F1RST Digital Services"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05060a;--bg-2:#0a0c12;--bg-3:#0f121a;
+  --surface:rgba(255,255,255,.025);--glass:rgba(12,14,20,.6);
+  --line:rgba(255,255,255,.07);--line-2:rgba(255,255,255,.15);
+  --txt:#EEF1F6;--txt-2:#9aa0ad;--txt-3:#5f6675;
+  --gold:#9B98EC;--gold-2:#BCB9F7;--gold-3:#7E7BE8;--gold-soft:rgba(155,152,236,.1);
+  --neon:#9B98EC;--neon-2:#BCB9F7;--neon-soft:rgba(155,152,236,.12);
+  --grad-gold:linear-gradient(135deg,#BCB9F7,#7E7BE8);
+  --grad-tech:linear-gradient(135deg,#B9B6F5,#7E7BE8);
+  --r:16px;--maxw:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+[id]{scroll-margin-top:84px}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+#bgcanvas{position:fixed;inset:0;z-index:-3;opacity:.55}
+body::before{content:'';position:fixed;inset:0;z-index:-4;background:
+  radial-gradient(60vw 50vw at 82% -8%,rgba(77,159,255,.12),transparent 60%),
+  radial-gradient(46vw 40vw at -8% 28%,rgba(155,152,236,.07),transparent 60%),
+  radial-gradient(46vw 46vw at 60% 112%,rgba(77,159,255,.06),transparent 60%),var(--bg)}
+body::after{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E")}
+::selection{background:var(--neon);color:#022}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.mono{font-family:'JetBrains Mono',monospace}
+.disp{font-family:'Space Grotesk',sans-serif}
+.gold-text{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.neon-text{background:var(--grad-tech);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:200;background:var(--grad-tech);box-shadow:0 0 12px var(--neon)}
+
+/* NAV */
+header{position:fixed;top:0;left:0;right:0;z-index:120;transition:.35s}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+header.scrolled{backdrop-filter:blur(16px);background:rgba(5,6,10,.85);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Space Grotesk';font-weight:600}
+.brand .logo{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:var(--grad-gold);color:#05060a;font-weight:700;font-size:19px;position:relative;overflow:hidden}
+.brand .logo::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,.5) 50%,transparent 60%);transform:translateX(-100%);animation:shine 4s ease-in-out infinite}
+@keyframes shine{0%,60%{transform:translateX(-100%)}80%,100%{transform:translateX(100%)}}
+.nav-links{display:flex;align-items:center;gap:19px}
+.nav-links a{font-family:'JetBrains Mono';font-size:13px;color:var(--txt-2);transition:.2s;position:relative}
+.nav-links a:hover{color:var(--neon-2)}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;height:1.5px;width:0;background:var(--neon);transition:.25s;box-shadow:0 0 6px var(--neon)}
+.nav-links a:hover::after{width:100%}
+.nav-right{display:flex;align-items:center;gap:14px}
+.lang{display:flex;gap:3px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:999px;padding:4px}
+.lang button{background:none;border:none;color:var(--txt-3);cursor:pointer;font-family:'JetBrains Mono';font-size:11.5px;font-weight:600;padding:5px 10px;border-radius:999px;transition:.2s}
+.lang button.active{background:var(--grad-gold);color:#05060a}
+.btn{display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:none;font-family:'Space Grotesk';font-weight:600;font-size:14.5px;padding:13px 24px;border-radius:999px;transition:.25s;white-space:nowrap;position:relative}
+.btn-gold{background:#fff;color:#06070a;box-shadow:0 6px 22px rgba(255,255,255,.12)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(255,255,255,.2)}
+.btn-ghost{background:rgba(255,255,255,.03);color:var(--txt);border:1px solid var(--line-2)}
+.btn-ghost:hover{border-color:var(--neon);color:var(--neon-2);box-shadow:0 0 24px rgba(155,152,236,.15)}
+.nav .btn{padding:10px 18px;font-size:13.5px}
+.burger{display:none;background:none;border:none;color:var(--txt);cursor:pointer;flex-direction:column;gap:5px;padding:8px}
+.burger span{width:22px;height:2px;background:var(--txt);border-radius:2px}
+.mobile-menu{display:none;flex-direction:column;gap:2px;padding:14px 24px 22px;background:rgba(5,6,10,.98);border-top:1px solid var(--line);backdrop-filter:blur(16px)}
+.mobile-menu a{padding:14px 0;color:var(--txt-2);border-bottom:1px solid var(--line);font-family:'JetBrains Mono';font-size:14px}
+.mobile-menu .btn{margin-top:14px;justify-content:center}
+.mobile-menu.open{display:flex}
+
+/* HERO */
+.hero{position:relative;min-height:860px;padding:132px 0 88px;overflow:hidden}
+.hero::before{content:'';position:absolute;width:620px;height:620px;right:-2%;top:5%;border-radius:50%;background:radial-gradient(circle,rgba(155,152,236,.2),rgba(77,159,255,.08) 42%,transparent 70%);filter:blur(8px);animation:heroPulse 7s ease-in-out infinite}
+.hero::after{content:'';position:absolute;inset:auto -12% -44% 24%;height:580px;background:radial-gradient(ellipse,rgba(77,159,255,.08),transparent 66%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 70% 55% at 45% 25%,#000,transparent 75%);opacity:.4}
+.hero-webgl{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.94;mix-blend-mode:screen;-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 30%,#000 54%,#000 100%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.18) 30%,#000 54%,#000 100%)}
+.hero-webgl canvas{width:100%;height:100%;display:block}
+.hero-webgl::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.16;background:repeating-linear-gradient(180deg,transparent 0 5px,rgba(188,185,247,.2) 6px,transparent 7px);mix-blend-mode:screen}
+.hero-inner{position:relative;z-index:3;display:grid;grid-template-columns:1.06fr .94fr;gap:46px;align-items:center}
+.hero-copy{animation:heroCopyIn .9s cubic-bezier(.2,.8,.2,1) both}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'JetBrains Mono';font-size:12px;color:var(--neon-2);margin-bottom:24px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--neon-soft)}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--neon);box-shadow:0 0 0 4px rgba(155,152,236,.18),0 0 10px var(--neon)}
+h1.hero-title{font-family:'Space Grotesk';font-size:clamp(2.55rem,5.3vw,4.55rem);line-height:1.01;font-weight:700;letter-spacing:-.04em;margin-bottom:24px;max-width:720px}
+.hero-title .accent{background:linear-gradient(110deg,#fff 0%,#bcb9f7 48%,#79b5ff 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:1.08rem;color:var(--txt-2);max-width:650px;margin-bottom:28px;font-weight:300;line-height:1.75}
+.hero-cta{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:38px}
+.hero-stats{display:flex;gap:36px;flex-wrap:wrap}
+.hero-stats .st .n{font-family:'Space Grotesk';font-size:2.2rem;font-weight:700;line-height:1}
+.hero-stats .st .l{font-family:'JetBrains Mono';font-size:11.5px;color:var(--txt-3);margin-top:5px}
+.hero-context{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px;font-family:'JetBrains Mono';font-size:11px;color:var(--txt-3)}
+.hero-context span{display:inline-flex;align-items:center;gap:7px}
+.hero-context span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--neon);box-shadow:0 0 9px var(--neon)}
+.hero-visual{position:relative;min-height:700px;isolation:isolate;animation:heroVisualIn 1s .12s cubic-bezier(.2,.8,.2,1) both;transform-style:preserve-3d;transition:transform .25s ease-out}
+.hero-visual::before{content:'';position:absolute;inset:22px -28px 62px 18px;z-index:-2;border-radius:50%;border:1px solid rgba(188,185,247,.16);box-shadow:0 0 80px rgba(126,123,232,.16),inset 0 0 70px rgba(77,159,255,.06);animation:orbitSpin 28s linear infinite}
+.hero-orbit{position:absolute;inset:34px 0 38px 24px;border:1px solid rgba(155,152,236,.22);border-radius:50%;z-index:-1;animation:orbitSpin 22s linear infinite}
+.hero-orbit::before,.hero-orbit::after{content:'';position:absolute;width:9px;height:9px;border-radius:50%;background:var(--neon);box-shadow:0 0 18px var(--neon)}
+.hero-orbit::before{top:11%;left:20%}.hero-orbit::after{right:8%;bottom:24%;background:#79b5ff;box-shadow:0 0 18px #79b5ff}
+.portrait-card{position:absolute;top:4px;right:0;width:56%;height:372px;border-radius:24px;overflow:hidden;border:1px solid rgba(155,152,236,.22);background:#0a0c12;box-shadow:0 42px 110px rgba(0,0,0,.62),0 0 40px rgba(126,123,232,.12);transform:translateZ(22px)}
+.portrait-card::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(5,6,10,.18) 63%,rgba(5,6,10,.96) 100%);pointer-events:none;z-index:4}
+.portrait-card img{width:100%;height:100%;object-fit:cover;object-position:center 22%;opacity:.26;filter:grayscale(.55) saturate(.8) contrast(1.1) brightness(.92)}
+.portrait-card::before{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;background-image:repeating-linear-gradient(0deg,rgba(155,152,236,.22) 0 1px,transparent 1px 8px),repeating-linear-gradient(90deg,rgba(155,152,236,.22) 0 1px,transparent 1px 8px);-webkit-mask:radial-gradient(ellipse 66% 52% at 50% 33%,#000 16%,transparent 74%);mask:radial-gradient(ellipse 66% 52% at 50% 33%,#000 16%,transparent 74%);mix-blend-mode:screen;opacity:.85;animation:meshFlick 5.5s steps(24) infinite}
+.portrait-fx{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;border-radius:inherit;background:repeating-linear-gradient(0deg,rgba(0,0,0,.16) 0 1px,transparent 1px 3px)}
+.portrait-fx::before,.portrait-fx::after{content:'';position:absolute;inset:0;background:url(assets/img/marcus-foto.jpg) center 22%/cover;mix-blend-mode:screen;opacity:.22}
+.portrait-fx::before{filter:sepia(1) saturate(5) hue-rotate(135deg) brightness(.85);animation:glA 5s steps(1) infinite}
+.portrait-fx::after{filter:sepia(1) saturate(6) hue-rotate(300deg) brightness(.85);animation:glB 5s steps(1) infinite}
+@keyframes glA{0%,90%,100%{transform:translateX(0);clip-path:inset(0)}91%{transform:translateX(-5px);clip-path:inset(34% 0 44% 0)}95%{transform:translateX(4px);clip-path:inset(60% 0 22% 0)}}
+@keyframes glB{0%,88%,100%{transform:translateX(0);clip-path:inset(0)}89%{transform:translateX(5px);clip-path:inset(18% 0 64% 0)}96%{transform:translateX(-4px);clip-path:inset(72% 0 10% 0)}}
+@keyframes meshFlick{0%,100%{opacity:.82}47%{opacity:.45}50%{opacity:.95}}
+.portrait-meta{position:absolute;left:24px;right:24px;bottom:22px;z-index:6;display:flex;flex-direction:column;gap:3px}
+.portrait-meta .k{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--neon-2)}
+.portrait-meta strong{font-family:'Space Grotesk';font-size:1.45rem;letter-spacing:-.02em}
+.portrait-meta span:last-child{font-size:.87rem;color:var(--txt-2)}
+.term{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line-2);background:linear-gradient(180deg,rgba(15,18,26,.94),rgba(8,10,16,.94));box-shadow:0 40px 90px rgba(0,0,0,.6)}
+.term::before{content:'';position:absolute;inset:0;border-radius:16px;padding:1px;background:linear-gradient(140deg,rgba(155,152,236,.5),transparent 35%,transparent 65%,rgba(77,159,255,.4));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.term-bar{display:flex;align-items:center;gap:8px;padding:13px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.02)}
+.term-bar .dots{display:flex;gap:6px}
+.term-bar .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.term-bar .dots i:nth-child(1){background:#ff5f57}.term-bar .dots i:nth-child(2){background:#febc2e}.term-bar .dots i:nth-child(3){background:#28c840}
+.term-bar .ttl{font-family:'JetBrains Mono';font-size:12px;color:var(--txt-3);margin-left:6px}
+.term-body{padding:20px;font-family:'JetBrains Mono';font-size:13px;line-height:1.85;min-height:296px}
+.term-body .pr{color:var(--neon)}.term-body .cm{color:var(--txt-3)}.term-body .k{color:var(--gold-2)}.term-body .s{color:#9ed0ff}
+.term-body .cur{display:inline-block;width:8px;height:15px;background:var(--neon);vertical-align:-2px;animation:blink 1s steps(1) infinite;box-shadow:0 0 8px var(--neon)}
+@keyframes blink{50%{opacity:0}}
+.hero-terminal{position:absolute;left:0;bottom:2px;width:min(396px,80%);z-index:4;box-shadow:0 28px 70px rgba(0,0,0,.72);transform:translateZ(48px);animation:terminalFloat 6s ease-in-out infinite}
+.hero-terminal .term-body{min-height:196px;padding:15px 17px;font-size:11px;line-height:1.68}
+.hero-terminal .term-bar{padding:10px 13px}
+.hero-terminal .term-bar .dots i{width:9px;height:9px}
+.hero-terminal .term-bar .ttl{font-size:10px}
+.visual-badge{position:absolute;z-index:5;display:flex;flex-direction:column;padding:12px 15px;border:1px solid rgba(255,255,255,.16);border-radius:14px;background:rgba(9,11,17,.78);backdrop-filter:blur(16px);box-shadow:0 18px 44px rgba(0,0,0,.38);transform:translateZ(64px);animation:badgeFloat 5s ease-in-out infinite}
+.visual-badge small{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-3)}
+.visual-badge strong{font-family:'Space Grotesk';font-size:1.14rem;letter-spacing:-.02em;color:var(--txt)}
+.visual-badge-top{left:2px;top:88px}
+.visual-badge-bottom{right:-18px;bottom:116px;animation-delay:-2.2s}
+.hero-signal{position:absolute;z-index:6;display:flex;align-items:center;gap:7px;font-family:'JetBrains Mono';font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(188,185,247,.78);text-shadow:0 0 10px rgba(155,152,236,.6);transform:translateZ(70px)}
+.hero-signal::before{content:'';width:6px;height:6px;border-radius:50%;background:#79b5ff;box-shadow:0 0 12px #79b5ff;animation:blink 1.8s infinite}
+.hero-signal-a{right:10px;top:36px}
+.hero-signal-b{left:38px;bottom:244px}
+.hero-coordinate{position:absolute;z-index:0;font-family:'JetBrains Mono';font-size:9px;letter-spacing:.14em;color:rgba(188,185,247,.35);writing-mode:vertical-rl;text-transform:uppercase}
+.hero-coordinate-a{right:-31px;top:132px}
+.hero-coordinate-b{left:20px;top:36px}
+.scroll-cue{position:absolute;left:50%;bottom:24px;z-index:4;display:flex;align-items:center;gap:10px;transform:translateX(-50%);font-family:'JetBrains Mono';font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-3)}
+.scroll-cue i{width:26px;height:42px;border:1px solid var(--line-2);border-radius:999px;position:relative}
+.scroll-cue i::after{content:'';position:absolute;top:8px;left:50%;width:4px;height:8px;border-radius:999px;background:var(--neon);transform:translateX(-50%);animation:scrollCue 1.8s ease-in-out infinite}
+@keyframes heroPulse{50%{transform:scale(1.12);opacity:.72}}
+@keyframes heroCopyIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes heroVisualIn{from{opacity:0;transform:translateY(34px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+@keyframes terminalFloat{50%{transform:translateY(-9px) translateZ(48px)}}
+@keyframes badgeFloat{50%{transform:translateY(-11px) translateZ(64px)}}
+@keyframes scrollCue{0%,100%{transform:translate(-50%,0);opacity:.35}50%{transform:translate(-50%,12px);opacity:1}}
+
+/* MARQUEE */
+.marquee-sec{padding:34px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.012)}
+.marquee-lbl{text-align:center;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.1em;color:var(--txt-3);margin-bottom:22px}
+.marquee{overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:60px;width:max-content;animation:scroll 26s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.marquee-track img{height:32px;width:auto;object-fit:contain;opacity:.78;transition:.3s}
+.marquee-track img:hover{opacity:1;transform:translateY(-2px)}
+.marquee-track img[src$="f1rst-logo.png"],.tl-when .logo img[src$="f1rst-logo.png"]{box-sizing:border-box;background:rgba(255,255,255,.94);border-radius:5px;padding:4px 7px}
+
+/* MARKET PROFILE */
+.market-sec{position:relative;padding:94px 0 88px;overflow:hidden;border-bottom:1px solid var(--line)}
+.market-sec::before{content:'';position:absolute;width:680px;height:680px;left:-260px;top:-220px;border-radius:50%;background:radial-gradient(circle,rgba(126,123,232,.14),transparent 67%);pointer-events:none}
+.market-shell{position:relative;padding:36px;border:1px solid rgba(188,185,247,.2);border-radius:24px;background:linear-gradient(135deg,rgba(16,18,28,.88),rgba(7,8,13,.72));box-shadow:0 32px 90px rgba(0,0,0,.28);overflow:hidden}
+.market-shell::after{content:'';position:absolute;right:-120px;top:-160px;width:420px;height:420px;border:1px solid rgba(188,185,247,.12);border-radius:50%;box-shadow:0 0 0 36px rgba(155,152,236,.025),0 0 0 78px rgba(77,159,255,.018);pointer-events:none}
+.market-head{position:relative;z-index:1;display:grid;grid-template-columns:.68fr 1.32fr;gap:28px;align-items:start;margin-bottom:30px}
+.market-head .kicker{margin-top:7px}
+.market-head h2{font-family:'Space Grotesk';font-size:clamp(2rem,3.8vw,3.15rem);font-weight:700;letter-spacing:-.035em;line-height:1.06;margin-bottom:14px;max-width:760px}
+.market-head p{max-width:740px;color:var(--txt-2);font-size:1rem;font-weight:300}
+.market-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.market-card{position:relative;min-height:236px;padding:22px 21px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.025);overflow:hidden;transition:.3s}
+.market-card::before{content:attr(data-index);position:absolute;right:14px;top:4px;font-family:'Space Grotesk';font-size:4.6rem;font-weight:700;line-height:1;color:rgba(188,185,247,.05);letter-spacing:-.08em}
+.market-card:hover{transform:translateY(-5px);border-color:rgba(188,185,247,.34);background:rgba(155,152,236,.055)}
+.market-card .mk{position:relative;z-index:1;display:block;margin-bottom:20px;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--neon-2)}
+.market-card h3{position:relative;z-index:1;font-family:'Space Grotesk';font-size:1.17rem;line-height:1.15;margin-bottom:9px}
+.market-card p{position:relative;z-index:1;color:var(--txt-2);font-size:.89rem;font-weight:300;line-height:1.62}
+.market-tags{position:relative;z-index:1;display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.market-tags span{padding:3px 7px;border:1px solid var(--line);border-radius:5px;background:rgba(255,255,255,.025);font-family:'JetBrains Mono';font-size:9px;color:var(--txt-3)}
+.market-bottom{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.market-proof{display:flex;gap:30px;flex-wrap:wrap}
+.market-proof .mp{display:flex;align-items:baseline;gap:7px}
+.market-proof b{font-family:'Space Grotesk';font-size:1.72rem;line-height:1;color:var(--neon-2);letter-spacing:-.04em}
+.market-proof span{font-family:'JetBrains Mono';font-size:9px;line-height:1.35;letter-spacing:.04em;text-transform:uppercase;color:var(--txt-3);max-width:110px}
+.market-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+
+/* SECTION */
+.sec{padding:92px 0;position:relative}
+.sec-head{max-width:680px;margin:0 auto 56px;text-align:center}
+.kicker{font-family:'JetBrains Mono';font-size:12px;color:var(--neon-2);margin-bottom:14px;display:inline-flex;gap:7px}
+.kicker::before{content:'//';color:var(--gold-2);opacity:.7}
+.sec-head h2{font-family:'Space Grotesk';font-size:clamp(1.9rem,3.8vw,3rem);font-weight:700;letter-spacing:-.022em;line-height:1.1;margin-bottom:15px}
+.sec-head p{color:var(--txt-2);font-size:1.02rem;font-weight:300}
+.glowcard{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;backdrop-filter:blur(8px);transition:.3s}
+.glowcard::after{content:'';position:absolute;inset:0;border-radius:var(--r);opacity:0;transition:.3s;background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%),rgba(155,152,236,.1),transparent 60%);pointer-events:none}
+.glowcard:hover::after{opacity:1}
+.glowcard:hover{border-color:var(--line-2);transform:translateY(-5px)}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.svc{padding:30px 26px}
+.svc .ic{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;background:var(--neon-soft);border:1px solid var(--line);margin-bottom:18px;color:var(--neon-2);font-size:1.25rem;position:relative;z-index:1}
+.svc h3{font-family:'Space Grotesk';font-size:1.2rem;font-weight:600;margin-bottom:10px;position:relative;z-index:1}
+.svc p{color:var(--txt-2);font-size:.95rem;font-weight:300;margin-bottom:15px;position:relative;z-index:1}
+.svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;position:relative;z-index:1}
+.svc ul li{font-family:'JetBrains Mono';font-size:11px;color:var(--txt-2);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:6px;padding:4px 9px}
+.about{max-width:980px;margin:0 auto}
+.about-photo{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line-2)}
+.about-photo::before{content:'';position:absolute;inset:0;z-index:2;border-radius:20px;padding:1px;background:linear-gradient(160deg,rgba(155,152,236,.6),transparent 45%,rgba(77,159,255,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.about-photo img{width:100%;aspect-ratio:4/4.3;object-fit:cover;object-position:center 32%;filter:saturate(.92) contrast(1.02) brightness(.96)}
+.about-photo .scan{position:absolute;inset:0;z-index:1;background:linear-gradient(transparent,rgba(155,152,236,.18),transparent);height:40%;animation:scanmove 4s linear infinite;pointer-events:none}
+@keyframes scanmove{0%{transform:translateY(-100%)}100%{transform:translateY(250%)}}
+.about-txt h2{font-family:'Space Grotesk';font-size:clamp(1.8rem,3.3vw,2.6rem);font-weight:700;letter-spacing:-.02em;line-height:1.12;margin-bottom:20px}
+.about-txt p{color:var(--txt-2);font-size:1rem;font-weight:300;margin-bottom:15px}
+.about-txt p strong{color:var(--txt);font-weight:600}
+.about-pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+.pillar .h{display:flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:600;font-size:.94rem;margin-bottom:5px}
+.pillar .h .i{color:var(--neon-2)}
+.pillar p{font-size:.82rem;color:var(--txt-3);font-weight:300;margin:0}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .75s cubic-bezier(.2,.8,.2,1),transform .75s cubic-bezier(.2,.8,.2,1);transition-delay:var(--delay,0ms)}
+.reveal.in{opacity:1;transform:none}
+.t2{color:#71757e}
+.hero-dots{position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(155,152,236,.55) 1.3px,transparent 1.3px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 55% 75% at 82% 38%,#000,transparent 68%);mask-image:radial-gradient(ellipse 55% 75% at 82% 38%,#000,transparent 68%);opacity:.6;pointer-events:none}
+.svc .sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--neon-2);margin-bottom:9px;letter-spacing:.03em}
+.tech-track{display:flex;align-items:center;gap:54px;width:max-content;animation:scroll 34s linear infinite reverse}
+.marquee:hover .tech-track{animation-play-state:paused}
+.tech-track img{height:32px;width:auto;object-fit:contain;filter:grayscale(1) brightness(0) invert(.8);opacity:.5;transition:.3s}
+.tech-track img:hover{filter:none;opacity:1;transform:translateY(-3px)}
+.fvid-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.fvid{position:relative;border:1px solid var(--line);border-radius:13px;overflow:hidden;cursor:pointer;background:#0a0c12;transition:.25s}
+.fvid:hover{border-color:var(--neon);transform:translateY(-4px)}
+.fvid .ft{position:relative;aspect-ratio:16/9;overflow:hidden}
+.fvid .ft img{width:100%;height:100%;object-fit:cover;opacity:.88;transition:.3s}
+.fvid:hover .ft img{opacity:1;transform:scale(1.05)}
+.fvid .pl{position:absolute;inset:0;display:grid;place-items:center}
+.fvid .pl span{width:44px;height:44px;border-radius:50%;background:var(--glass);backdrop-filter:blur(6px);border:1px solid var(--line-2);display:grid;place-items:center;color:#fff;transition:.25s}
+.fvid:hover .pl span{background:var(--grad-tech);color:#05060a}
+.fvid .pl span svg{width:18px;height:18px;margin-left:2px}
+.fvid .lb{padding:11px 13px}
+.fvid .lb .ph{font-family:'JetBrains Mono';font-size:10px;color:var(--neon-2);letter-spacing:.03em}
+.fvid .lb .nm{font-family:'Space Grotesk';font-size:.92rem;font-weight:600;margin-top:2px}
+.contact-float{position:fixed;right:22px;bottom:20px;z-index:140;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;background:#f3f5f8;color:#06070a;font-family:'Space Grotesk';font-size:13px;font-weight:700;box-shadow:0 16px 44px rgba(0,0,0,.42);transition:.25s}
+.contact-float::before{content:'';width:10px;height:10px;border-radius:50%;background:#28c840;box-shadow:0 0 0 0 rgba(40,200,64,.55);animation:contactPulse 2.2s infinite}
+.contact-float:hover{transform:translateY(-4px);box-shadow:0 20px 54px rgba(0,0,0,.5)}
+@keyframes contactPulse{70%{box-shadow:0 0 0 10px rgba(40,200,64,0)}100%{box-shadow:0 0 0 0 rgba(40,200,64,0)}}
+</style>
+</head>
+<body>
+<canvas id="bgcanvas"></canvas>
+<div id="prog"></div>
+
+<header id="header">
+  <div class="nav">
+    <a href="#top" class="brand"><span class="logo">M</span><span>Marcus Segundo</span></a>
+    <nav class="nav-links">
+      <a href="#servicos" data-i18n="nav_services">./serviços</a>
+      <a href="#perfil" data-i18n="nav_profile">./perfil</a>
+      <a href="#abordagem" data-i18n="nav_about">./abordagem</a>
+      <a href="#formatos" data-i18n="nav_formats">./formatos</a>
+      <a href="#doguia">./doguia</a>
+      <a href="#produtos" data-i18n="nav_products2">./produtos</a>
+      <a href="#trajetoria" data-i18n="nav_path">./trajetória</a>
+      <a href="#contato" data-i18n="nav_contact">./contato</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" id="lang">
+        <button data-lang="pt" class="active">PT</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="es">ES</button>
+      </div>
+      <a href="#contato" class="btn btn-gold" data-i18n="nav_cta">Falar com Marcus</a>
+      <button class="burger" id="burger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#servicos" data-i18n="nav_services">./serviços</a>
+    <a href="#perfil" data-i18n="nav_profile">./perfil</a>
+      <a href="#abordagem" data-i18n="nav_about">./abordagem</a>
+      <a href="#formatos" data-i18n="nav_formats">./formatos</a>
+    <a href="#doguia">./doguia</a>
+    <a href="#produtos" data-i18n="nav_products2">./produtos</a>
+    <a href="#trajetoria" data-i18n="nav_path">./trajetória</a>
+    <a href="#contato" data-i18n="nav_contact">./contato</a>
+    <a href="#contato" class="btn btn-gold" data-i18n="nav_cta">Falar com Marcus</a>
+  </div>
+</header>
+<a id="top"></a>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-dots"></div>
+  <div class="hero-webgl" aria-hidden="true"><canvas id="hero3d"></canvas></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="hero_eyebrow">Gerente Sênior de Tecnologia · Data, AI & Open Finance</span></span>
+      <h1 class="hero-title" data-i18n="hero_title">Lidero engenharia, dados e IA em <span class="accent">produção crítica.</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">Mais de 20 anos liderando times e operação crítica em Data, IA, Open Finance e Cloud. Conecto estratégia, decisão técnica e execução para empresas que precisam avançar com clareza.</p>
+      <div class="hero-context">
+        <span data-i18n="hero_context1">produção crítica com 99,95% de SLA</span>
+        <span data-i18n="hero_context2">produto próprio com quase 10 mil clientes</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#contato" class="btn btn-gold" data-i18n="hero_cta1">Conversar sobre um desafio →</a>
+        <a href="#perfil" class="btn btn-ghost" data-i18n="hero_cta2">Ver perfil executivo</a>
+      </div>
+      <div class="hero-stats">
+        <div class="st"><div class="n gold-text">20+</div><div class="l" data-i18n="stat_years">anos em tecnologia</div></div>
+        <div class="st"><div class="n gold-text">30+</div><div class="l" data-i18n="stat_team">eng. liderados</div></div>
+        <div class="st"><div class="n gold-text">40+</div><div class="l" data-i18n="stat_clients">APIs críticas</div></div>
+      </div>
+    </div>
+    <div class="hero-visual" id="heroVisual">
+      <div class="hero-orbit"></div>
+      <div class="hero-coordinate hero-coordinate-a">architecture / systems / execution</div>
+      <div class="hero-coordinate hero-coordinate-b">signal.01 / live</div>
+      <div class="portrait-card">
+        <img src="assets/img/marcus-foto.jpg" alt="Retrato de Marcus Segundo">
+        <div class="portrait-fx" aria-hidden="true"></div>
+        <div class="portrait-meta">
+          <span class="k" data-i18n="visual_kicker">senior lead · consultoria técnica</span>
+          <strong>Marcus Segundo</strong>
+          <span data-i18n="visual_role">Data, IA, Open Finance e liderança de engenharia</span>
+        </div>
+      </div>
+      <div class="visual-badge visual-badge-top"><small data-i18n="visual_sla">produção crítica</small><strong>99,95% SLA</strong></div>
+      <div class="visual-badge visual-badge-bottom"><small data-i18n="visual_team">liderança técnica</small><strong>30+ engenheiros</strong></div>
+      <div class="hero-signal hero-signal-a">systems online</div>
+      <div class="hero-signal hero-signal-b">decision engine</div>
+      <div class="term hero-terminal">
+        <div class="term-bar"><div class="dots"><i></i><i></i><i></i></div><span class="ttl mono">marcus@segundo:~</span></div>
+        <div class="term-body" id="term"></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><i></i><span data-i18n="scroll_label">explorar perfil</span></div>
+</section>
+
+<div class="marquee-sec">
+  <div class="wrap">
+    <div class="marquee-lbl" data-i18n="trust_label">// repertório construído em operação real, tecnologia e produto</div>
+    <div class="marquee"><div class="marquee-track" id="mq">
+      <img src="assets/logos/f1rst-logo.png" alt="F1RST">
+      <img src="assets/logos/itau-logo.png" alt="Itau">
+      <img src="assets/logos/ibm-logo.png" alt="IBM">
+      <img src="assets/logos/harlio-logo.png" alt="Harlio">
+      <img src="assets/logos/fastrackgps-logo.svg" alt="FastrackGPS">
+      <img src="assets/logos/systemplan-logo.svg" alt="Systemplan">
+      <img src="assets/logos/mackenzie-logo.svg" alt="Mackenzie">
+      <img src="assets/logos/oswaldo-cruz-logo.svg" alt="Oswaldo Cruz">
+      <img src="assets/logos/fiap-logo.svg" alt="FIAP">
+      <img src="assets/logos/fgv-logo.svg" alt="FGV">
+      <img src="assets/logos/f1rst-logo.png" alt="F1RST">
+      <img src="assets/logos/itau-logo.png" alt="Itau">
+      <img src="assets/logos/ibm-logo.png" alt="IBM">
+      <img src="assets/logos/harlio-logo.png" alt="Harlio">
+      <img src="assets/logos/fastrackgps-logo.svg" alt="FastrackGPS">
+      <img src="assets/logos/systemplan-logo.svg" alt="Systemplan">
+      <img src="assets/logos/mackenzie-logo.svg" alt="Mackenzie">
+      <img src="assets/logos/oswaldo-cruz-logo.svg" alt="Oswaldo Cruz">
+      <img src="assets/logos/fiap-logo.svg" alt="FIAP">
+      <img src="assets/logos/fgv-logo.svg" alt="FGV">
+    </div></div>
+  </div>
+</div>
+
+<section class="market-sec" id="perfil">
+  <div class="wrap">
+    <div class="market-shell reveal">
+      <div class="market-head">
+        <span class="kicker" data-i18n="market_kicker">perfil executivo hands-on</span>
+        <div>
+          <h2 data-i18n="market_title">Estratégia suficiente para orientar o negócio. Profundidade técnica para entrar na execução.</h2>
+          <p data-i18n="market_sub">Minha experiência conecta ambientes regulados, produto digital, liderança de engenharia e experimentação com IA. Entro quando a empresa precisa tomar decisões melhores e transformar direção em entrega concreta.</p>
+        </div>
+      </div>
+      <div class="market-grid">
+        <article class="market-card" data-index="01">
+          <span class="mk" data-i18n="market_label">quando vale me chamar</span>
+          <h3 data-i18n="market1_title">Escala, confiabilidade e arquitetura crítica</h3>
+          <p data-i18n="market1_p">Para modernizar sistemas, organizar integrações e sustentar decisões que precisam respeitar segurança, regulação e continuidade operacional.</p>
+          <div class="market-tags"><span>Open Finance</span><span>APIs</span><span>Cloud</span><span>FinOps</span></div>
+        </article>
+        <article class="market-card" data-index="02">
+          <span class="mk" data-i18n="market_label">quando vale me chamar</span>
+          <h3 data-i18n="market2_title">Liderança técnica para destravar a execução</h3>
+          <p data-i18n="market2_p">Para transformar cenário difuso em prioridades, critérios de decisão e um roadmap que o time consiga realmente colocar em produção.</p>
+          <div class="market-tags"><span>Tech Lead</span><span>Roadmap</span><span>Mentoria</span><span>Qualidade</span></div>
+        </article>
+        <article class="market-card" data-index="03">
+          <span class="mk" data-i18n="market_label">quando vale me chamar</span>
+          <h3 data-i18n="market3_title">IA aplicada que sai do laboratório</h3>
+          <p data-i18n="market3_p">Para converter IA, automação e IoT em experiências demonstráveis, integradas ao negócio e prontas para evoluir além do primeiro protótipo.</p>
+          <div class="market-tags"><span>LLM</span><span>MCP</span><span>IoT</span><span>Produto</span></div>
+        </article>
+      </div>
+      <div class="market-bottom">
+        <div class="market-proof" aria-label="Resultados profissionais">
+          <div class="mp"><b>99,95%</b><span data-i18n="market_proof1">SLA em produção crítica</span></div>
+          <div class="mp"><b>-60%</b><span data-i18n="market_proof2">custo cloud com FinOps</span></div>
+          <div class="mp"><b>~10k</b><span data-i18n="market_proof3">clientes em SaaS próprio</span></div>
+        </div>
+        <div class="market-actions">
+          <a class="btn btn-gold" href="#contato" data-i18n="market_cta1">Conversar diretamente →</a>
+          <a class="btn btn-ghost" href="#doguia" data-i18n="market_cta2">Explorar cases</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="objective-story" id="abordagem">
+  <div class="wrap objective-layout">
+    <div class="objective-intro reveal">
+      <span class="kicker" data-i18n="obj_kicker">objetivos da consultoria</span>
+      <h2 data-i18n="obj_title">A cada etapa, o projeto precisa ficar mais claro e mais executável.</h2>
+      <p data-i18n="obj_sub">Role a página para acompanhar a lógica do trabalho. O objetivo não é adicionar cerimônia: é reduzir incerteza e criar movimento.</p>
+      <div class="objective-meter" aria-hidden="true">
+        <div class="objective-track"><i id="objectiveProgress"></i></div>
+        <div class="objective-counter"><b id="objectiveCurrent">01</b><span>/ 04</span></div>
+      </div>
+    </div>
+    <div class="objectives">
+      <article class="objective-card active" data-step="1">
+        <div class="objective-top"><span class="objective-icon">01</span><span class="objective-phase" data-i18n="obj1_phase">primeiro movimento</span></div>
+        <h3 data-i18n="obj1_title">Entender o problema sem simplificar demais</h3>
+        <p data-i18n="obj1_p">Mapeio contexto, dependências, riscos, restrições e impacto no negócio. Antes de falar em tecnologia, deixamos claro o que precisa mudar.</p>
+        <div class="objective-deliverables"><span data-i18n="obj1_d1">cenário atual</span><span data-i18n="obj1_d2">riscos prioritários</span><span data-i18n="obj1_d3">quick wins</span></div>
+        <div class="objective-result"><b data-i18n="obj_result">resultado</b><span data-i18n="obj1_result">Uma leitura compartilhada do desafio e do que merece atenção primeiro.</span></div>
+      </article>
+      <article class="objective-card" data-step="2">
+        <div class="objective-top"><span class="objective-icon">02</span><span class="objective-phase" data-i18n="obj2_phase">decisão técnica</span></div>
+        <h3 data-i18n="obj2_title">Transformar complexidade em direção</h3>
+        <p data-i18n="obj2_p">Defino arquitetura, prioridades e trade-offs com pragmatismo. A solução precisa caber no contexto do time e continuar saudável depois da entrega.</p>
+        <div class="objective-deliverables"><span data-i18n="obj2_d1">arquitetura alvo</span><span data-i18n="obj2_d2">roadmap 30/60/90</span><span data-i18n="obj2_d3">critérios de decisão</span></div>
+        <div class="objective-result"><b data-i18n="obj_result">resultado</b><span data-i18n="obj2_result">Um plano priorizado, defensável e pronto para orientar o backlog.</span></div>
+      </article>
+      <article class="objective-card" data-step="3">
+        <div class="objective-top"><span class="objective-icon">03</span><span class="objective-phase" data-i18n="obj3_phase">execução assistida</span></div>
+        <h3 data-i18n="obj3_title">Tirar o plano do slide e colocar em produção</h3>
+        <p data-i18n="obj3_p">Acompanho decisões, desenho técnico e execução perto do time. Quando necessário, entro no detalhe do código, integração ou operação.</p>
+        <div class="objective-deliverables"><span data-i18n="obj3_d1">decisões destravadas</span><span data-i18n="obj3_d2">rituais objetivos</span><span data-i18n="obj3_d3">qualidade observável</span></div>
+        <div class="objective-result"><b data-i18n="obj_result">resultado</b><span data-i18n="obj3_result">Entregas avançando com menos retrabalho e mais confiança técnica.</span></div>
+      </article>
+      <article class="objective-card" data-step="4">
+        <div class="objective-top"><span class="objective-icon">04</span><span class="objective-phase" data-i18n="obj4_phase">evolução sustentável</span></div>
+        <h3 data-i18n="obj4_title">Deixar o time mais autônomo do que encontrei</h3>
+        <p data-i18n="obj4_p">Organizo métricas, documentação útil e transferência de conhecimento. A consultoria termina com capacidade instalada, não com dependência.</p>
+        <div class="objective-deliverables"><span data-i18n="obj4_d1">métricas</span><span data-i18n="obj4_d2">governança leve</span><span data-i18n="obj4_d3">autonomia do time</span></div>
+        <div class="objective-result"><b data-i18n="obj_result">resultado</b><span data-i18n="obj4_result">Uma base mais simples de operar, explicar e evoluir.</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec formats-sec" id="formatos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="fmt_kicker">formatos práticos</span>
+      <h2 data-i18n="fmt_title">Comece pelo nível de apoio que o cenário pede.</h2>
+      <p data-i18n="fmt_sub">Cada trabalho começa com contexto e termina com próximos passos claros. O formato muda conforme a urgência e a maturidade do projeto.</p>
+    </div>
+    <div class="format-grid">
+      <article class="format-card glowcard reveal">
+        <div class="format-head"><span>01</span><em data-i18n="fmt1_time">imersão objetiva</em></div>
+        <h3 data-i18n="fmt1_title">Diagnóstico técnico</h3>
+        <p data-i18n="fmt1_p">Para projetos travados, decisões pendentes ou riscos que ainda não estão visíveis.</p>
+        <ul><li data-i18n="fmt1_l1">leitura do cenário atual</li><li data-i18n="fmt1_l2">riscos e gargalos priorizados</li><li data-i18n="fmt1_l3">plano inicial de ação</li></ul>
+        <a href="#contato" data-i18n="fmt_cta">Conversar sobre este formato →</a>
+      </article>
+      <article class="format-card featured glowcard reveal">
+        <div class="format-head"><span>02</span><em data-i18n="fmt2_time">direção executável</em></div>
+        <h3 data-i18n="fmt2_title">Arquitetura & roadmap</h3>
+        <p data-i18n="fmt2_p">Para transformar uma oportunidade ou modernização em um plano que o time consegue executar.</p>
+        <ul><li data-i18n="fmt2_l1">arquitetura alvo e trade-offs</li><li data-i18n="fmt2_l2">backlog técnico priorizado</li><li data-i18n="fmt2_l3">roadmap 30/60/90 dias</li></ul>
+        <a href="#contato" data-i18n="fmt_cta">Conversar sobre este formato →</a>
+      </article>
+      <article class="format-card glowcard reveal">
+        <div class="format-head"><span>03</span><em data-i18n="fmt3_time">execução hands-on</em></div>
+        <h3 data-i18n="fmt3_title">Acompanhamento técnico</h3>
+        <p data-i18n="fmt3_p">Para times que precisam de direção sênior durante a execução, sem criar dependência permanente.</p>
+        <ul><li data-i18n="fmt3_l1">apoio a decisões críticas</li><li data-i18n="fmt3_l2">mentoria e revisão técnica</li><li data-i18n="fmt3_l3">acompanhamento de métricas</li></ul>
+        <a href="#contato" data-i18n="fmt_cta">Conversar sobre este formato →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="servicos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="svc_kicker">onde gero mais valor</span>
+      <h2 data-i18n="svc_title">Decisão técnica com consequência prática</h2>
+      <p data-i18n="svc_sub">Não entrego apenas recomendações. Organizo o problema, defino o caminho e acompanho a execução até a solução funcionar no ambiente real.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc glowcard reveal"><div class="ic">◆</div><div class="sub" data-i18n="srv1_s">Technical Advisory</div><h3 data-i18n="srv1_t">Arquitetura para decisões críticas</h3><p data-i18n="srv1_p">Quando o projeto travou ou o desenho precisa suportar escala, segurança e regulação, eu exponho riscos, defino prioridades e construo um roadmap executável.</p><ul><li>Arquitetura</li><li>Open Finance</li><li>Cloud</li><li>FinOps</li></ul></div>
+      <div class="svc glowcard reveal"><div class="ic">⌨</div><div class="sub" data-i18n="srv2_s">Software Engineering</div><h3 data-i18n="srv2_t">Modernização sem interromper a operação</h3><p data-i18n="srv2_p">Atuo perto do código e do time para evoluir APIs, microserviços e integrações com qualidade, observabilidade e segurança para produção.</p><ul><li>Java</li><li>Node.js</li><li>Python</li><li>APIs</li></ul></div>
+      <div class="svc glowcard reveal"><div class="ic">✦</div><div class="sub" data-i18n="srv3_s">Solution Engineering</div><h3 data-i18n="srv3_t">IA aplicada com produto funcionando</h3><p data-i18n="srv3_p">Transformo IA, LLM, automação e IoT em soluções utilizáveis. Do primeiro protótipo ao deploy, com integração real ao negócio.</p><ul><li>IA/LLM</li><li>IoT</li><li>MVP</li><li>Automação</li></ul></div>
+      <div class="svc glowcard reveal"><div class="ic">◉</div><div class="sub" data-i18n="srv4_s">Tech Lead as a Service</div><h3 data-i18n="srv4_t">Liderança técnica em momentos decisivos</h3><p data-i18n="srv4_p">Entro para dar direção, organizar decisões e elevar a execução do time. Com contexto, mentoria e responsabilidade pelo resultado.</p><ul><li>Tech Lead</li><li>Mentoria</li><li>QA</li><li>SLA</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<style>
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:1000px){.offer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.offer-grid{grid-template-columns:1fr}}
+</style>
+<!-- OFFERINGS -->
+<section class="sec" id="ajuda" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="off_kicker">vamos construir juntos</span>
+      <h2 data-i18n="off_title">Soluções, automações com IA e troca de conhecimento</h2>
+      <p data-i18n="off_sub">De software sob medida a um bate-papo para destravar seu time — escolha o tipo de ajuda que faz sentido agora.</p>
+    </div>
+    <div class="offer-grid">
+      <div class="svc glowcard reveal"><div class="ic">◆</div><h3 data-i18n="of1_t">Soluções sob medida</h3><p data-i18n="of1_p">Software construído para o seu problema real, do MVP ao deploy em produção.</p></div>
+      <div class="svc glowcard reveal"><div class="ic">⚙</div><h3 data-i18n="of2_t">Automações com IA</h3><p data-i18n="of2_p">Automatizo processos e fluxos com LLMs, agentes e MCP. Menos trabalho manual, mais resultado.</p></div>
+      <div class="svc glowcard reveal"><div class="ic">◈</div><h3 data-i18n="of3_t">Frameworks &amp; aceleradores</h3><p data-i18n="of3_p">Bases reutilizáveis e padrões que aceleram a entrega do seu time.</p></div>
+      <div class="svc glowcard reveal"><div class="ic">⬡</div><h3 data-i18n="of4_t">Integrações &amp; APIs</h3><p data-i18n="of4_p">Conecto sistemas, dados e serviços com APIs e integrações que entram em produção.</p></div>
+      <div class="svc glowcard reveal"><div class="ic">✦</div><h3 data-i18n="of5_t">Bate-papo para destravar</h3><p data-i18n="of5_p">Uma conversa objetiva para tirar dúvidas, orientar decisões e desbloquear o projeto.</p></div>
+      <div class="svc glowcard reveal"><div class="ic">◉</div><h3 data-i18n="of6_t">Compartilhar conhecimento</h3><p data-i18n="of6_p">Mentoria, workshops e treinamentos em IA, Data, Cloud e Open Finance para o time.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:30px" class="reveal"><a href="#contato" class="btn btn-gold" data-i18n="off_cta">Vamos conversar →</a></div>
+  </div>
+</section>
+
+<section class="sec" id="sobre" style="padding-top:24px">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-txt reveal">
+        <span class="kicker" data-i18n="about_kicker">quem entra no projeto</span>
+        <h2 data-i18n="about_title">Não sou consultor de slide. Continuo perto da arquitetura, do código e da operação.</h2>
+        <p data-i18n="about_p1">Minha carreira foi construída em ambientes onde confiabilidade não é detalhe. Hoje sou Senior Lead na F1RST Digital Services, braço de tecnologia do Santander, liderando 30+ engenheiros e sustentando 40+ APIs de Open Finance e Open Insurance com <strong>99,95% de SLA em produção</strong>.</p>
+        <p data-i18n="about_p2">Antes, passei 10 anos no Itaú e construí a FastrackGPS, um SaaS de rastreamento que chegou a quase 10.000 clientes. Essa combinação de empresa grande, produto próprio e execução técnica me ajuda a separar tendência de solução útil.</p>
+        <div class="about-pillars">
+          <div class="pillar"><div class="h"><span class="i">◆</span><span data-i18n="pill1_t">Decisão com contexto</span></div><p data-i18n="pill1_p">Tecnologia conectada ao negócio, risco e regulação.</p></div>
+          <div class="pillar"><div class="h"><span class="i">◆</span><span data-i18n="pill2_t">Hands-on de verdade</span></div><p data-i18n="pill2_p">Arquitetura e código quando o problema pede profundidade.</p></div>
+          <div class="pillar"><div class="h"><span class="i">◆</span><span data-i18n="pill3_t">Time que entrega</span></div><p data-i18n="pill3_p">Direção técnica, mentoria e cadência para avançar.</p></div>
+          <div class="pillar"><div class="h"><span class="i">◆</span><span data-i18n="pill4_t">Produto na prática</span></div><p data-i18n="pill4_p">Experiência de quem também lança, opera e evolui produto.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:case}
+.case-col{padding:26px 24px;position:relative}
+.case-col .ct{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--neon-2);display:flex;align-items:center;gap:9px;margin-bottom:13px;position:relative;z-index:1}
+.case-col .ct::before{counter-increment:case;content:counter(case,decimal-leading-zero);font-family:'Space Grotesk';font-size:1rem;color:var(--txt-3)}
+.case-col p{color:var(--txt-2);font-size:.94rem;font-weight:300;line-height:1.62;position:relative;z-index:1}
+.case-metrics{display:flex;gap:46px;flex-wrap:wrap;justify-content:center;margin-top:30px;padding-top:28px;border-top:1px solid var(--line)}
+.case-metrics div{text-align:center}
+.case-metrics b{font-family:'Space Grotesk';font-size:2.5rem;font-weight:700;display:block;line-height:1;color:var(--neon-2)}
+.case-metrics span{font-family:'JetBrains Mono';font-size:10.5px;color:var(--txt-3);letter-spacing:.04em;margin-top:6px;display:block}
+@media(max-width:680px){.case-grid{grid-template-columns:1fr}.case-metrics{gap:26px}.case-metrics b{font-size:2.1rem}}
+</style>
+
+<!-- CASE -->
+<section class="sec" id="case" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="case_kicker">case em destaque</span>
+      <h2 data-i18n="case_title">FinOps em produção bancária: -60% de custo de cloud, sem tocar no SLA</h2>
+      <p data-i18n="case_sub">Liderança técnica e de pessoas aplicada a um problema real de custo, risco e escala.</p>
+    </div>
+    <div class="case-grid">
+      <div class="case-col glowcard reveal"><div class="ct" data-i18n="case_l1">contexto</div><p data-i18n="case_p1">Squad sustentando 40+ APIs de Open Finance e Insurance em produção a 99,95% de SLA. O custo de cloud crescia mais rápido que a operação, sem visibilidade clara de onde.</p></div>
+      <div class="case-col glowcard reveal"><div class="ct" data-i18n="case_l2">ação</div><p data-i18n="case_p2">Conduzi FinOps de ponta a ponta: rightsizing, chargeback/showback, revisão de uso e observabilidade de custo — alinhando engenharia, segurança e produto, sem comprometer SLA nem conformidade.</p></div>
+      <div class="case-col glowcard reveal"><div class="ct" data-i18n="case_l3">resultado</div><p data-i18n="case_p3">Redução de até 60% do custo base de cloud do time, com o SLA preservado em 99,95% e mais previsibilidade. Indicadores e conhecimento transferidos para o time seguir evoluindo.</p></div>
+    </div>
+    <div class="case-metrics reveal">
+      <div><b>-60%</b><span data-i18n="case_m1">custo base de cloud</span></div>
+      <div><b>99,95%</b><span data-i18n="case_m2">SLA preservado</span></div>
+      <div><b>40+</b><span data-i18n="case_m3">APIs em produção</span></div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* DOGUIA */
+.dog{position:relative;padding:100px 0;overflow:hidden;border-top:1px solid var(--line)}
+.dog::before{content:'';position:absolute;top:-30%;right:-10%;width:60vw;height:60vw;max-width:740px;max-height:740px;background:radial-gradient(circle,rgba(155,152,236,.1),transparent 62%);z-index:0}
+.dog-inner{position:relative;z-index:2}
+.dog-top{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;align-items:center;margin-bottom:50px}
+.dog-badge{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-size:12px;color:var(--neon-2);padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--neon-soft);margin-bottom:20px}
+.dog h2{font-family:'Space Grotesk';font-size:clamp(2.1rem,4.4vw,3.4rem);font-weight:700;letter-spacing:-.025em;line-height:1.05;margin-bottom:16px}
+.dog .lead{font-size:1.08rem;color:var(--txt-2);font-weight:300;margin-bottom:24px;max-width:520px}
+.dog-stats{display:flex;gap:30px;flex-wrap:wrap;margin-bottom:28px}
+.dog-stats .ds .n{font-family:'Space Grotesk';font-size:2rem;font-weight:700;line-height:1}
+.dog-stats .ds .l{font-family:'JetBrains Mono';font-size:10.5px;color:var(--txt-3);letter-spacing:.04em;text-transform:uppercase;margin-top:4px}
+.dog-cta{display:flex;gap:12px;flex-wrap:wrap}
+.dog-video{position:relative;display:block;border-radius:20px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 40px 90px rgba(0,0,0,.55);aspect-ratio:1/1;background:#000;color:inherit;text-decoration:none;isolation:isolate;transition:border-color .35s,box-shadow .35s,transform .35s}
+.dog-video::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,6,10,.02) 34%,rgba(5,6,10,.84) 100%);pointer-events:none}
+.dog-video video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s cubic-bezier(.2,.8,.2,1),filter .35s}
+.dog-video .vtag{position:absolute;top:13px;left:13px;z-index:3;display:flex;align-items:center;gap:7px;background:var(--glass);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-family:'JetBrains Mono';font-size:11px;color:var(--neon-2)}
+.dog-video .vtag .rec{width:8px;height:8px;border-radius:50%;background:#e0556e;animation:blink 1.4s infinite}
+.dog-demo-scan{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+.dog-demo-scan::after{content:'';position:absolute;left:-10%;right:-10%;height:1px;background:linear-gradient(90deg,transparent,rgba(188,185,247,.82),transparent);box-shadow:0 0 18px rgba(155,152,236,.8);animation:dogDemoScan 4.2s linear infinite}
+.dog-demo-hint{position:absolute;top:15px;right:15px;z-index:3;padding:7px 10px;border:1px solid rgba(188,185,247,.25);border-radius:999px;background:rgba(5,6,10,.62);backdrop-filter:blur(8px);font-family:'JetBrains Mono';font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:var(--neon-2)}
+.dog-demo-cta{position:absolute;z-index:4;left:18px;right:18px;bottom:18px;display:flex;align-items:center;gap:13px;padding:14px 15px;border:1px solid rgba(188,185,247,.34);border-radius:15px;background:rgba(8,9,15,.72);backdrop-filter:blur(14px);box-shadow:0 12px 34px rgba(0,0,0,.34);animation:dogDemoFloat 3.6s ease-in-out infinite}
+.dog-demo-icon{position:relative;display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:var(--grad-tech);color:#05060a;box-shadow:0 0 22px rgba(155,152,236,.56)}
+.dog-demo-icon::before,.dog-demo-icon::after{content:'';position:absolute;inset:-1px;border:1px solid rgba(188,185,247,.72);border-radius:50%;animation:dogDemoPing 2.4s ease-out infinite}
+.dog-demo-icon::after{animation-delay:1.2s}
+.dog-demo-icon svg{width:19px;height:19px}
+.dog-demo-copy{display:flex;flex:1;min-width:0;flex-direction:column}
+.dog-demo-copy small{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--neon-2);margin-bottom:4px}
+.dog-demo-copy strong{font-family:'Space Grotesk';font-size:1rem;line-height:1.15;color:var(--txt)}
+.dog-demo-arrow{font-family:'Space Grotesk';font-size:1.45rem;color:var(--neon-2);transition:transform .3s}
+.dog-video:hover,.dog-video:focus-visible{border-color:rgba(188,185,247,.65);box-shadow:0 42px 100px rgba(0,0,0,.62),0 0 42px rgba(126,123,232,.2);transform:translateY(-5px)}
+.dog-video:hover video,.dog-video:focus-visible video{transform:scale(1.06);filter:saturate(1.1) brightness(1.04)}
+.dog-video:hover .dog-demo-arrow,.dog-video:focus-visible .dog-demo-arrow{transform:translateX(5px)}
+@keyframes dogDemoScan{0%{top:-3%}100%{top:103%}}
+@keyframes dogDemoFloat{50%{transform:translateY(-7px)}}
+@keyframes dogDemoPing{0%{transform:scale(.92);opacity:.85}75%,100%{transform:scale(1.8);opacity:0}}
+.dog-origin{display:grid;grid-template-columns:1.25fr 1fr;gap:24px;align-items:center;margin:-4px 0 24px;padding:22px 24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,rgba(155,152,236,.1),rgba(10,12,18,.72))}
+.dog-origin .copy span{display:block;font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--neon-2);margin-bottom:7px}
+.dog-origin .copy p{color:var(--txt-2);font-size:.93rem;font-weight:300}
+.dog-evolution{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:center}
+.dog-evolution span{font-family:'JetBrains Mono';font-size:10px;line-height:1.45;text-align:center;color:var(--txt-2);padding:10px 8px;border:1px solid var(--line);border-radius:10px;background:rgba(5,6,10,.34)}
+.dog-evolution i{font-style:normal;color:var(--neon-2)}
+.dog-feats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-bottom:48px}
+.dfeat{padding:24px 22px}
+.dfeat .e{font-size:1.6rem;margin-bottom:11px;position:relative;z-index:1}
+.dfeat h4{font-family:'Space Grotesk';font-size:1.02rem;font-weight:600;margin-bottom:6px;position:relative;z-index:1}
+.dfeat p{font-size:.86rem;color:var(--txt-2);font-weight:300;position:relative;z-index:1}
+.dog-gallery{display:flex;gap:13px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--neon) transparent}
+.dog-gallery::-webkit-scrollbar{height:6px}.dog-gallery::-webkit-scrollbar-thumb{background:var(--neon);border-radius:999px}
+.dog-gallery img{height:210px;width:auto;border-radius:13px;border:1px solid var(--line);object-fit:cover;scroll-snap-align:start;cursor:pointer;transition:.25s;flex:0 0 auto}
+.dog-gallery img:hover{border-color:var(--neon);transform:scale(1.02);box-shadow:0 0 24px rgba(155,152,236,.2)}
+.dog-specs{margin-top:42px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.spec{background:var(--bg-2);padding:17px 19px}
+.spec .k{font-family:'JetBrains Mono';font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--neon-2);margin-bottom:5px}
+.spec .v{font-size:.9rem;font-weight:500}
+
+/* PRODUCTS / LOCALIZAAUTO */
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.prod-grid-single{grid-template-columns:minmax(0,760px);justify-content:center}
+.prod{padding:0;overflow:hidden}
+.prod .ph{padding:30px 30px 0;display:flex;align-items:center;justify-content:space-between}
+.prod .ph .tag{font-family:'JetBrains Mono';font-size:11px;color:var(--neon-2);background:var(--neon-soft);border:1px solid var(--line);border-radius:6px;padding:5px 10px}
+.prod .ph .live{font-family:'JetBrains Mono';font-size:11px;color:#28c840;display:inline-flex;align-items:center;gap:6px}
+.prod .ph .live::before{content:'';width:7px;height:7px;border-radius:50%;background:#28c840;box-shadow:0 0 8px #28c840;animation:blink 1.8s infinite}
+.prod .pc{padding:18px 30px 30px}
+.prod h3{font-family:'Space Grotesk';font-size:1.45rem;font-weight:600;margin-bottom:10px;position:relative;z-index:1}
+.prod p{color:var(--txt-2);font-size:.96rem;font-weight:300;margin-bottom:16px;position:relative;z-index:1}
+.prod .feats{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px;position:relative;z-index:1}
+.prod .feats span{font-family:'JetBrains Mono';font-size:11px;color:var(--txt-2);background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:6px;padding:4px 9px}
+.prod .links{display:flex;gap:16px;flex-wrap:wrap;position:relative;z-index:1}
+.prod .links a{font-family:'JetBrains Mono';font-size:.84rem;font-weight:600;color:var(--neon-2);display:inline-flex;align-items:center;gap:5px;transition:.2s}
+.prod .links a:hover{gap:9px}
+.prod .vis{aspect-ratio:16/8;overflow:hidden;background:#0a0c12;border-bottom:1px solid var(--line);display:grid;place-items:center;position:relative}
+.prod .vis img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.prod .vis.map{background:radial-gradient(circle at 30% 40%,rgba(155,152,236,.15),transparent 50%),linear-gradient(135deg,#0a0c12,#0f121a)}
+.prod .vis .maptxt{font-family:'Space Grotesk';font-weight:700;font-size:1.6rem;color:var(--neon-2);opacity:.85}
+.prod-evolution{display:inline-block;margin-left:7px;color:var(--neon-2);font-size:.88em}
+.prod-companion{display:grid;grid-template-columns:240px 1fr;gap:0;margin:0 30px 30px;border:1px solid var(--line);border-radius:15px;overflow:hidden;background:linear-gradient(135deg,rgba(155,152,236,.09),rgba(10,12,18,.76))}
+.localiza-video{position:relative;min-height:175px;overflow:hidden;border:0;border-right:1px solid var(--line);background:#05060a;cursor:pointer}
+.localiza-video img{width:100%;height:100%;object-fit:cover;display:block;opacity:.86;transition:.35s}
+.localiza-video:hover img{transform:scale(1.04);opacity:1}
+.localiza-video .play{position:absolute;inset:0;display:grid;place-items:center}
+.localiza-video .play span{width:54px;height:54px;display:grid;place-items:center;border-radius:50%;color:#fff;background:rgba(5,6,10,.72);border:1px solid var(--line-2);backdrop-filter:blur(6px);transition:.25s}
+.localiza-video:hover .play span{background:var(--grad-tech);color:#05060a;transform:scale(1.08);box-shadow:0 0 24px rgba(155,152,236,.38)}
+.localiza-video svg{width:21px;height:21px;margin-left:3px}
+.localiza-copy{padding:20px 21px}
+.localiza-copy .lk{display:block;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--neon-2);margin-bottom:5px}
+.localiza-copy h4{font-family:'Space Grotesk';font-size:1.14rem;letter-spacing:-.02em;margin-bottom:5px}
+.localiza-copy p{font-size:.85rem;margin-bottom:12px}
+.localiza-copy .links{gap:13px}
+.localiza-proof{margin:0 30px 30px;padding-top:2px}
+.localiza-proof .lk{display:block;font-family:'JetBrains Mono';font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--neon-2);margin-bottom:10px}
+.localiza-proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.localiza-proof-grid div{padding:13px 14px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.018)}
+.localiza-proof-grid b{display:block;font-family:'Space Grotesk';font-size:.9rem;margin-bottom:3px}
+.localiza-proof-grid span{display:block;color:var(--txt-2);font-size:.78rem;font-weight:300;line-height:1.45}
+
+/* EXPERTISE */
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.market-exp{max-width:1040px;margin:0 auto 30px;text-align:center}
+.market-exp .me-k{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.06em;color:var(--neon-2);display:block;margin-bottom:14px}
+.market-exp .me-k::before{content:'// '}
+.me-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.me-tags span{font-family:'JetBrains Mono';font-size:12px;color:var(--txt-2);background:rgba(155,152,236,.06);border:1px solid var(--line);border-radius:999px;padding:7px 14px;transition:.2s}
+.me-tags span:hover{border-color:rgba(155,152,236,.45);color:var(--txt);background:rgba(155,152,236,.1)}
+@media(min-width:681px) and (max-width:1180px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+.skill-col{padding:30px}
+.skill-col h4{font-family:'Space Grotesk';font-size:1.06rem;font-weight:600;margin-bottom:20px;display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.skill-col h4 .i{color:var(--neon-2)}
+.row{margin-bottom:15px;position:relative;z-index:1}.row:last-child{margin-bottom:0}
+.row .top{display:flex;justify-content:space-between;font-size:.86rem;margin-bottom:6px}
+.row .top .v{font-family:'JetBrains Mono';color:var(--txt-3);font-size:.76rem}
+.bar{height:6px;background:rgba(255,255,255,.05);border-radius:999px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--grad-tech);border-radius:999px;width:0;transition:width 1.1s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 10px rgba(155,152,236,.4)}
+
+/* TIMELINE */
+.timeline{max-width:880px;margin:0 auto}
+.tl-item{position:relative;display:grid;grid-template-columns:160px 1fr;gap:26px;padding-bottom:40px}
+.tl-item:last-child{padding-bottom:0}
+.tl-line{position:absolute;left:160px;top:46px;bottom:-4px;width:1px;background:var(--line);transform:translateX(-14px)}
+.tl-item:last-child .tl-line{display:none}
+.tl-when{text-align:right;padding-top:6px}
+.tl-when .logo{height:28px;display:flex;justify-content:flex-end;margin-bottom:7px}
+.tl-when .logo img{height:100%;width:auto;object-fit:contain;opacity:.84}
+.tl-when .yr{font-family:'JetBrains Mono';font-size:.95rem;font-weight:600;color:var(--neon-2)}
+.tl-body{position:relative;padding-left:28px}
+.tl-body::before{content:'';position:absolute;left:-14px;top:7px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--neon);transform:translateX(-50%);box-shadow:0 0 10px rgba(155,152,236,.5)}
+.tl-body h4{font-family:'Space Grotesk';font-size:1.12rem;font-weight:600;margin-bottom:3px}
+.tl-body .role-co{font-family:'JetBrains Mono';font-size:.84rem;color:var(--gold-2);margin-bottom:9px}
+.tl-body p{color:var(--txt-2);font-size:.93rem;font-weight:300;margin-bottom:11px}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tl-tags span{font-family:'JetBrains Mono';font-size:11px;color:var(--txt-2);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+
+/* BANNER */
+.banner{position:relative;border:1px solid var(--line-2);border-radius:22px;padding:50px;overflow:hidden;background:linear-gradient(135deg,rgba(15,18,26,.7),rgba(10,12,18,.7));backdrop-filter:blur(8px)}
+.banner::before{content:'';position:absolute;top:-50%;left:28%;width:500px;height:500px;background:radial-gradient(circle,rgba(155,152,236,.1),transparent 70%)}
+.banner-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:26px;text-align:center}
+.banner-grid .b .n{font-family:'Space Grotesk';font-size:2.9rem;font-weight:700;line-height:1}
+.banner-grid .b .l{font-family:'JetBrains Mono';color:var(--txt-2);font-size:.84rem;margin-top:6px;font-weight:300}
+
+/* PROJECTS */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proj{overflow:hidden}
+.proj .thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0a0c12;cursor:pointer}
+.proj .thumb img{width:100%;height:100%;object-fit:cover;transition:.4s;opacity:.9}
+.proj:hover .thumb img{transform:scale(1.05);opacity:1}
+.proj .thumb.novid{cursor:default}
+.proj .play{position:absolute;inset:0;display:grid;place-items:center;z-index:2}
+.proj .play .pc{width:60px;height:60px;border-radius:50%;background:var(--glass);backdrop-filter:blur(6px);border:1px solid var(--line-2);display:grid;place-items:center;color:#fff;transition:.25s}
+.proj .thumb:hover .play .pc{background:var(--grad-tech);color:#05060a;transform:scale(1.08);box-shadow:0 0 26px rgba(155,152,236,.4)}
+.proj .play .pc svg{width:22px;height:22px;margin-left:3px}
+.proj .pbody{padding:22px;position:relative;z-index:1}
+.proj .pmeta{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.proj .tag{font-family:'JetBrains Mono';font-size:10.5px;color:var(--neon-2);background:var(--neon-soft);border:1px solid var(--line);border-radius:6px;padding:4px 9px}
+.proj .yr{font-family:'JetBrains Mono';font-size:.78rem;color:var(--txt-3)}
+.proj h3{font-family:'Space Grotesk';font-size:1.12rem;font-weight:600;margin-bottom:8px}
+.proj p{color:var(--txt-2);font-size:.9rem;font-weight:300;margin-bottom:14px}
+.proj .stack{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.proj .stack span{font-family:'JetBrains Mono';font-size:10.5px;color:var(--txt-3);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.proj .links{display:flex;gap:14px;flex-wrap:wrap}
+.proj .links a{font-family:'JetBrains Mono';font-size:.82rem;font-weight:600;color:var(--neon-2);display:inline-flex;align-items:center;gap:5px;transition:.2s}
+.proj .links a:hover{gap:9px}
+
+/* REPOS */
+.fiap-banner{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between;background:linear-gradient(135deg,rgba(15,18,26,.7),var(--surface));border:1px solid var(--line-2);border-radius:16px;padding:24px 28px;margin-bottom:26px}
+.fiap-banner .ft{font-family:'Space Grotesk';font-size:1.08rem;font-weight:600}
+.fiap-banner .fp{color:var(--txt-2);font-size:.9rem;font-weight:300;max-width:560px;margin-top:4px}
+.fiap-banner .fb{display:flex;gap:7px;flex-wrap:wrap}
+.fiap-banner .fb span{font-family:'JetBrains Mono';font-size:11.5px;color:var(--neon-2);background:var(--neon-soft);border:1px solid var(--line);border-radius:7px;padding:6px 11px}
+.repo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.repo{padding:20px;display:block}
+.repo .rt{display:flex;align-items:center;gap:8px;font-family:'JetBrains Mono';font-weight:600;font-size:.94rem;margin-bottom:8px;position:relative;z-index:1}
+.repo .rt .gi{color:var(--neon-2)}
+.repo p{font-size:.82rem;color:var(--txt-2);font-weight:300;margin-bottom:12px;min-height:34px;position:relative;z-index:1}
+.repo .meta{display:flex;align-items:center;gap:12px;font-family:'JetBrains Mono';font-size:.74rem;color:var(--txt-3);position:relative;z-index:1}
+.repo .meta .lang{display:inline-flex;align-items:center;gap:6px}
+.repo .meta .lang::before{content:'';width:9px;height:9px;border-radius:50%;background:var(--gold)}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.testi{padding:30px}
+.testi .stars{color:var(--gold-2);letter-spacing:3px;margin-bottom:14px;position:relative;z-index:1}
+.testi .tq{font-size:1rem;color:var(--txt);line-height:1.6;font-weight:300;margin-bottom:18px;position:relative;z-index:1}
+.testi .who{display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.testi .who .av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--grad-gold);color:#05060a;font-weight:700;font-family:'Space Grotesk';font-size:1.1rem}
+.testi .who .nm{font-family:'Space Grotesk';font-weight:600;font-size:.93rem}
+.testi .who .rl{font-family:'JetBrains Mono';font-size:.76rem;color:var(--txt-3)}
+
+/* PROCESS */
+.process{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{padding:28px 24px}
+.step .num{font-family:'Space Grotesk';font-size:2.3rem;font-weight:700;line-height:1;margin-bottom:13px;position:relative;z-index:1}
+.step h4{font-family:'Space Grotesk';font-size:1.04rem;font-weight:600;margin-bottom:8px;position:relative;z-index:1}
+.step p{font-size:.88rem;color:var(--txt-2);font-weight:300;position:relative;z-index:1}
+
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}
+.edu-box{padding:30px}
+.edu-box h3{font-family:'Space Grotesk';font-size:1.1rem;font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:10px;position:relative;z-index:1}
+.edu-box h3 .i{color:var(--neon-2)}
+.edu-item{display:flex;align-items:center;gap:15px;padding:13px 0;border-bottom:1px solid var(--line);position:relative;z-index:1}
+.edu-item:last-child{border-bottom:none;padding-bottom:0}
+.edu-item .elogo{width:42px;height:42px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--line);display:grid;place-items:center;flex:0 0 auto;padding:7px}
+.edu-item .elogo img{max-width:100%;max-height:100%;object-fit:contain;opacity:.9}
+.edu-item .d{flex:1}
+.edu-item .d .t{font-family:'Space Grotesk';font-weight:600;font-size:.95rem}
+.edu-item .d .s{font-size:.82rem;color:var(--txt-3);margin-top:1px}
+.edu-item .yr{font-family:'JetBrains Mono';font-size:.8rem;color:var(--neon-2);white-space:nowrap}
+.lang-list{display:flex;flex-direction:column;gap:14px;margin-top:18px;position:relative;z-index:1}
+.lang-item .top{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px}
+.lang-item .top b{font-family:'Space Grotesk';font-weight:600}
+.lang-item .top span{font-family:'JetBrains Mono';color:var(--txt-3);font-size:.78rem}
+
+/* CTA */
+.cta-card{position:relative;border:1px solid var(--line-2);border-radius:24px;padding:60px 52px;text-align:center;background:linear-gradient(160deg,rgba(15,18,26,.8),rgba(8,10,16,.8));overflow:hidden;backdrop-filter:blur(8px)}
+.cta-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 0%,rgba(155,152,236,.14),transparent 60%)}
+.cta-card>*{position:relative;z-index:1}
+.cta-card h2{font-family:'Space Grotesk';font-size:clamp(1.9rem,4vw,3rem);font-weight:700;letter-spacing:-.022em;margin-bottom:15px;line-height:1.08}
+.cta-card p{color:var(--txt-2);font-size:1.08rem;max-width:560px;margin:0 auto 32px;font-weight:300}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:30px}
+.cta-meta{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;font-family:'JetBrains Mono';font-size:.86rem;color:var(--txt-2)}
+.cta-meta a,.cta-meta span{display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.cta-meta a:hover{color:var(--neon-2)}
+.cta-meta .i{color:var(--neon-2)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
+.foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.foot-col p{font-size:.9rem;color:var(--txt-3);max-width:300px;font-weight:300;margin-top:14px}
+.foot-social{display:flex;gap:10px;margin-top:18px}
+.foot-social a{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;border:1px solid var(--line);color:var(--txt-2);transition:.25s}
+.foot-social a:hover{border-color:var(--neon);color:var(--neon-2);transform:translateY(-3px);box-shadow:0 0 18px rgba(155,152,236,.18)}
+.foot-social svg{width:18px;height:18px;fill:currentColor}
+.foot-social img{width:22px;height:22px;border-radius:6px;object-fit:cover}
+.foot-social .doguia-link{width:76px}
+.foot-social .doguia-link img{width:58px;height:auto;border-radius:0;object-fit:contain}
+.foot-links{display:flex;gap:54px;flex-wrap:wrap}
+.foot-links .col h5{font-family:'JetBrains Mono';font-size:.76rem;letter-spacing:.06em;color:var(--txt-3);margin-bottom:14px}
+.foot-links .col a{display:block;font-size:.9rem;color:var(--txt-2);margin-bottom:9px;transition:.2s}
+.foot-links .col a:hover{color:var(--neon-2)}
+.copyright{margin-top:36px;padding-top:22px;border-top:1px solid var(--line);text-align:center;font-family:'JetBrains Mono';font-size:.8rem;color:var(--txt-3)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(3,4,6,.9);backdrop-filter:blur(8px);padding:24px}
+.modal.open{display:flex}
+.modal .inner{position:relative;width:min(960px,100%)}
+.modal .box{width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 40px 100px rgba(0,0,0,.6);position:relative}
+.modal iframe,.modal img{width:100%;height:100%;border:0;object-fit:contain;background:#000}
+.modal .close{position:absolute;top:-44px;right:0;background:none;border:none;color:#fff;font-size:1.8rem;cursor:pointer;line-height:1}
+
+/* ===== CONSULTING OBJECTIVES ===== */
+.objective-story{position:relative;padding:128px 0 136px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:clip;background:linear-gradient(180deg,rgba(10,12,18,.38),rgba(5,6,10,.1))}
+.objective-story::before{content:'';position:absolute;width:760px;height:760px;left:-240px;top:8%;border-radius:50%;background:radial-gradient(circle,rgba(155,152,236,.15),transparent 68%);pointer-events:none}
+.objective-story::after{content:'';position:absolute;width:680px;height:680px;right:-260px;bottom:0;border-radius:50%;background:radial-gradient(circle,rgba(77,159,255,.09),transparent 70%);pointer-events:none}
+.objective-layout{position:relative;z-index:1;display:grid;grid-template-columns:.84fr 1.16fr;gap:74px;align-items:start}
+.objective-intro{position:sticky;top:120px;padding-top:20px}
+.objective-intro h2{font-family:'Space Grotesk';font-size:clamp(2.1rem,4.2vw,3.55rem);line-height:1.04;letter-spacing:-.04em;margin-bottom:18px}
+.objective-intro p{color:var(--txt-2);font-size:1.02rem;max-width:470px;font-weight:300}
+.objective-meter{display:flex;align-items:flex-end;gap:16px;margin-top:34px}
+.objective-track{position:relative;width:3px;height:190px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.objective-track i{display:block;width:100%;height:var(--objective-progress,0%);background:linear-gradient(180deg,#bcb9f7,#4d9fff);border-radius:99px;box-shadow:0 0 20px rgba(155,152,236,.65);transition:height .65s cubic-bezier(.2,.8,.2,1),width .65s cubic-bezier(.2,.8,.2,1)}
+.objective-counter{display:flex;align-items:baseline;gap:6px;font-family:'JetBrains Mono';padding-bottom:2px}
+.objective-counter b{font-family:'Space Grotesk';font-size:3.5rem;line-height:1;color:var(--neon-2)}
+.objective-counter span{font-size:.84rem;color:var(--txt-3)}
+.objectives{display:flex;flex-direction:column;gap:24px}
+.objective-card{position:relative;min-height:290px;padding:30px 30px 27px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(18,21,31,.82),rgba(8,10,16,.82));opacity:.42;transform:translateX(34px) scale(.975);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1),border-color .65s ease,box-shadow .65s ease}
+.objective-card.active{opacity:1;transform:none;border-color:rgba(155,152,236,.5);box-shadow:0 24px 80px rgba(0,0,0,.35),0 0 34px rgba(155,152,236,.09)}
+.objective-card.passed{opacity:.68;transform:translateX(0) scale(.985)}
+.objective-card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at 100% 0%,rgba(155,152,236,.1),transparent 58%);pointer-events:none}
+.objective-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:23px;position:relative}
+.objective-icon{width:46px;height:46px;display:grid;place-items:center;border:1px solid var(--line-2);border-radius:14px;background:rgba(155,152,236,.09);font-family:'JetBrains Mono';font-size:.82rem;color:var(--neon-2)}
+.objective-phase{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-3)}
+.objective-card h3{font-family:'Space Grotesk';font-size:1.48rem;line-height:1.14;letter-spacing:-.025em;margin-bottom:10px;position:relative}
+.objective-card p{color:var(--txt-2);font-size:.94rem;font-weight:300;margin-bottom:19px;position:relative}
+.objective-deliverables{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:21px;position:relative}
+.objective-deliverables span{font-family:'JetBrains Mono';font-size:10px;color:var(--neon-2);padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:rgba(155,152,236,.06)}
+.objective-result{display:grid;grid-template-columns:auto 1fr;gap:11px;padding-top:15px;border-top:1px solid var(--line);position:relative}
+.objective-result b{font-family:'JetBrains Mono';font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:var(--gold-2)}
+.objective-result span{font-size:.84rem;color:var(--txt-2)}
+
+/* ===== CONSULTING FORMATS ===== */
+.formats-sec{padding-bottom:24px}
+.format-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.format-card{padding:28px 25px;min-height:354px;display:flex;flex-direction:column}
+.format-card.featured{border-color:rgba(155,152,236,.42);background:linear-gradient(145deg,rgba(155,152,236,.11),rgba(10,12,18,.85))}
+.format-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;position:relative;z-index:1}
+.format-head span{font-family:'Space Grotesk';font-size:2rem;color:var(--neon-2);font-weight:700}
+.format-head em{font-family:'JetBrains Mono';font-style:normal;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt-3)}
+.format-card h3{font-family:'Space Grotesk';font-size:1.32rem;letter-spacing:-.02em;margin-bottom:9px;position:relative;z-index:1}
+.format-card p{color:var(--txt-2);font-size:.9rem;font-weight:300;margin-bottom:17px;position:relative;z-index:1}
+.format-card ul{display:flex;flex-direction:column;gap:8px;list-style:none;margin-bottom:22px;position:relative;z-index:1}
+.format-card li{font-size:.84rem;color:var(--txt-2);display:flex;align-items:center;gap:8px}
+.format-card li::before{content:'↳';font-family:'JetBrains Mono';color:var(--neon-2)}
+.format-card a{margin-top:auto;font-family:'JetBrains Mono';font-size:.75rem;color:var(--neon-2);position:relative;z-index:1;transition:.2s}
+.format-card a:hover{color:#fff}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1000px){
+  .hero-inner{grid-template-columns:1fr;gap:42px}
+  .hero{min-height:auto;padding-bottom:96px}
+  .hero-visual{width:min(610px,100%);min-height:700px;margin:0 auto}
+  .hero-webgl{opacity:.72;-webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.38) 30%,#000 100%);mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.38) 30%,#000 100%)}
+  .dog-top{grid-template-columns:1fr;gap:34px}
+  .dog-origin{grid-template-columns:1fr}
+  .services-grid,.skills-grid,.proj-grid,.repo-grid,.dog-feats,.prod-grid{grid-template-columns:1fr 1fr}
+  .process{grid-template-columns:1fr 1fr}
+  .banner-grid{grid-template-columns:1fr 1fr;gap:32px 18px}
+  .edu-grid{grid-template-columns:1fr}
+  .objective-layout{grid-template-columns:1fr;gap:36px}
+  .objective-intro{position:relative;top:auto}
+  .objective-meter{margin-top:24px;align-items:center}
+  .objective-track{width:180px;height:3px}
+  .objective-track i{width:var(--objective-progress,0%);height:100%}
+  .objective-counter b{font-size:2.7rem}
+  .format-grid{grid-template-columns:1fr}
+  .market-head{grid-template-columns:1fr;gap:4px}
+  .market-head .kicker{margin-top:0}
+  .market-bottom{grid-template-columns:1fr}
+  .market-actions{justify-content:flex-start}
+}
+@media(max-width:680px){
+  .nav-links,.nav .btn{display:none}.burger{display:flex}
+  .nav{height:64px}
+  .hero{padding:112px 0 72px}
+  h1.hero-title{font-size:2.48rem}
+  .hero-sub{font-size:1.02rem}
+  .hero-stats{gap:22px}
+  .hero-stats .st .n{font-size:1.9rem}
+  .hero-visual{min-height:490px;margin-top:4px}
+  .portrait-card{width:83%;height:440px;border-radius:22px}
+  .portrait-meta{left:18px;bottom:17px}
+  .portrait-meta strong{font-size:1.22rem}
+  .hero-terminal{bottom:0;width:88%}
+  .hero-terminal .term-body{min-height:174px;font-size:9.5px;line-height:1.62;padding:12px 14px}
+  .visual-badge{padding:10px 12px}
+  .visual-badge strong{font-size:.96rem}
+  .visual-badge-top{top:57px;left:0}
+  .visual-badge-bottom{right:-5px;bottom:84px}
+  .hero-signal-a{right:0;top:30px}.hero-signal-b{left:8px;bottom:225px}
+  .hero-coordinate{display:none}
+  .scroll-cue{display:none}
+  .sec{padding:68px 0}
+  .sec-head{margin-bottom:40px}
+  .market-sec{padding:70px 0 66px}
+  .market-shell{padding:24px 18px;border-radius:19px}
+  .market-head{margin-bottom:22px}
+  .market-head h2{font-size:2.18rem}
+  .market-grid{grid-template-columns:1fr}
+  .market-card{min-height:auto;padding:20px 18px}
+  .market-card .mk{margin-bottom:16px}
+  .market-proof{gap:17px}
+  .market-proof .mp{width:calc(50% - 9px);display:block}
+  .market-proof span{display:block;margin-top:5px;max-width:130px}
+  .market-actions .btn{width:100%;justify-content:center}
+  .services-grid,.skills-grid,.proj-grid,.repo-grid,.dog-feats,.process,.testi-grid,.prod-grid{grid-template-columns:1fr}
+  .fvid-grid{grid-template-columns:1fr 1fr}
+  .dog{padding:72px 0}
+  .dog-stats{gap:20px}.dog-stats .ds .n{font-size:1.7rem}
+  .dog-origin{padding:18px}
+  .dog-evolution{grid-template-columns:1fr;gap:7px}
+  .dog-evolution i{display:none}
+  .prod .ph{padding:24px 20px 0}
+  .prod .pc{padding:16px 20px 22px}
+  .prod-companion{grid-template-columns:1fr;margin:0 20px 20px}
+  .localiza-video{min-height:auto;aspect-ratio:16/9;border-right:0;border-bottom:1px solid var(--line)}
+  .localiza-proof{margin:0 20px 20px}
+  .localiza-proof-grid{grid-template-columns:1fr}
+  .banner{padding:34px 22px;border-radius:18px}.banner-grid{grid-template-columns:1fr 1fr;gap:26px 14px}
+  .banner-grid .b .n{font-size:2.3rem}
+  .cta-card{padding:40px 22px}
+  .cta-meta{gap:14px;flex-direction:column}
+  .tl-item{grid-template-columns:1fr;gap:6px;padding-bottom:32px}
+  .tl-line,.tl-body::before{display:none}
+  .tl-when{text-align:left;display:flex;align-items:center;gap:12px}
+  .tl-when .logo{justify-content:flex-start;margin-bottom:0;height:24px}
+  .tl-body{padding-left:0}
+  .about-pillars{grid-template-columns:1fr 1fr}
+  .dog-specs{grid-template-columns:1fr 1fr}
+  .foot{flex-direction:column;gap:30px}
+  .wrap{padding:0 18px}
+  .contact-float{right:14px;bottom:14px;padding:11px 14px;font-size:12px}
+  .objective-story{padding:82px 0 88px}
+  .objective-intro h2{font-size:2.25rem}
+  .objective-card{min-height:auto;padding:23px 20px;transform:translateY(22px)}
+  .objective-card.active,.objective-card.passed{transform:none}
+  .objective-card h3{font-size:1.22rem}
+  .objective-result{grid-template-columns:1fr;gap:5px}
+  .format-card{min-height:auto}
+}
+@media(max-width:400px){
+  .about-pillars{grid-template-columns:1fr}
+  .banner-grid,.dog-specs{grid-template-columns:1fr}
+  .hero-stats{gap:18px}
+  .hero-visual{min-height:438px}
+  .portrait-card{height:388px}
+  .hero-terminal{width:94%}
+  .visual-badge-bottom{bottom:68px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal,.objective-card{opacity:1;transform:none}
+  .hero-webgl::after{display:none}
+}
+/* ===== MOBILE POLISH ===== */
+@media(max-width:760px){
+  /* hero: clean vertical stack (portrait -> terminal), no overlapping decor */
+  .hero{padding:104px 0 56px}
+  .hero-inner{gap:30px}
+  .hero-visual{position:relative;min-height:0!important;display:flex;flex-direction:column;gap:13px;width:100%;max-width:430px;margin:0 auto;transform:none!important}
+  .hero-visual::before,.hero-orbit{display:none}
+  .portrait-card{position:relative;top:auto;right:auto;left:auto;width:100%;height:auto;aspect-ratio:5/5.3;border-radius:22px}
+  .portrait-card img{object-position:center 24%}
+  .hero-terminal{position:relative;left:auto;bottom:auto;width:100%;animation:none;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+  .hero-terminal .term-body{min-height:0;font-size:11px;line-height:1.72;padding:14px 16px}
+  .visual-badge,.hero-signal,.hero-coordinate,.scroll-cue{display:none}
+  .hero-webgl{opacity:.42}
+  .hero-cta{gap:10px}
+  .hero-cta .btn{flex:1 1 100%;justify-content:center}
+  .hero-stats{gap:22px;width:100%}
+  .hero-context{font-size:10.5px;gap:8px 14px}
+}
+@media(max-width:680px){
+  /* readable type + comfortable spacing */
+  body{font-size:15.5px}
+  .case-metrics{gap:22px 30px}
+  .cta-actions .btn{flex:1 1 100%;justify-content:center}
+  .foot-links{gap:30px}
+  .dog-specs{gap:1px}
+}
+@media(max-width:430px){
+  h1.hero-title{font-size:2.16rem;letter-spacing:-.03em}
+  .hero-sub{font-size:.98rem}
+  .portrait-card{aspect-ratio:5/5.5}
+  .hero-stats .st .n{font-size:1.78rem}
+  .market-head h2,.sec-head h2{font-size:1.92rem}
+  .case-metrics b{font-size:1.95rem}
+  .contact-float{right:12px;bottom:12px;font-size:11.5px;padding:10px 13px}
+}
+</style>
+
+<!-- DOGUIA -->
+<section class="dog" id="doguia">
+  <div class="wrap dog-inner">
+    <div class="dog-top">
+      <div class="reveal">
+        <span class="dog-badge">★ <span data-i18n="dog_badge">Engenharia aplicada · Hardware + IA local</span></span>
+        <h2><span class="neon-text">DoguIA</span> <span data-i18n="dog_title">— uma base robótica ampliada para conversar, reagir e evoluir</span></h2>
+        <p class="lead" data-i18n="dog_lead">O projeto parte de um modelo robótico chinês e evolui muito além do hardware original. A plataforma combina IA local, voz, movimentos, luzes e automações para criar milhares de possibilidades de interação.</p>
+        <div class="dog-stats">
+          <div class="ds"><div class="n neon-text">50+</div><div class="l" data-i18n="dog_s1">Movimentos</div></div>
+          <div class="ds"><div class="n neon-text">47</div><div class="l" data-i18n="dog_s2">Habilidades MCP</div></div>
+          <div class="ds"><div class="n neon-text">IA</div><div class="l" data-i18n="dog_s3">Local</div></div>
+          <div class="ds"><div class="n neon-text">1000+</div><div class="l" data-i18n="dog_s4">Combinações</div></div>
+        </div>
+        <div class="dog-cta">
+          <a href="https://www.doguia.com.br" target="_blank" rel="noopener" class="btn btn-gold" data-i18n="dog_cta1">Visitar doguia.com.br →</a>
+          <a href="https://www.doguia.com.br/conversar2" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="dog_cta2">Abrir demo interativa</a>
+          <button onclick="openVid('4f4CVqx1_Ls')" class="btn btn-ghost" data-i18n="dog_watch">▶ Ver vídeo</button>
+        </div>
+      </div>
+      <a class="dog-video reveal" href="https://www.doguia.com.br/conversar2" target="_blank" rel="noopener" aria-label="Abrir demonstração interativa do DoguIA">
+        <span class="vtag"><span class="rec"></span> <span data-i18n="dog_live">DoguIA em ação</span></span>
+        <span class="dog-demo-hint" data-i18n="dog_demo_hint">demo ao vivo</span>
+        <span class="dog-demo-scan"></span>
+        <video src="assets/video/hero-robot.mp4" autoplay muted loop playsinline poster="assets/img/doguia-cores.jpeg"></video>
+        <span class="dog-demo-cta">
+          <span class="dog-demo-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          <span class="dog-demo-copy"><small data-i18n="dog_demo_kicker">experiência interativa</small><strong data-i18n="dog_demo_title">Clique para conversar com o DoguIA</strong></span>
+          <span class="dog-demo-arrow">→</span>
+        </span>
+      </a>
+    </div>
+    <div class="dog-origin reveal">
+      <div class="copy">
+        <span data-i18n="dog_origin_kicker">da base ao produto evoluído</span>
+        <p data-i18n="dog_origin">O ponto de partida foi uma plataforma chinesa existente. O trabalho está na evolução: firmware ampliado, novas integrações, IA executada localmente e uma camada extensível de habilidades para transformar o robô em uma experiência própria.</p>
+      </div>
+      <div class="dog-evolution" aria-label="Evolução do DoguIA">
+        <span data-i18n="dog_origin1">base robótica<br>chinesa</span><i>→</i>
+        <span data-i18n="dog_origin2">firmware e recursos<br>ampliados</span><i>→</i>
+        <span data-i18n="dog_origin3">plataforma com<br>IA local</span>
+      </div>
+    </div>
+    <div class="dog-feats">
+      <div class="dfeat glowcard reveal"><div class="e">🧠</div><h4 data-i18n="df1_t">IA local e embarcada</h4><p data-i18n="df1_p">A camada inteligente roda próxima ao hardware, reduz dependência externa e abre espaço para respostas e automações mais rápidas.</p></div>
+      <div class="dfeat glowcard reveal"><div class="e">🗣️</div><h4 data-i18n="df2_t">Interação multimodal</h4><p data-i18n="df2_p">Voz, movimentos, luzes e reações trabalham juntos. O comportamento muda conforme o contexto da conversa.</p></div>
+      <div class="dfeat glowcard reveal"><div class="e">🧩</div><h4 data-i18n="df3_t">Milhares de possibilidades</h4><p data-i18n="df3_p">A combinação entre habilidades, comandos, coreografias e respostas cria uma experiência variada e extensível.</p></div>
+      <div class="dfeat glowcard reveal"><div class="e">⚙️</div><h4 data-i18n="df4_t">47 habilidades via MCP</h4><p data-i18n="df4_p">Cada habilidade funciona como uma ferramenta que a IA pode acionar e combinar durante a interação.</p></div>
+      <div class="dfeat glowcard reveal"><div class="e">🦿</div><h4 data-i18n="df5_t">50+ movimentos coordenados</h4><p data-i18n="df5_p">De gestos simples a coreografias, o firmware controla movimentos e reações de forma integrada.</p></div>
+      <div class="dfeat glowcard reveal"><div class="e">🔓</div><h4 data-i18n="df6_t">Plataforma aberta para evoluir</h4><p data-i18n="df6_p">A arquitetura permite adicionar comportamentos, integrações e novas experiências sem limitar o projeto ao modelo original.</p></div>
+    </div>
+    <div class="dog-gallery reveal">
+      <img src="assets/img/1.jpg" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
+      <img src="assets/img/2.jpg" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
+      <img src="assets/img/3.png" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
+      <img src="assets/img/4.png" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
+      <img src="assets/img/5.png" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
+      <img src="assets/img/6.png" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
+      <img src="assets/img/7.png" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
+      <img src="assets/img/8.png" alt="DoguIA" loading="lazy" onclick="openImg(this.src)">
+    </div>
+    <div class="dog-specs reveal">
+      <div class="spec"><div class="k">MCU</div><div class="v">ESP32-C3 RISC-V 160MHz</div></div>
+      <div class="spec"><div class="k">Display</div><div class="v">TFT 0,96" colorido</div></div>
+      <div class="spec"><div class="k" data-i18n="sp_audio">Áudio</div><div class="v" data-i18n="sp_audio_v">Microfone + Speaker</div></div>
+      <div class="spec"><div class="k">Servos</div><div class="v" data-i18n="sp_servo_v">4x · 50+ movimentos</div></div>
+      <div class="spec"><div class="k">LEDs</div><div class="v" data-i18n="sp_led_v">4x RGB · 18 efeitos</div></div>
+      <div class="spec"><div class="k" data-i18n="sp_proto">Protocolo</div><div class="v">MCP (aberto)</div></div>
+      <div class="spec"><div class="k">Firmware</div><div class="v" data-i18n="sp_fw_v">Base XiaoZhi evoluída</div></div>
+      <div class="spec"><div class="k" data-i18n="sp_ctrl">Controle</div><div class="v" data-i18n="sp_ctrl_v">Voz + WebUI (sem app)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="sec" id="produtos">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="prd_kicker">produto em operação</span>
+      <h2 data-i18n="prd_title">FastrackGPS + LocalizaAuto: do SaaS original à plataforma atual</h2>
+      <p data-i18n="prd_sub">A experiência começou com a FastrackGPS e evoluiu para a LocalizaAuto: rastreamento, operação em campo e produto digital conectados em uma jornada contínua.</p>
+    </div>
+    <div class="prod-grid prod-grid-single">
+      <div class="prod glowcard reveal">
+        <div class="vis map">
+          <div class="maphud" style="position:absolute;top:9px;left:11px;z-index:3;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.04em;color:#7BB8FF;display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:50%;background:#28c840;box-shadow:0 0 8px #28c840;display:inline-block;animation:blink 1.6s infinite"></span>LIVE TRACKING &middot; 62 km/h</div>
+          <svg viewBox="0 0 420 200" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+              <linearGradient id="trailg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#43E5C4"/><stop offset="1" stop-color="#4D9FFF"/></linearGradient>
+              <radialGradient id="vglow"><stop offset="0" stop-color="#43E5C4" stop-opacity=".55"/><stop offset="1" stop-color="#43E5C4" stop-opacity="0"/></radialGradient>
+            </defs>
+            <g stroke="#5fa8b8" stroke-width="1" opacity="0.07">
+              <line x1="70" y1="0" x2="70" y2="200"/><line x1="140" y1="0" x2="140" y2="200"/><line x1="210" y1="0" x2="210" y2="200"/><line x1="280" y1="0" x2="280" y2="200"/><line x1="350" y1="0" x2="350" y2="200"/>
+              <line x1="0" y1="50" x2="420" y2="50"/><line x1="0" y1="100" x2="420" y2="100"/><line x1="0" y1="150" x2="420" y2="150"/>
+            </g>
+            <line x1="0" y1="200" x2="420" y2="20" stroke="#5fa8b8" stroke-width="6" opacity="0.04"/>
+            <path id="route" d="M16,184 C58,160 64,104 116,104 C162,104 176,150 226,134 C282,116 300,58 360,54 C384,52 400,50 404,46" fill="none" stroke="rgba(255,255,255,.13)" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
+            <path d="M16,184 C58,160 64,104 116,104 C162,104 176,150 226,134 C282,116 300,58 360,54 C384,52 400,50 404,46" fill="none" stroke="url(#trailg)" stroke-width="2.6" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="6.5s" repeatCount="indefinite"/></path>
+            <circle cx="16" cy="184" r="3.5" fill="#4D9FFF"/>
+            <circle cx="404" cy="46" r="3" fill="none" stroke="#43E5C4" stroke-width="1.4"><animate attributeName="r" values="3;13" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle>
+            <circle cx="404" cy="46" r="3.5" fill="#43E5C4"/>
+            <circle cx="150" cy="60" r="2.5" fill="#4D9FFF"><animate attributeName="r" values="2;9" dur="2.4s" begin="0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0" dur="2.4s" begin="0.6s" repeatCount="indefinite"/></circle>
+            <circle cx="300" cy="150" r="2.5" fill="#43E5C4"><animate attributeName="r" values="2;9" dur="2.4s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0" dur="2.4s" begin="1.4s" repeatCount="indefinite"/></circle>
+            <g>
+              <circle r="11" fill="url(#vglow)"/>
+              <circle r="8" fill="none" stroke="#43E5C4" stroke-width="1.3" opacity=".5"><animate attributeName="r" values="5;12" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;0" dur="1.5s" repeatCount="indefinite"/></circle>
+              <circle r="4.5" fill="#43E5C4"/><circle r="2" fill="#eafffb"/>
+              <animateMotion dur="6.5s" repeatCount="indefinite" rotate="auto"><mpath href="#route" xlink:href="#route"/></animateMotion>
+            </g>
+          </svg>
+        </div>
+        <div class="ph"><span class="tag">SaaS · IoT</span><span class="live mono" data-i18n="prd_live">no ar</span></div>
+        <div class="pc">
+          <h3>FastrackGPS <span class="prod-evolution">→ LocalizaAuto</span></h3>
+          <p data-i18n="prd1_p">A FastrackGPS nasceu como uma operação completa de rastreamento veicular e chegou a quase 10.000 clientes. A experiência evoluiu para a LocalizaAuto, com uma plataforma atualizada para acompanhar veículos, contas e rotinas operacionais em tempo real.</p>
+          <div class="feats"><span>Mapa em tempo real</span><span>Multiusuário</span><span>LGPD</span><span>LocalizaAuto</span></div>
+          <div class="links"><a href="https://novo.localizaauto.com.br" target="_blank" rel="noopener" data-i18n="prd1_l1">Acessar plataforma →</a><a href="https://github.com/marvinmvns" target="_blank" rel="noopener" data-i18n="link_code">Código →</a></div>
+        </div>
+        <div class="prod-companion">
+          <button class="localiza-video" onclick="openVid('DZoe0ncreDY')" type="button" aria-label="Assistir demonstração da LocalizaAuto">
+            <img src="assets/thumbs/yt-DZoe0ncreDY.jpg" alt="Interface mobile da LocalizaAuto" loading="lazy">
+            <span class="play"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></span>
+          </button>
+          <div class="localiza-copy">
+            <span class="lk" data-i18n="loc_kicker">evolução da plataforma</span>
+            <h4>LocalizaAuto</h4>
+            <p data-i18n="loc_p">Uma experiência renovada de rastreamento, com operação web e mobile conectada ao uso real do produto.</p>
+            <div class="links"><a href="https://novo.localizaauto.com.br" target="_blank" rel="noopener" data-i18n="prd1_l1">Acessar plataforma →</a><a href="https://youtu.be/DZoe0ncreDY?feature=shared" target="_blank" rel="noopener" data-i18n="loc_watch">Assistir demonstração →</a></div>
+          </div>
+        </div>
+        <div class="localiza-proof">
+          <span class="lk" data-i18n="loc_proof_kicker">funcionalidades demonstradas no vídeo</span>
+          <div class="localiza-proof-grid">
+            <div><b data-i18n="loc_f1_t">Gestão administrativa</b><span data-i18n="loc_f1_p">Painel web para usuários, dispositivos e vínculos operacionais.</span></div>
+            <div><b data-i18n="loc_f2_t">Cadastro veicular detalhado</b><span data-i18n="loc_f2_p">Dados do rastreador e do veículo, como placa, marca, modelo e identificação.</span></div>
+            <div><b data-i18n="loc_f3_t">Monitoramento da frota</b><span data-i18n="loc_f3_p">Status dos dispositivos, última atualização e posição centralizados.</span></div>
+            <div><b data-i18n="loc_f4_t">Mapa mobile</b><span data-i18n="loc_f4_p">Localização do veículo, visualização de detalhes e controles de mapa no celular.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="sec" id="expertise" style="padding-top:24px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="exp_kicker">domínio técnico</span>
+      <h2 data-i18n="exp_title">Profundidade técnica para conversar com o negócio e com o código</h2>
+      <p data-i18n="exp_sub">Mais de 20 anos de experiência de mercado — do setor bancário regulado a produto próprio — com profundidade técnica que vai de cloud e dados a IA generativa e hardware embarcado.</p>
+    </div>
+    <div class="market-exp reveal">
+      <span class="me-k" data-i18n="mx_kicker">experiência de mercado · 20+ anos</span>
+      <div class="me-tags">
+        <span>Setor Bancário</span><span>Open Finance &amp; Insurance</span><span>Pagamentos · Conta Corrente</span><span>Crédito · IFRS 17</span><span>Seguros</span><span>Telecom</span><span>Rastreamento veicular (SaaS próprio)</span><span>Chatbots &amp; IA</span>
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-col glowcard reveal">
+        <h4><span class="i">⬡</span> <span data-i18n="exp_c1">Cloud, Dados &amp; Infra</span></h4>
+        <div class="row"><div class="top"><span>AWS</span><span class="v">Lambda · Glue · Athena</span></div><div class="bar"><i data-w="96"></i></div></div>
+        <div class="row"><div class="top"><span>Azure Cloud</span><span class="v">multi-cloud</span></div><div class="bar"><i data-w="85"></i></div></div>
+        <div class="row"><div class="top"><span>Databricks</span><span class="v">analytics</span></div><div class="bar"><i data-w="84"></i></div></div>
+        <div class="row"><div class="top"><span>Data Lake</span><span class="v">eng. de dados</span></div><div class="bar"><i data-w="90"></i></div></div>
+        <div class="row"><div class="top"><span>DevOps · K8s · CI/CD</span><span class="v">entrega</span></div><div class="bar"><i data-w="91"></i></div></div>
+        <div class="row"><div class="top"><span>FinOps</span><span class="v">-60% cloud</span></div><div class="bar"><i data-w="88"></i></div></div>
+      </div>
+      <div class="skill-col glowcard reveal">
+        <h4><span class="i">◈</span> <span data-i18n="exp_c2">Desenvolvimento</span></h4>
+        <div class="row"><div class="top"><span>Java &amp; Spring Boot</span><span class="v">core</span></div><div class="bar"><i data-w="96"></i></div></div>
+        <div class="row"><div class="top"><span>Node.js &amp; JavaScript</span><span class="v">APIs</span></div><div class="bar"><i data-w="91"></i></div></div>
+        <div class="row"><div class="top"><span>React</span><span class="v">front-end</span></div><div class="bar"><i data-w="82"></i></div></div>
+        <div class="row"><div class="top"><span>Python</span><span class="v">dados · IA</span></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="row"><div class="top"><span>Microserviços &amp; APIs</span><span class="v">40+ em prod</span></div><div class="bar"><i data-w="94"></i></div></div>
+        <div class="row"><div class="top"><span>Mainframe</span><span class="v">Cobol · DB2 (legado)</span></div><div class="bar"><i data-w="80"></i></div></div>
+      </div>
+      <div class="skill-col glowcard reveal">
+        <h4><span class="i">✦</span> <span data-i18n="exp_c3">IA Aplicada</span></h4>
+        <div class="row"><div class="top"><span>LLM &amp; RAG</span><span class="v">produto</span></div><div class="bar"><i data-w="90"></i></div></div>
+        <div class="row"><div class="top"><span>Treino de modelos</span><span class="v">ML</span></div><div class="bar"><i data-w="82"></i></div></div>
+        <div class="row"><div class="top"><span>Agentes &amp; MCP</span><span class="v">automação</span></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="row"><div class="top"><span>Open Finance &amp; Insurance</span><span class="v">produção</span></div><div class="bar"><i data-w="96"></i></div></div>
+        <div class="row"><div class="top"><span>FAPI / OAuth 2.0</span><span class="v">segurança</span></div><div class="bar"><i data-w="91"></i></div></div>
+      </div>
+      <div class="skill-col glowcard reveal">
+        <h4><span class="i">◉</span> <span data-i18n="exp_c4">Hardware &amp; Maker</span></h4>
+        <div class="row"><div class="top"><span>ESP32 &amp; Embarcados</span><span class="v">IoT</span></div><div class="bar"><i data-w="92"></i></div></div>
+        <div class="row"><div class="top"><span>Raspberry Pi</span><span class="v">edge</span></div><div class="bar"><i data-w="90"></i></div></div>
+        <div class="row"><div class="top"><span>Automação residencial</span><span class="v">DIY</span></div><div class="bar"><i data-w="85"></i></div></div>
+        <div class="row"><div class="top"><span>Impressão 3D</span><span class="v">prototipação</span></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="row"><div class="top"><span>Eletrônica &amp; sensores</span><span class="v">maker</span></div><div class="bar"><i data-w="86"></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-sec" style="border-top:none">
+    <div class="wrap">
+      <div class="marquee-lbl" data-i18n="stack_lbl">// stack que domino no dia a dia</div>
+      <div class="marquee"><div class="tech-track">
+        <img src="assets/icons/java-original.svg" alt="Java" loading="lazy">
+        <img src="assets/icons/spring-original.svg" alt="Spring" loading="lazy">
+        <img src="assets/icons/nodejs-original.svg" alt="Node.js" loading="lazy">
+        <img src="assets/icons/python-original.svg" alt="Python" loading="lazy">
+        <img src="assets/icons/typescript-original.svg" alt="TypeScript" loading="lazy">
+        <img src="assets/icons/amazonwebservices-original-wordmark.svg" alt="AWS" loading="lazy">
+        <img src="assets/icons/azure-original.svg" alt="Azure" loading="lazy">
+        <img src="assets/icons/docker-original.svg" alt="Docker" loading="lazy">
+        <img src="assets/icons/kubernetes-plain.svg" alt="Kubernetes" loading="lazy">
+        <img src="assets/icons/postgresql-original.svg" alt="PostgreSQL" loading="lazy">
+        <img src="assets/icons/linux-original.svg" alt="Linux" loading="lazy">
+        <img src="assets/icons/git-original.svg" alt="Git" loading="lazy">
+        <img src="assets/icons/raspberrypi-original.svg" alt="Raspberry Pi" loading="lazy">
+        <img src="assets/icons/arduino-original.svg" alt="Arduino" loading="lazy">
+        <img src="assets/icons/java-original.svg" alt="Java" loading="lazy">
+        <img src="assets/icons/spring-original.svg" alt="Spring" loading="lazy">
+        <img src="assets/icons/nodejs-original.svg" alt="Node.js" loading="lazy">
+        <img src="assets/icons/python-original.svg" alt="Python" loading="lazy">
+        <img src="assets/icons/typescript-original.svg" alt="TypeScript" loading="lazy">
+        <img src="assets/icons/amazonwebservices-original-wordmark.svg" alt="AWS" loading="lazy">
+        <img src="assets/icons/azure-original.svg" alt="Azure" loading="lazy">
+        <img src="assets/icons/docker-original.svg" alt="Docker" loading="lazy">
+        <img src="assets/icons/kubernetes-plain.svg" alt="Kubernetes" loading="lazy">
+        <img src="assets/icons/postgresql-original.svg" alt="PostgreSQL" loading="lazy">
+        <img src="assets/icons/linux-original.svg" alt="Linux" loading="lazy">
+        <img src="assets/icons/git-original.svg" alt="Git" loading="lazy">
+        <img src="assets/icons/raspberrypi-original.svg" alt="Raspberry Pi" loading="lazy">
+        <img src="assets/icons/arduino-original.svg" alt="Arduino" loading="lazy">
+      </div></div>
+    </div>
+  </div>
+
+<!-- TIMELINE -->
+<section class="sec" id="trajetoria">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="tl_kicker">trajetória profissional</span>
+      <h2 data-i18n="tl_title">Duas décadas construindo tecnologia</h2>
+      <p data-i18n="tl_sub">De mainframe a IA generativa, do código à liderança e ao empreendedorismo.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal"><div class="tl-line"></div>
+        <div class="tl-when"><div class="logo"><img src="assets/logos/f1rst-logo.png" alt="F1RST"></div><div class="yr">2021—Hoje</div></div>
+        <div class="tl-body"><h4 data-i18n="tl1_role">Senior Lead / IT Lead</h4><div class="role-co">F1RST Digital Services · Santander</div><p data-i18n="tl1_p">Lidero um squad de 30+ engenheiros sustentando 40+ APIs a 99,95% de SLA nas jornadas de Open Finance e Open Insurance. FAPI/OAuth, Data Lake, FinOps (-60% custo cloud) e IA Generativa aplicada.</p><div class="tl-tags"><span>FAPI</span><span>OAuth 2.0</span><span>Data Lake</span><span>FinOps</span><span>Kubernetes</span></div></div>
+      </div>
+      <div class="tl-item reveal"><div class="tl-line"></div>
+        <div class="tl-when"><div class="logo"><img src="assets/logos/itau-logo.png" alt="Itaú"></div><div class="yr">2011—2021</div></div>
+        <div class="tl-body"><h4 data-i18n="tl2_role">Coordenador de Engenharia / Especialista QA</h4><div class="role-co">Itaú Unibanco</div><p data-i18n="tl2_p">10 anos no Itaú. Chapter Lead na Comunidade de Finanças, liderando a célula do IFRS 17 com 30 pessoas. Coordenação de automação de testes para Conta Corrente, Pagamentos e Empréstimos.</p><div class="tl-tags"><span>AWS</span><span>Java</span><span>IFRS 17</span><span>Selenium</span></div></div>
+      </div>
+      <div class="tl-item reveal"><div class="tl-line"></div>
+        <div class="tl-when"><div class="logo"><img src="assets/logos/fastrackgps-logo.svg" alt="FastrackGPS"></div><div class="yr">2006—2019</div></div>
+        <div class="tl-body"><h4 data-i18n="tl3_role">Founder & CTO</h4><div class="role-co" data-i18n="tl3_co">FastrackGPS · SaaS / IoT</div><p data-i18n="tl3_p">Fundei e operei por 13 anos um SaaS de rastreamento veicular que chegou a quase 10.000 clientes ativos. Desenvolvimento IoT, integração GPS e gestão de equipe técnica e comercial.</p><div class="tl-tags"><span>IoT</span><span>SaaS</span><span>GPS</span><span>Gestão</span></div></div>
+      </div>
+      <div class="tl-item reveal"><div class="tl-line"></div>
+        <div class="tl-when"><div class="logo"><img src="assets/logos/harlio-logo.png" alt="Harlio"></div><div class="yr">2016—2017</div></div>
+        <div class="tl-body"><h4 data-i18n="tl4_role">Chief Technology Officer (CTO)</h4><div class="role-co" data-i18n="tl4_co">Harlio Bots · Chatbots com IA</div><p data-i18n="tl4_p">Criamos assistentes virtuais em Slack, Messenger, Telegram e Web usando IA para clientes globais, incluindo a Time Warner.</p><div class="tl-tags"><span>IA</span><span>NLP</span><span>Chatbots</span><span>Time Warner</span></div></div>
+      </div>
+      <div class="tl-item reveal"><div class="tl-line"></div>
+        <div class="tl-when"><div class="logo"><img src="assets/logos/ibm-logo.png" alt="IBM"></div><div class="yr">2007—2011</div></div>
+        <div class="tl-body"><h4 data-i18n="tl5_role">Desenvolvedor de Software</h4><div class="role-co" data-i18n="tl5_co">IBM · Mainframe & Sistemas Corporativos</div><p data-i18n="tl5_p">Analista programador em projetos para Itaú, TAM e Telefônica. Mainframe (Cobol, CICS, DB2), Oracle/PL-SQL, análise de performance e suporte de software.</p><div class="tl-tags"><span>Cobol</span><span>CICS</span><span>DB2</span><span>PL/SQL</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap"><div class="banner reveal"><div class="banner-grid">
+    <div class="b"><div class="n gold-text">99,95%</div><div class="l" data-i18n="b_sla">de SLA em produção</div></div>
+    <div class="b"><div class="n gold-text">40+</div><div class="l" data-i18n="b_apis">APIs sustentadas</div></div>
+    <div class="b"><div class="n gold-text">-60%</div><div class="l" data-i18n="b_cost">custo cloud (FinOps)</div></div>
+    <div class="b"><div class="n gold-text">~10k</div><div class="l" data-i18n="b_clients">clientes no SaaS próprio</div></div>
+  </div></div></div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projetos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="pj_kicker">portfólio</span>
+      <h2 data-i18n="pj_title">Projetos que construí</h2>
+      <p data-i18n="pj_sub">Clique nos cards com vídeo para assistir. Da IA embarcada à realidade aumentada e ao IoT em escala.</p>
+    </div>
+    <div class="proj-grid">
+      <div class="proj glowcard reveal">
+        <div class="thumb" onclick="openVid('th6H-Qm_IjI')"><img src="assets/thumbs/yt-th6H-Qm_IjI.jpg" alt="Marvin" loading="lazy"><div class="play"><div class="pc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="pbody"><div class="pmeta"><span class="tag">IA · Robótica</span><span class="yr">2023—2026</span></div><h3 data-i18n="pj1_t">Marvin — Robô com Llama</h3><p data-i18n="pj1_p">Robô impresso em 3D rodando Llama 2 em Raspberry Pi, com hotword offline (Porcupine), Vosk e voz ElevenLabs. 93 reações no LinkedIn.</p><div class="stack"><span>Llama 2</span><span>Raspberry Pi</span><span>Vosk</span><span>ElevenLabs</span></div><div class="links"><a href="https://github.com/marvinmvns" target="_blank" rel="noopener" data-i18n="link_code">Código →</a></div></div>
+      </div>
+      <div class="proj glowcard reveal">
+        <div class="thumb" onclick="openVid('F2yOt6oenyA')"><img src="assets/thumbs/yt-F2yOt6oenyA.jpg" alt="FastrackGPS" loading="lazy"><div class="play"><div class="pc"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div></div></div>
+        <div class="pbody"><div class="pmeta"><span class="tag">IoT · SaaS</span><span class="yr">2006—2019</span></div><h3 data-i18n="pj2_t">FastrackGPS — Rastreamento</h3><p data-i18n="pj2_p">Plataforma SaaS completa de rastreamento veicular com mapa interativo, app Android e hardware GPS.</p><div class="stack"><span>IoT</span><span>Android</span><span>GPS</span><span>Backend</span></div><div class="links"><a href="https://novo.localizaauto.com.br" target="_blank" rel="noopener" data-i18n="link_demo">Plataforma →</a><a href="https://github.com/marvinmvns/androidFastrackGPS" target="_blank" rel="noopener" data-i18n="link_app">App →</a></div></div>
+      </div>
+      <div class="proj glowcard reveal">
+        <div class="thumb novid" style="display:grid;place-items:center;color:var(--neon-2);font-size:3rem">🎙️</div>
+        <div class="pbody"><div class="pmeta"><span class="tag">Voz · Embedded</span><span class="yr">2025</span></div><h3 data-i18n="pj5_t">ATOM Echo — Voz de Moeda</h3><p data-i18n="pj5_p">Assistente de voz completo num ESP32 do tamanho de uma moeda: transcrição, ChatGPT e ElevenLabs num wearable.</p><div class="stack"><span>ESP32</span><span>ChatGPT</span><span>ElevenLabs</span></div><div class="links"><a href="https://github.com/marvinmvns/atomechogptelevenlabs" target="_blank" rel="noopener" data-i18n="link_code">Código →</a></div></div>
+      </div>
+      <div class="proj glowcard reveal">
+        <div class="thumb novid" style="display:grid;place-items:center;background:#0a0c12"><img src="assets/logos/harlio-logo.png" alt="Harlio" style="width:auto;height:48%;object-fit:contain;opacity:.92"></div>
+        <div class="pbody"><div class="pmeta"><span class="tag">IA · Chatbots</span><span class="yr">2016—2017</span></div><h3 data-i18n="pj3_t">Harlio — Plataforma de ChatBots</h3><p data-i18n="pj3_p">Assistentes virtuais com IA para Slack, Messenger, Telegram e Web. Clientes globais, incluindo a Time Warner.</p><div class="stack"><span>NLP</span><span>Slack</span><span>Messenger</span><span>Telegram</span></div><div class="links"><a href="https://www.linkedin.com/in/marvin1986/" target="_blank" rel="noopener" data-i18n="link_more">Saiba mais →</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN SOURCE -->
+<section class="sec" id="opensource" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker" data-i18n="os_kicker">laboratório aberto</span>
+      <h2 data-i18n="os_title">Open source, FIAP & experimentação contínua</h2>
+      <p data-i18n="os_sub">Tecnologia é meu maior combustível. Estou sempre construindo — de Tech Challenges de IA na FIAP a agentes LLM, MCP e voz embarcada.</p>
+    </div>
+    <div class="fiap-banner reveal">
+      <div><div class="ft" data-i18n="fiap_t">🎓 Tech Challenges — MBA IA para Devs (FIAP)</div><div class="fp" data-i18n="fiap_p">As quatro fases do Tech Challenge da pós em Inteligência Artificial, do fundamento de ML/Data Science à aplicação de LLMs em problemas reais.</div></div>
+      <div class="fb"><span>7IADTF1</span><span>7IADTF2</span><span>7IADTF3</span><span>7IADTF4</span></div>
+    </div>
+
+    <div class="fvid-grid">
+      <div class="fvid reveal" onclick="openVid('c_6bLf_XJ0o')"><div class="ft"><img src="assets/thumbs/yt-c_6bLf_XJ0o.jpg" alt="Tech Challenge" loading="lazy"><div class="pl"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div></div><div class="lb"><div class="ph">TECH CHALLENGE 7IADT</div><div class="nm" data-i18n="fv1">Fase 1</div></div></div>
+      <div class="fvid reveal" onclick="openVid('xBGf2iXm1b4')"><div class="ft"><img src="assets/thumbs/yt-xBGf2iXm1b4.jpg" alt="Tech Challenge" loading="lazy"><div class="pl"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div></div><div class="lb"><div class="ph">TECH CHALLENGE 7IADT</div><div class="nm" data-i18n="fv2">Fase 2</div></div></div>
+      <div class="fvid reveal" onclick="openVid('b2-e8wtJ4IY')"><div class="ft"><img src="assets/thumbs/yt-b2-e8wtJ4IY.jpg" alt="Tech Challenge" loading="lazy"><div class="pl"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div></div><div class="lb"><div class="ph">TECH CHALLENGE 7IADT</div><div class="nm" data-i18n="fv3">Fase 3</div></div></div>
+      <div class="fvid reveal" onclick="openVid('_0lmxCdlSS4')"><div class="ft"><img src="assets/thumbs/yt-_0lmxCdlSS4.jpg" alt="Tech Challenge" loading="lazy"><div class="pl"><span><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div></div><div class="lb"><div class="ph">TECH CHALLENGE 7IADT</div><div class="nm" data-i18n="fv4">Fase 4</div></div></div>
+    </div>
+    <div class="repo-grid">
+      <a class="repo glowcard reveal" href="https://github.com/marvinmvns" target="_blank" rel="noopener"><div class="rt"><span class="gi">◆</span> openfinance</div><p data-i18n="repo1">Cliente Open Finance: SQLite + Next.js + agente LLM (Ofinsan) + bot Telegram + MCP.</p><div class="meta"><span class="lang">TypeScript</span></div></a>
+      <a class="repo glowcard reveal" href="https://github.com/marvinmvns" target="_blank" rel="noopener"><div class="rt"><span class="gi">◆</span> MCPFinance</div><p data-i18n="repo2">Servidor MCP para integração de dados financeiros com agentes de IA.</p><div class="meta"><span class="lang">Python</span></div></a>
+      <a class="repo glowcard reveal" href="https://github.com/marvinmvns/atomechogptelevenlabs" target="_blank" rel="noopener"><div class="rt"><span class="gi">◆</span> atomechogptelevenlabs</div><p data-i18n="repo4">Assistente de voz standalone no M5Stack Atom Echo: fale e receba resposta por voz.</p><div class="meta"><span class="lang">C++</span></div></a>
+      <a class="repo glowcard reveal" href="https://github.com/marvinmvns" target="_blank" rel="noopener"><div class="rt"><span class="gi">◆</span> korvoAI</div><p data-i18n="repo5">Korvo V1.1 com ChatGPT — assistente de voz em placa de áudio com IA.</p><div class="meta"><span class="lang">C++</span></div></a>
+      <a class="repo glowcard reveal" href="https://github.com/marvinmvns" target="_blank" rel="noopener"><div class="rt"><span class="gi">◆</span> musicmarvin</div><p data-i18n="repo6">Cloudflare Worker: proxy de preview do Deezer para MP3 mono com cache R2.</p><div class="meta"><span class="lang">JavaScript</span></div></a>
+    </div>
+    <div style="text-align:center;margin-top:30px" class="reveal"><a href="https://github.com/marvinmvns" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="os_cta">Ver todos no GitHub →</a></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" id="depoimentos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker" data-i18n="ts_kicker">o que dizem</span><h2 data-i18n="ts_title">Liderança que o time reconhece</h2></div>
+    <div class="testi-grid">
+      <div class="testi glowcard reveal"><div class="stars">★★★★★</div><p class="tq" data-i18n="ts1_q">"Marcus é um gestor excelente, sempre preocupado com o bem-estar do time e que sabe valorizar a individualidade de cada um. Tem um conhecimento técnico incrível e está sempre perto para tirar dúvidas — tem sido um aprendizado constante trabalhar com ele."</p><div class="who"><div class="av">A</div><div><div class="nm">Airton Cordeiro</div><div class="rl" data-i18n="ts1_r">Desenvolvedor Backend · Santander · Open Finance</div></div></div></div>
+      <div class="testi glowcard reveal"><div class="stars">★★★★★</div><p class="tq" data-i18n="ts2_q">"Marvin é um gestor fantástico, faz excelente gestão de projeto e do time. Sempre apoiando a todos na parte técnica, nos estudos e nas entregas. Faz muita diferença trabalhar com um gestor como ele no dia a dia."</p><div class="who"><div class="av">D</div><div><div class="nm">Diego Sena</div><div class="rl" data-i18n="ts2_r">Software Engineer · Java · Microservices · AWS</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="sec" id="formacao" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker" data-i18n="ed_kicker">base sólida</span><h2 data-i18n="ed_title">Formação, certificações e idiomas</h2></div>
+    <div class="edu-grid">
+      <div class="edu-box glowcard reveal">
+        <h3><span class="i">◈</span> <span data-i18n="ed_form">Formação acadêmica</span></h3>
+        <div class="edu-item"><div class="elogo"><img src="assets/logos/fiap-logo.svg" alt="FIAP"></div><div class="d"><div class="t" data-i18n="ed1_t">MBA em TI — IA para Devs</div><div class="s">FIAP</div></div><div class="yr">2025</div></div>
+        <div class="edu-item"><div class="elogo"><img src="assets/logos/fgv-logo.svg" alt="FGV"></div><div class="d"><div class="t" data-i18n="ed2_t">Gestão Empresarial</div><div class="s">Fundação Getulio Vargas</div></div><div class="yr">2017</div></div>
+        <div class="edu-item"><div class="elogo"><img src="assets/logos/oswaldo-cruz-logo.svg" alt="Oswaldo Cruz"></div><div class="d"><div class="t" data-i18n="ed3_t">Tecnologia da Informação</div><div class="s">Faculdades Oswaldo Cruz</div></div><div class="yr">2009—11</div></div>
+        <div class="edu-item"><div class="elogo"><img src="assets/logos/mackenzie-logo.svg" alt="Mackenzie"></div><div class="d"><div class="t" data-i18n="ed4_t">Análise de Sistemas</div><div class="s">Universidade Mackenzie</div></div><div class="yr">2005—09</div></div>
+      </div>
+      <div class="edu-box glowcard reveal">
+        <h3><span class="i">✦</span> <span data-i18n="ed_cert">Certificações & Idiomas</span></h3>
+        <div class="edu-item"><div class="elogo"><img src="assets/icons/amazonwebservices-original-wordmark.svg" alt="AWS"></div><div class="d"><div class="t">AWS Cloud Practitioner</div><div class="s">Amazon Web Services</div></div><div class="yr">2021</div></div>
+        <div class="lang-list">
+          <div class="lang-item"><div class="top"><b data-i18n="lng_pt">Português</b><span data-i18n="lng_native">Nativo</span></div><div class="bar"><i data-w="100"></i></div></div>
+          <div class="lang-item"><div class="top"><b data-i18n="lng_en">Inglês</b><span data-i18n="lng_adv">Avançado</span></div><div class="bar"><i data-w="85"></i></div></div>
+          <div class="lang-item"><div class="top"><b data-i18n="lng_es">Espanhol</b><span data-i18n="lng_int">Intermediário</span></div><div class="bar"><i data-w="60"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec" id="contato" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <span class="kicker" data-i18n="ct_kicker">uma conversa objetiva</span>
+      <h2 data-i18n="ct_title">Se o desafio é relevante, vale colocar contexto na mesa.</h2>
+      <p data-i18n="ct_sub">Me conte onde o projeto está travado ou o que precisa ganhar escala. Em uma conversa inicial, eu ajudo a organizar o cenário e identificar o próximo passo.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/5511987415290" target="_blank" rel="noopener" class="btn btn-gold" data-i18n="ct_wpp">Chamar no WhatsApp →</a>
+        <a href="mailto:marcus@segundo.me" class="btn btn-ghost" data-i18n="ct_mail">Enviar e-mail</a>
+        <a href="assets/docs/cv-marcus-segundo.pdf" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="ct_cv">Baixar CV (PDF)</a>
+      </div>
+      <div class="cta-meta">
+        <a href="mailto:marcus@segundo.me"><span class="i">✉</span> marcus@segundo.me</a>
+        <a href="https://wa.me/5511987415290" target="_blank" rel="noopener"><span class="i">☎</span> +55 11 98741-5290</a>
+        <span><span class="i">⚲</span> <span data-i18n="ct_loc">São Paulo, Brasil</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-col">
+        <a href="#top" class="brand"><span class="logo">M</span><span>Marcus Segundo</span></a>
+        <p data-i18n="foot_p">Consultoria prática em tecnologia: arquitetura, Open Finance, Cloud, IA aplicada e execução próxima ao time.</p>
+        <div class="foot-social">
+          <a href="https://www.linkedin.com/in/marvin1986/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.1 20.45H3.54V9H7.1v11.45Z"/></svg></a>
+          <a href="https://github.com/marvinmvns" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2.23c-3.22.7-3.9-1.37-3.9-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.78 1.2 1.78 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.74-1.55-2.57-.29-5.27-1.29-5.27-5.68 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.16 1.18A10.98 10.98 0 0 1 12 6.12c.98 0 1.95.13 2.87.39 2.2-1.49 3.16-1.18 3.16-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.09 0 4.4-2.71 5.38-5.29 5.67.42.36.79 1.07.79 2.16v3.25c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .7Z"/></svg></a>
+          <a class="doguia-link" href="https://www.doguia.com.br" target="_blank" rel="noopener" title="DoguIA" aria-label="DoguIA"><img src="assets/logos/doguia-logo.svg" alt=""></a>
+          <a href="https://wa.me/5511987415290" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-.3-.15-1.26-.47-2.4-1.48a9.02 9.02 0 0 1-1.66-2.06c-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.38-.03-.53-.07-.15-.67-1.63-.92-2.23-.24-.58-.49-.5-.68-.51h-.57c-.2 0-.53.07-.8.37-.28.3-1.05 1.03-1.05 2.5 0 1.48 1.08 2.91 1.23 3.11.15.2 2.12 3.24 5.13 4.54.72.31 1.28.5 1.72.64.72.23 1.37.2 1.89.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.28-.2-.58-.35ZM12.04 21.5h-.01a9.45 9.45 0 0 1-4.82-1.32l-.35-.2-3.58.94.96-3.49-.23-.36A9.43 9.43 0 1 1 12.04 21.5Zm0-20A10.48 10.48 0 0 0 3.1 17.47L1.5 23.3l5.97-1.57A10.5 10.5 0 1 0 12.04 1.5Z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-links">
+        <div class="col"><h5 data-i18n="foot_nav">Navegação</h5>
+          <a href="#servicos" data-i18n="nav_services">Serviços</a>
+          <a href="#doguia">DoguIA</a>
+          <a href="#produtos" data-i18n="nav_products2">Produtos</a>
+          <a href="#projetos" data-i18n="nav_projects">Projetos</a>
+        </div>
+        <div class="col"><h5 data-i18n="foot_contact">Contato</h5>
+          <a href="mailto:marcus@segundo.me">marcus@segundo.me</a>
+          <a href="https://wa.me/5511987415290" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://marvinmvns.github.io/" target="_blank" rel="noopener">marvinmvns.github.io</a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">© <span id="year"></span> Marcus Segundo · <span data-i18n="foot_rights">Todos os direitos reservados.</span></div>
+  </div>
+</footer>
+
+<a class="contact-float" href="https://wa.me/5511987415290" target="_blank" rel="noopener" data-i18n="float_cta">Falar sobre um projeto</a>
+
+<div class="modal" id="modal"><div class="inner"><button class="close" onclick="closeModal()">×</button><div class="box" id="modalBox"></div></div></div>
+
+<script>
+/* ===== particle network background ===== */
+(function(){
+  const c=document.getElementById('bgcanvas'),x=c.getContext('2d');let w,h,pts,raf;
+  const N=Math.min(80,Math.floor(innerWidth/18));
+  function rs(){w=c.width=innerWidth;h=c.height=innerHeight;}
+  function init(){pts=[];for(let i=0;i<N;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4});}
+  function draw(){
+    x.clearRect(0,0,w,h);
+    for(let i=0;i<pts.length;i++){const p=pts[i];p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+      x.beginPath();x.arc(p.x,p.y,1.4,0,6.28);x.fillStyle='rgba(155,152,236,.7)';x.fill();
+      for(let j=i+1;j<pts.length;j++){const q=pts[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.hypot(dx,dy);
+        if(d<130){x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);
+          x.strokeStyle='rgba(150,150,205,'+(.12*(1-d/130))+')';x.lineWidth=1;x.stroke();}}}
+    raf=requestAnimationFrame(draw);
+  }
+  rs();init();draw();
+  addEventListener('resize',()=>{cancelAnimationFrame(raf);rs();init();draw();});
+})();
+
+/* ===== terminal typing ===== */
+(function(){
+  const el=document.getElementById('term');if(!el)return;
+  const lines=[
+    {t:'<span class="pr">$</span> whoami',d:60},
+    {t:'<span class="k">Marcus Segundo</span> — Tech Lead & Consultor',d:14},
+    {t:'<span class="pr">$</span> cat stack.txt',d:60},
+    {t:'<span class="cm"># cloud</span>   AWS · Azure · K8s · FinOps',d:14},
+    {t:'<span class="cm"># backend</span> Java · Node.js · Python',d:14},
+    {t:'<span class="cm"># ai</span>      LLM · MCP · Agentes',d:14},
+    {t:'<span class="cm"># finance</span> Open Finance · FAPI · OAuth2',d:14},
+    {t:'<span class="pr">$</span> status --now',d:60},
+    {t:'<span class="s">Senior Lead @ F1RST (Santander)</span>',d:14},
+    {t:'30+ eng · 40+ APIs · <span class="k">99,95% SLA</span>',d:14},
+    {t:'<span class="pr">$</span> <span class="cur"></span>',d:0}
+  ];
+  let i=0;
+  function next(){
+    if(i>=lines.length)return;
+    const div=document.createElement('div');el.appendChild(div);
+    const ln=lines[i];
+    const tmp=document.createElement('div');tmp.innerHTML=ln.t;const txt=tmp.textContent;
+    if(ln.d===0){div.innerHTML=ln.t;return;}
+    let k=0;
+    (function type(){
+      if(k<=txt.length){div.textContent=txt.slice(0,k);k++;setTimeout(type,ln.d);}
+      else{div.innerHTML=ln.t;i++;setTimeout(next,180);}
+    })();
+  }
+  next();
+})();
+
+/* ===== i18n ===== */
+const I18N={
+  en:{
+    nav_services:"./services",nav_about:"./approach",nav_formats:"./formats",nav_profile:"./profile",nav_products2:"./products",nav_path:"./journey",nav_projects:"Projects",nav_contact:"./contact",nav_cta:"Talk to Marcus",
+    hero_eyebrow:"Senior Technology Manager · Data, AI & Open Finance",
+    hero_title:'I lead engineering, data and AI in <span class="accent">critical production.</span>',
+    hero_sub:"Over 20 years leading teams and critical operations across Data, AI, Open Finance and Cloud. I connect strategy, technical decisions and execution for companies that need to move with clarity.",
+    hero_context1:"critical production with 99.95% SLA",hero_context2:"own product with nearly 10,000 clients",
+    hero_cta1:"Discuss a challenge →",hero_cta2:"View executive profile",
+    stat_years:"years in technology",stat_team:"engineers led",stat_clients:"critical APIs",
+    visual_kicker:"senior technology manager · data & ai",visual_role:"Data, AI, Open Finance and engineering leadership",visual_sla:"critical production",visual_team:"technical leadership",scroll_label:"explore profile",
+    trust_label:"// experience built through real operations, technology and products",
+    market_kicker:"hands-on executive profile",market_title:"Enough strategy to guide the business. Enough technical depth to join the execution.",market_sub:"My experience connects regulated environments, digital products, engineering leadership and AI experimentation. I join when a company needs better decisions and must turn direction into concrete delivery.",
+    market_label:"when to bring me in",market1_title:"Scale, reliability and critical architecture",market1_p:"To modernize systems, organize integrations and support decisions that must respect security, regulation and operational continuity.",market2_title:"Technical leadership to unblock execution",market2_p:"To turn a diffuse scenario into priorities, decision criteria and a roadmap the team can actually put into production.",market3_title:"Applied AI that leaves the lab",market3_p:"To turn AI, automation and IoT into demonstrable experiences, integrated into the business and ready to evolve beyond the first prototype.",market_proof1:"SLA in critical production",market_proof2:"cloud cost with FinOps",market_proof3:"clients on my own SaaS",market_cta1:"Talk directly →",market_cta2:"Explore cases",
+    obj_kicker:"consulting objectives",obj_title:"At every step, the project must become clearer and easier to execute.",obj_sub:"Scroll to follow the working logic. The objective is not to add ceremony: it is to reduce uncertainty and create momentum.",
+    obj_result:"result",
+    obj1_phase:"first move",obj1_title:"Understand the problem without oversimplifying it",obj1_p:"I map context, dependencies, risks, constraints and business impact. Before discussing technology, we clarify what needs to change.",obj1_d1:"current scenario",obj1_d2:"priority risks",obj1_d3:"quick wins",obj1_result:"A shared reading of the challenge and what deserves attention first.",
+    obj2_phase:"technical decision",obj2_title:"Turn complexity into direction",obj2_p:"I define architecture, priorities and trade-offs pragmatically. The solution must fit the team's context and remain healthy after delivery.",obj2_d1:"target architecture",obj2_d2:"30/60/90 roadmap",obj2_d3:"decision criteria",obj2_result:"A prioritized, defensible plan ready to guide the backlog.",
+    obj3_phase:"assisted execution",obj3_title:"Take the plan off the slide and into production",obj3_p:"I follow decisions, technical design and execution close to the team. When needed, I go into the detail of code, integration or operations.",obj3_d1:"unblocked decisions",obj3_d2:"objective rituals",obj3_d3:"observable quality",obj3_result:"Delivery moving forward with less rework and more technical confidence.",
+    obj4_phase:"sustainable evolution",obj4_title:"Leave the team more autonomous than I found it",obj4_p:"I organize metrics, useful documentation and knowledge transfer. Consulting ends with installed capability, not dependency.",obj4_d1:"metrics",obj4_d2:"lightweight governance",obj4_d3:"team autonomy",obj4_result:"A foundation that is simpler to operate, explain and evolve.",
+    fmt_kicker:"practical formats",fmt_title:"Start with the level of support the scenario requires.",fmt_sub:"Every engagement starts with context and ends with clear next steps. The format changes according to urgency and project maturity.",
+    fmt1_time:"objective immersion",fmt1_title:"Technical diagnosis",fmt1_p:"For stalled projects, pending decisions or risks that are not yet visible.",fmt1_l1:"current scenario review",fmt1_l2:"prioritized risks and bottlenecks",fmt1_l3:"initial action plan",
+    fmt2_time:"executable direction",fmt2_title:"Architecture & roadmap",fmt2_p:"To turn an opportunity or modernization effort into a plan the team can execute.",fmt2_l1:"target architecture and trade-offs",fmt2_l2:"prioritized technical backlog",fmt2_l3:"30/60/90-day roadmap",
+    fmt3_time:"hands-on execution",fmt3_title:"Technical follow-through",fmt3_p:"For teams that need senior direction during execution without creating permanent dependency.",fmt3_l1:"support for critical decisions",fmt3_l2:"mentoring and technical review",fmt3_l3:"metrics follow-through",fmt_cta:"Discuss this format →",
+    svc_kicker:"where I add the most value",svc_title:"Technical decisions with practical consequences",svc_sub:"I do not deliver recommendations alone. I organize the problem, define the path and follow the execution until the solution works in the real environment.",
+    svc1_t:"Open Finance & Insurance",svc1_p:"Consent, FAPI/OAuth 2.0, OpenID Connect, mTLS, data ingestion and regulatory compliance.",
+    svc2_t:"Cloud & Architecture",svc2_p:"Microservices, AWS/Azure/IBM Cloud, DevOps, Kubernetes, CI/CD and FinOps (-60% cloud cost).",
+    svc3_t:"Generative AI & LLM",svc3_p:"Agents, chatbots, LLM automation, MCP and AI integration into products, processes and hardware.",
+    svc4_t:"Data Engineering",svc4_p:"Data Lake, ingestion pipelines, Big Data, AWS Glue/Athena and data-driven governance.",
+    svc5_t:"Quality & Automation",svc5_p:"Test strategy and pyramid, massive automation (Selenium, Appium, RobotFramework) and CI.",
+    svc6_t:"IoT & Embedded",svc6_p:"End-to-end IoT, embedded systems, ESP32, Raspberry Pi, hardware integration and SaaS.",
+    about_kicker:"who joins the project",about_title:"I am not a slide-deck consultant. I stay close to the architecture, the code and the operation.",
+    about_p1:"My career was built in environments where reliability is not a detail. Today I am Senior Lead at F1RST Digital Services, Santander's technology arm, leading 30+ engineers and sustaining 40+ Open Finance and Open Insurance APIs with <strong>99.95% SLA in production</strong>.",
+    about_p2:"Before that, I spent 10 years at Itaú and built FastrackGPS, a tracking SaaS that reached nearly 10,000 clients. This mix of enterprise experience, product ownership and technical execution helps me separate trends from useful solutions.",
+    pill1_t:"Decisions with context",pill1_p:"Technology connected to business, risk and regulation.",
+    pill2_t:"Truly hands-on",pill2_p:"Architecture and code when the problem requires depth.",
+    pill3_t:"Teams that deliver",pill3_p:"Technical direction, mentoring and cadence to move forward.",
+    pill4_t:"Product in practice",pill4_p:"Experience from someone who also launches, runs and evolves products.",
+    case_kicker:"featured case",case_title:"FinOps in banking production: -60% cloud cost, without touching the SLA",case_sub:"Technical and people leadership applied to a real problem of cost, risk and scale.",
+    case_l1:"context",case_l2:"action",case_l3:"result",
+    case_p1:"A squad sustaining 40+ Open Finance and Insurance APIs in production at 99.95% SLA. Cloud cost was growing faster than the operation, with no clear visibility into where.",
+    case_p2:"I ran end-to-end FinOps: rightsizing, chargeback/showback, usage review and cost observability — aligning engineering, security and product, without compromising SLA or compliance.",
+    case_p3:"Up to 60% reduction in the team's base cloud cost, with SLA preserved at 99.95% and more predictability. Metrics and knowledge transferred so the team keeps evolving.",
+    case_m1:"base cloud cost",case_m2:"SLA preserved",case_m3:"APIs in production",
+    dog_badge:"Applied engineering · Hardware + local AI",dog_title:"— a robotic base expanded to talk, react and evolve",
+    dog_lead:"The project starts from a Chinese robotic model and evolves far beyond the original hardware. The platform combines local AI, voice, movements, lights and automations to create thousands of interaction possibilities.",
+    dog_s1:"Movements",dog_s2:"MCP skills",dog_s3:"Local",dog_s4:"Combinations",
+    dog_cta1:"Visit doguia.com.br →",dog_cta2:"Open interactive demo",dog_watch:"▶ Watch video",dog_live:"DoguIA in action",dog_demo_hint:"live demo",dog_demo_kicker:"interactive experience",dog_demo_title:"Click to talk to DoguIA",
+    dog_origin_kicker:"from the base to the evolved product",dog_origin:"The starting point was an existing Chinese platform. The work lies in its evolution: expanded firmware, new integrations, locally executed AI and an extensible skill layer that turns the robot into a distinct experience.",dog_origin1:"Chinese robotic<br>base",dog_origin2:"expanded firmware<br>and features",dog_origin3:"platform with<br>local AI",
+    df1_t:"Local embedded AI",df1_p:"The intelligent layer runs close to the hardware, reducing external dependency and enabling faster responses and automations.",
+    df2_t:"Multimodal interaction",df2_p:"Voice, movements, lights and reactions work together. Behavior changes according to the conversation context.",
+    df3_t:"Thousands of possibilities",df3_p:"The combination of skills, commands, choreographies and replies creates a varied and extensible experience.",
+    df4_t:"47 skills via MCP",df4_p:"Each skill works as a tool that AI can activate and combine during an interaction.",
+    df5_t:"50+ coordinated movements",df5_p:"From simple gestures to choreographies, the firmware controls movements and reactions in an integrated way.",
+    df6_t:"Open platform built to evolve",df6_p:"The architecture supports new behaviors, integrations and experiences without limiting the project to the original model.",
+    sp_audio:"Audio",sp_audio_v:"Microphone + Speaker",sp_servo_v:"4x · 50+ movements",sp_led_v:"4x RGB · 18 effects",sp_proto:"Protocol",sp_fw_v:"Evolved XiaoZhi base",sp_ctrl:"Control",sp_ctrl_v:"Voice + WebUI (no app)",
+    prd_kicker:"product in operation",prd_title:"FastrackGPS + LocalizaAuto: from the original SaaS to today's platform",prd_sub:"The experience started with FastrackGPS and evolved into LocalizaAuto: tracking, field operations and digital product connected in a continuous journey.",
+    prd_live:"live",
+    prd1_p:"FastrackGPS started as a complete vehicle-tracking operation and reached nearly 10,000 clients. The experience evolved into LocalizaAuto, with an updated platform for following vehicles, accounts and operational routines in real time.",
+    prd1_l1:"Open platform →",
+    loc_kicker:"platform evolution",loc_p:"A renewed tracking experience, with web and mobile operations connected to the product's real use.",loc_watch:"Watch demo →",
+    loc_proof_kicker:"features demonstrated in the video",loc_f1_t:"Administrative management",loc_f1_p:"Web dashboard for users, devices and operational links.",loc_f2_t:"Detailed vehicle registration",loc_f2_p:"Tracker and vehicle data such as plate, make, model and identification.",loc_f3_t:"Fleet monitoring",loc_f3_p:"Device status, last update and position centralized in one place.",loc_f4_t:"Mobile map",loc_f4_p:"Vehicle location, detail view and map controls on mobile.",
+    exp_kicker:"technical mastery",exp_title:"Technical depth to talk to the business and the code",exp_sub:"Over 20 years of market experience — from regulated banking to my own product — with technical depth spanning cloud and data, generative AI and embedded hardware.",
+    exp_c1:"Cloud, Data & Infra",exp_c2:"Development",exp_c3:"Applied AI",exp_c4:"Hardware & Maker",mx_kicker:"market experience · 20+ years",
+    srv1_t:"Architecture for critical decisions",srv1_s:"Technical Advisory",srv1_p:"When a project is stuck or the design must support scale, security and regulation, I expose risks, define priorities and build an executable roadmap.",
+    srv2_t:"Modernization without interrupting operations",srv2_s:"Software Engineering",srv2_p:"I work close to the code and the team to evolve APIs, microservices and integrations with production-grade quality, observability and security.",
+    srv3_t:"Applied AI with a working product",srv3_s:"Solution Engineering",srv3_p:"I turn AI, LLMs, automation and IoT into usable solutions. From the first prototype to deployment, integrated into the business.",
+    srv4_t:"Technical leadership at decisive moments",srv4_s:"Tech Lead as a Service",srv4_p:"I step in to provide direction, organize decisions and elevate the team's execution. With context, mentoring and responsibility for results.",
+    stack_lbl:"// the stack I use every day",
+    off_kicker:"let's build together",off_title:"Solutions, AI automations and knowledge sharing",off_sub:"From custom software to a quick chat to unblock your team — pick the kind of help that makes sense now.",
+    of1_t:"Custom solutions",of1_p:"Software built for your real problem, from MVP to production deployment.",
+    of2_t:"AI automations",of2_p:"I automate processes and workflows with LLMs, agents and MCP. Less manual work, more results.",
+    of3_t:"Frameworks & accelerators",of3_p:"Reusable foundations and patterns that speed up your team's delivery.",
+    of4_t:"Integrations & APIs",of4_p:"I connect systems, data and services with APIs and integrations that reach production.",
+    of5_t:"A chat to unblock you",of5_p:"An objective conversation to answer questions, guide decisions and unblock the project.",
+    of6_t:"Sharing knowledge",of6_p:"Mentoring, workshops and training in AI, Data, Cloud and Open Finance for the team.",
+    off_cta:"Let's talk →",
+    tl_kicker:"professional journey",tl_title:"Two decades building technology",tl_sub:"From mainframe to generative AI, from code to leadership and entrepreneurship.",
+    tl1_role:"Senior Lead / IT Lead",tl1_p:"I lead a squad of 30+ engineers sustaining 40+ APIs at 99.95% SLA across Open Finance and Open Insurance. FAPI/OAuth, Data Lake, FinOps (-60% cloud cost) and applied Generative AI.",
+    tl2_role:"Engineering Coordinator / QA Specialist",tl2_p:"10 years at Itaú. Chapter Lead in the Finance Community, leading the IFRS 17 cell with 30 people. Test-automation coordination for Checking Accounts, Payments and Loans.",
+    tl3_role:"Founder & CTO",tl3_co:"FastrackGPS · SaaS / IoT",tl3_p:"Founded and ran for 13 years a vehicle-tracking SaaS that reached nearly 10,000 active clients. IoT development, GPS integration, and technical & commercial team management.",
+    tl4_role:"Chief Technology Officer (CTO)",tl4_co:"Harlio Bots · AI Chatbots",tl4_p:"We built virtual assistants on Slack, Messenger, Telegram and Web using AI for global clients, including Time Warner.",
+    tl5_role:"Software Developer",tl5_co:"IBM · Mainframe & Corporate Systems",tl5_p:"Programmer-analyst on projects for Itaú, TAM and Telefônica. Mainframe (Cobol, CICS, DB2), Oracle/PL-SQL, performance analysis and software support.",
+    b_sla:"SLA in production",b_apis:"APIs sustained",b_cost:"cloud cost (FinOps)",b_clients:"clients on my own SaaS",
+    pj_kicker:"portfolio",pj_title:"Projects I've built",pj_sub:"Click the video cards to watch. From embedded AI to augmented reality and IoT at scale.",
+    pj1_t:"Marvin — Llama-powered Robot",pj1_p:"3D-printed robot running Llama 2 on a Raspberry Pi, with offline hotword (Porcupine), Vosk and ElevenLabs voice. 93 reactions on LinkedIn.",
+    pj2_t:"FastrackGPS — Vehicle Tracking",pj2_p:"Complete SaaS tracking platform with interactive map, Android app and GPS hardware. ~10,000 clients.",
+    pj3_t:"Harlio — AI ChatBot Platform",pj3_p:"AI virtual assistants for Slack, Messenger, Telegram and Web. Global clients, including Time Warner.",
+    pj4_tag:"Augmented Reality",pj4_t:"SVDMP-RA — AR for Furniture",pj4_p:"Augmented-reality proof of concept for visualizing custom furniture, exploring AR/VR engines.",
+    pj5_t:"ATOM Echo — Coin-sized Voice",pj5_p:"A full voice assistant on a coin-sized ESP32: transcription, ChatGPT and ElevenLabs in a wearable.",
+    link_code:"Code →",link_demo:"Platform →",link_app:"App →",link_more:"Learn more →",
+    os_kicker:"open lab",os_title:"Open source, FIAP & continuous experimentation",os_sub:"Technology is my greatest fuel. I'm always building — from AI Tech Challenges at FIAP to LLM agents, MCP and embedded voice.",
+    fiap_t:"🎓 Tech Challenges — MBA in AI for Devs (FIAP)",fiap_p:"The four phases of the AI postgrad Tech Challenge, from ML/Data Science foundations to applying LLMs to real problems.",fv1:"Phase 1",fv2:"Phase 2",fv3:"Phase 3",fv4:"Phase 4",
+    repo1:"Open Finance client: SQLite + Next.js + LLM agent (Ofinsan) + Telegram bot + MCP.",
+    repo2:"MCP server for integrating financial data with AI agents.",
+    repo4:"Standalone voice assistant on M5Stack Atom Echo: speak and get a voice reply.",
+    repo5:"Korvo V1.1 with ChatGPT — voice assistant on an AI audio board.",
+    repo6:"Cloudflare Worker: Deezer preview proxy to mono MP3 with R2 cache.",
+    os_cta:"See all on GitHub →",
+    ts_kicker:"what they say",ts_title:"Leadership the team recognizes",
+    ts1_q:'"Marcus is an excellent manager, always caring about the team\'s well-being and valuing each person\'s individuality. He has incredible technical knowledge and is always close to help — working with him has been constant learning."',
+    ts1_r:"Backend Developer · Santander · Open Finance",
+    ts2_q:'"Marvin is a fantastic manager, with excellent project and team management. Always supporting everyone technically, in their studies and deliveries. It makes a huge difference to work with a manager like him every day."',
+    ts2_r:"Software Engineer · Java · Microservices · AWS",
+    pr_kicker:"how I work",pr_title:"From a confusing problem to an executable next step",
+    pr1_t:"Context before solutions",pr1_p:"I understand the business, risk, operation and what is blocking progress.",
+    pr2_t:"Choices with criteria",pr2_p:"I turn complexity into architecture, priorities and clear decisions.",
+    pr3_t:"Followed-through execution",pr3_p:"I work close to the team to get the plan off the page with quality.",
+    pr4_t:"Autonomy to evolve",pr4_p:"I leave knowledge, metrics and a sustainable path for the team.",
+    ed_kicker:"solid foundation",ed_title:"Education, certifications and languages",ed_form:"Academic background",ed_cert:"Certifications & Languages",
+    ed1_t:"MBA in IT — AI for Devs",ed2_t:"Business Management",ed3_t:"Information Technology",ed4_t:"Systems Analysis",
+    lng_pt:"Portuguese",lng_en:"English",lng_es:"Spanish",lng_native:"Native",lng_adv:"Advanced",lng_int:"Intermediate",
+    ct_kicker:"an objective conversation",ct_title:"If the challenge matters, it is worth putting the context on the table.",ct_sub:"Tell me where the project is stuck or what needs to scale. In an initial conversation, I help organize the scenario and identify the next step.",
+    ct_wpp:"Message on WhatsApp →",ct_mail:"Send email",ct_cv:"Download CV (PDF)",ct_loc:"São Paulo, Brazil",float_cta:"Discuss a project",
+    foot_p:"Practical technology consulting: architecture, Open Finance, Cloud, applied AI and execution close to the team.",
+    foot_nav:"Navigation",foot_contact:"Contact",foot_rights:"All rights reserved."
+  },
+  es:{
+    nav_services:"./servicios",nav_about:"./abordaje",nav_formats:"./formatos",nav_profile:"./perfil",nav_products2:"./productos",nav_path:"./trayectoria",nav_projects:"Proyectos",nav_contact:"./contacto",nav_cta:"Hablar con Marcus",
+    hero_eyebrow:"Gerente Sénior de Tecnología · Data, AI & Open Finance",
+    hero_title:'Lidero ingeniería, datos e IA en <span class="accent">producción crítica.</span>',
+    hero_sub:"Más de 20 años liderando equipos y operación crítica en Data, IA, Open Finance y Cloud. Conecto estrategia, decisiones técnicas y ejecución para empresas que necesitan avanzar con claridad.",
+    hero_context1:"producción crítica con 99,95% de SLA",hero_context2:"producto propio con casi 10.000 clientes",
+    hero_cta1:"Conversar sobre un desafío →",hero_cta2:"Ver perfil ejecutivo",
+    stat_years:"años en tecnología",stat_team:"ingenieros liderados",stat_clients:"APIs críticas",
+    visual_kicker:"gerente sénior de tecnología · data & ai",visual_role:"Data, IA, Open Finance y liderazgo de ingeniería",visual_sla:"producción crítica",visual_team:"liderazgo técnico",scroll_label:"explorar perfil",
+    trust_label:"// experiencia construida en operación real, tecnología y producto",
+    market_kicker:"perfil ejecutivo hands-on",market_title:"Estrategia suficiente para orientar el negocio. Profundidad técnica para entrar en la ejecución.",market_sub:"Mi experiencia conecta entornos regulados, producto digital, liderazgo de ingeniería y experimentación con IA. Entro cuando la empresa necesita tomar mejores decisiones y transformar dirección en entrega concreta.",
+    market_label:"cuándo vale llamarme",market1_title:"Escala, confiabilidad y arquitectura crítica",market1_p:"Para modernizar sistemas, organizar integraciones y sostener decisiones que deben respetar seguridad, regulación y continuidad operativa.",market2_title:"Liderazgo técnico para destrabar la ejecución",market2_p:"Para transformar un escenario difuso en prioridades, criterios de decisión y un roadmap que el equipo realmente pueda poner en producción.",market3_title:"IA aplicada que sale del laboratorio",market3_p:"Para convertir IA, automatización e IoT en experiencias demostrables, integradas al negocio y listas para evolucionar más allá del primer prototipo.",market_proof1:"SLA en producción crítica",market_proof2:"costo cloud con FinOps",market_proof3:"clientes en SaaS propio",market_cta1:"Conversar directamente →",market_cta2:"Explorar casos",
+    obj_kicker:"objetivos de la consultoría",obj_title:"En cada etapa, el proyecto debe quedar más claro y más ejecutable.",obj_sub:"Desplázate para seguir la lógica del trabajo. El objetivo no es agregar ceremonia: es reducir incertidumbre y crear movimiento.",
+    obj_result:"resultado",
+    obj1_phase:"primer movimiento",obj1_title:"Entender el problema sin simplificar demasiado",obj1_p:"Mapeo contexto, dependencias, riesgos, restricciones e impacto en el negocio. Antes de hablar de tecnología, aclaramos qué debe cambiar.",obj1_d1:"escenario actual",obj1_d2:"riesgos prioritarios",obj1_d3:"quick wins",obj1_result:"Una lectura compartida del desafío y de lo que merece atención primero.",
+    obj2_phase:"decisión técnica",obj2_title:"Transformar complejidad en dirección",obj2_p:"Defino arquitectura, prioridades y trade-offs con pragmatismo. La solución debe adaptarse al contexto del equipo y mantenerse saludable después de la entrega.",obj2_d1:"arquitectura objetivo",obj2_d2:"roadmap 30/60/90",obj2_d3:"criterios de decisión",obj2_result:"Un plan priorizado, defendible y listo para orientar el backlog.",
+    obj3_phase:"ejecución asistida",obj3_title:"Sacar el plan de la presentación y llevarlo a producción",obj3_p:"Acompaño decisiones, diseño técnico y ejecución cerca del equipo. Cuando hace falta, entro en el detalle del código, la integración o la operación.",obj3_d1:"decisiones destrabadas",obj3_d2:"rituales objetivos",obj3_d3:"calidad observable",obj3_result:"Entregas avanzando con menos retrabajo y más confianza técnica.",
+    obj4_phase:"evolución sostenible",obj4_title:"Dejar al equipo más autónomo de como lo encontré",obj4_p:"Organizo métricas, documentación útil y transferencia de conocimiento. La consultoría termina con capacidad instalada, no con dependencia.",obj4_d1:"métricas",obj4_d2:"gobernanza ligera",obj4_d3:"autonomía del equipo",obj4_result:"Una base más simple de operar, explicar y evolucionar.",
+    fmt_kicker:"formatos prácticos",fmt_title:"Comienza por el nivel de apoyo que pide el escenario.",fmt_sub:"Cada trabajo comienza con contexto y termina con próximos pasos claros. El formato cambia según la urgencia y la madurez del proyecto.",
+    fmt1_time:"inmersión objetiva",fmt1_title:"Diagnóstico técnico",fmt1_p:"Para proyectos trabados, decisiones pendientes o riesgos que todavía no son visibles.",fmt1_l1:"lectura del escenario actual",fmt1_l2:"riesgos y cuellos de botella priorizados",fmt1_l3:"plan inicial de acción",
+    fmt2_time:"dirección ejecutable",fmt2_title:"Arquitectura & roadmap",fmt2_p:"Para transformar una oportunidad o modernización en un plan que el equipo puede ejecutar.",fmt2_l1:"arquitectura objetivo y trade-offs",fmt2_l2:"backlog técnico priorizado",fmt2_l3:"roadmap de 30/60/90 días",
+    fmt3_time:"ejecución hands-on",fmt3_title:"Acompañamiento técnico",fmt3_p:"Para equipos que necesitan dirección sénior durante la ejecución sin crear dependencia permanente.",fmt3_l1:"apoyo a decisiones críticas",fmt3_l2:"mentoría y revisión técnica",fmt3_l3:"seguimiento de métricas",fmt_cta:"Conversar sobre este formato →",
+    svc_kicker:"dónde genero más valor",svc_title:"Decisiones técnicas con consecuencias prácticas",svc_sub:"No entrego solo recomendaciones. Organizo el problema, defino el camino y acompaño la ejecución hasta que la solución funcione en el entorno real.",
+    svc1_t:"Open Finance & Insurance",svc1_p:"Consentimiento, FAPI/OAuth 2.0, OpenID Connect, mTLS, ingesta de datos y cumplimiento regulatorio.",
+    svc2_t:"Cloud & Arquitectura",svc2_p:"Microservicios, AWS/Azure/IBM Cloud, DevOps, Kubernetes, CI/CD y FinOps (-60% costo cloud).",
+    svc3_t:"IA Generativa & LLM",svc3_p:"Agentes, chatbots, automatización con LLM, MCP e integración de IA en productos, procesos y hardware.",
+    svc4_t:"Ingeniería de Datos",svc4_p:"Data Lake, pipelines de ingesta, Big Data, AWS Glue/Athena y gobernanza basada en datos.",
+    svc5_t:"Calidad & Automatización",svc5_p:"Estrategia y pirámide de pruebas, automatización masiva (Selenium, Appium, RobotFramework) y CI.",
+    svc6_t:"IoT & Embebidos",svc6_p:"IoT de punta a punta, sistemas embebidos, ESP32, Raspberry Pi, integración de hardware y SaaS.",
+    about_kicker:"quién entra al proyecto",about_title:"No soy consultor de presentaciones. Sigo cerca de la arquitectura, el código y la operación.",
+    about_p1:"Mi carrera se construyó en entornos donde la confiabilidad no es un detalle. Hoy soy Senior Lead en F1RST Digital Services, brazo tecnológico del Santander, liderando 30+ ingenieros y sosteniendo 40+ APIs de Open Finance y Open Insurance con <strong>99,95% de SLA en producción</strong>.",
+    about_p2:"Antes, pasé 10 años en Itaú y construí FastrackGPS, un SaaS de rastreo que llegó a casi 10.000 clientes. Esta combinación de gran empresa, producto propio y ejecución técnica me ayuda a separar tendencias de soluciones útiles.",
+    pill1_t:"Decisiones con contexto",pill1_p:"Tecnología conectada con negocio, riesgo y regulación.",
+    pill2_t:"Hands-on de verdad",pill2_p:"Arquitectura y código cuando el problema requiere profundidad.",
+    pill3_t:"Equipos que entregan",pill3_p:"Dirección técnica, mentoría y cadencia para avanzar.",
+    pill4_t:"Producto en la práctica",pill4_p:"Experiencia de quien también lanza, opera y evoluciona productos.",
+    case_kicker:"case destacado",case_title:"FinOps en producción bancaria: -60% de costo cloud, sin tocar el SLA",case_sub:"Liderazgo técnico y de personas aplicado a un problema real de costo, riesgo y escala.",
+    case_l1:"contexto",case_l2:"acción",case_l3:"resultado",
+    case_p1:"Un squad sosteniendo 40+ APIs de Open Finance e Insurance en producción a 99,95% de SLA. El costo de cloud crecía más rápido que la operación, sin visibilidad clara de dónde.",
+    case_p2:"Conduje FinOps de punta a punta: rightsizing, chargeback/showback, revisión de uso y observabilidad de costo — alineando ingeniería, seguridad y producto, sin comprometer SLA ni cumplimiento.",
+    case_p3:"Reducción de hasta 60% del costo base de cloud del equipo, con el SLA preservado en 99,95% y más previsibilidad. Indicadores y conocimiento transferidos para que el equipo siga evolucionando.",
+    case_m1:"costo base de cloud",case_m2:"SLA preservado",case_m3:"APIs en producción",
+    dog_badge:"Ingeniería aplicada · Hardware + IA local",dog_title:"— una base robótica ampliada para conversar, reaccionar y evolucionar",
+    dog_lead:"El proyecto parte de un modelo robótico chino y evoluciona mucho más allá del hardware original. La plataforma combina IA local, voz, movimientos, luces y automatizaciones para crear miles de posibilidades de interacción.",
+    dog_s1:"Movimientos",dog_s2:"Habilidades MCP",dog_s3:"Local",dog_s4:"Combinaciones",
+    dog_cta1:"Visitar doguia.com.br →",dog_cta2:"Abrir demo interactiva",dog_watch:"▶ Ver video",dog_live:"DoguIA en acción",dog_demo_hint:"demo en vivo",dog_demo_kicker:"experiencia interactiva",dog_demo_title:"Haz clic para conversar con DoguIA",
+    dog_origin_kicker:"de la base al producto evolucionado",dog_origin:"El punto de partida fue una plataforma china existente. El trabajo está en la evolución: firmware ampliado, nuevas integraciones, IA ejecutada localmente y una capa extensible de habilidades que transforma el robot en una experiencia propia.",dog_origin1:"base robótica<br>china",dog_origin2:"firmware y recursos<br>ampliados",dog_origin3:"plataforma con<br>IA local",
+    df1_t:"IA local y embebida",df1_p:"La capa inteligente se ejecuta cerca del hardware, reduce la dependencia externa y permite respuestas y automatizaciones más rápidas.",
+    df2_t:"Interacción multimodal",df2_p:"Voz, movimientos, luces y reacciones trabajan juntos. El comportamiento cambia según el contexto de la conversación.",
+    df3_t:"Miles de posibilidades",df3_p:"La combinación de habilidades, comandos, coreografías y respuestas crea una experiencia variada y extensible.",
+    df4_t:"47 habilidades vía MCP",df4_p:"Cada habilidad funciona como una herramienta que la IA puede activar y combinar durante la interacción.",
+    df5_t:"50+ movimientos coordinados",df5_p:"De gestos simples a coreografías, el firmware controla movimientos y reacciones de forma integrada.",
+    df6_t:"Plataforma abierta para evolucionar",df6_p:"La arquitectura permite agregar comportamientos, integraciones y nuevas experiencias sin limitar el proyecto al modelo original.",
+    sp_audio:"Audio",sp_audio_v:"Micrófono + Speaker",sp_servo_v:"4x · 50+ movimientos",sp_led_v:"4x RGB · 18 efectos",sp_proto:"Protocolo",sp_fw_v:"Base XiaoZhi evolucionada",sp_ctrl:"Control",sp_ctrl_v:"Voz + WebUI (sin app)",
+    prd_kicker:"producto en operación",prd_title:"FastrackGPS + LocalizaAuto: del SaaS original a la plataforma actual",prd_sub:"La experiencia comenzó con FastrackGPS y evolucionó hacia LocalizaAuto: rastreo, operación en campo y producto digital conectados en una trayectoria continua.",
+    prd_live:"en vivo",
+    prd1_p:"FastrackGPS nació como una operación completa de rastreo vehicular y llegó a casi 10.000 clientes. La experiencia evolucionó hacia LocalizaAuto, con una plataforma actualizada para acompañar vehículos, cuentas y rutinas operativas en tiempo real.",
+    prd1_l1:"Plataforma abierta →",
+    loc_kicker:"evolución de la plataforma",loc_p:"Una experiencia renovada de rastreo, con operación web y mobile conectada al uso real del producto.",loc_watch:"Ver demostración →",
+    loc_proof_kicker:"funcionalidades demostradas en el video",loc_f1_t:"Gestión administrativa",loc_f1_p:"Panel web para usuarios, dispositivos y vínculos operativos.",loc_f2_t:"Registro vehicular detallado",loc_f2_p:"Datos del rastreador y del vehículo, como placa, marca, modelo e identificación.",loc_f3_t:"Monitoreo de flota",loc_f3_p:"Estado de dispositivos, última actualización y posición centralizados.",loc_f4_t:"Mapa mobile",loc_f4_p:"Ubicación del vehículo, visualización de detalles y controles de mapa en el celular.",
+    exp_kicker:"dominio técnico",exp_title:"Profundidad técnica para hablar con el negocio y con el código",exp_sub:"Más de 20 años de experiencia de mercado — del sector bancario regulado a producto propio — con profundidad técnica que va de cloud y datos a IA generativa y hardware embebido.",
+    exp_c1:"Cloud, Datos & Infra",exp_c2:"Desarrollo",exp_c3:"IA Aplicada",exp_c4:"Hardware & Maker",mx_kicker:"experiencia de mercado · 20+ años",
+    srv1_t:"Arquitectura para decisiones críticas",srv1_s:"Technical Advisory",srv1_p:"Cuando el proyecto se trabó o el diseño debe soportar escala, seguridad y regulación, expongo riesgos, defino prioridades y construyo un roadmap ejecutable.",
+    srv2_t:"Modernización sin interrumpir la operación",srv2_s:"Software Engineering",srv2_p:"Trabajo cerca del código y del equipo para evolucionar APIs, microservicios e integraciones con calidad, observabilidad y seguridad para producción.",
+    srv3_t:"IA aplicada con producto funcionando",srv3_s:"Solution Engineering",srv3_p:"Transformo IA, LLM, automatización e IoT en soluciones utilizables. Del primer prototipo al deploy, con integración real al negocio.",
+    srv4_t:"Liderazgo técnico en momentos decisivos",srv4_s:"Tech Lead as a Service",srv4_p:"Entro para dar dirección, organizar decisiones y elevar la ejecución del equipo. Con contexto, mentoría y responsabilidad por el resultado.",
+    stack_lbl:"// el stack que uso cada día",
+    off_kicker:"construyamos juntos",off_title:"Soluciones, automatizaciones con IA e intercambio de conocimiento",off_sub:"De software a medida a una charla rápida para destrabar a tu equipo — elige el tipo de ayuda que tiene sentido ahora.",
+    of1_t:"Soluciones a medida",of1_p:"Software construido para tu problema real, del MVP al deploy en producción.",
+    of2_t:"Automatizaciones con IA",of2_p:"Automatizo procesos y flujos con LLMs, agentes y MCP. Menos trabajo manual, más resultado.",
+    of3_t:"Frameworks & aceleradores",of3_p:"Bases reutilizables y patrones que aceleran la entrega de tu equipo.",
+    of4_t:"Integraciones & APIs",of4_p:"Conecto sistemas, datos y servicios con APIs e integraciones que llegan a producción.",
+    of5_t:"Una charla para destrabar",of5_p:"Una conversación objetiva para resolver dudas, orientar decisiones y desbloquear el proyecto.",
+    of6_t:"Compartir conocimiento",of6_p:"Mentoría, workshops y capacitaciones en IA, Data, Cloud y Open Finance para el equipo.",
+    off_cta:"Hablemos →",
+    tl_kicker:"trayectoria profesional",tl_title:"Dos décadas construyendo tecnología",tl_sub:"De mainframe a IA generativa, del código al liderazgo y al emprendimiento.",
+    tl1_role:"Senior Lead / IT Lead",tl1_p:"Lidero un squad de 30+ ingenieros que sostiene 40+ APIs a 99,95% de SLA en Open Finance y Open Insurance. FAPI/OAuth, Data Lake, FinOps (-60% costo cloud) e IA Generativa aplicada.",
+    tl2_role:"Coordinador de Ingeniería / Especialista QA",tl2_p:"10 años en Itaú. Chapter Lead en la Comunidad de Finanzas, liderando la célula de IFRS 17 con 30 personas. Coordinación de automatización de pruebas para Cuenta Corriente, Pagos y Préstamos.",
+    tl3_role:"Fundador & CTO",tl3_co:"FastrackGPS · SaaS / IoT",tl3_p:"Fundé y operé por 13 años un SaaS de rastreo vehicular que llegó a casi 10.000 clientes activos. Desarrollo IoT, integración GPS y gestión de equipo técnico y comercial.",
+    tl4_role:"Chief Technology Officer (CTO)",tl4_co:"Harlio Bots · Chatbots con IA",tl4_p:"Creamos asistentes virtuales en Slack, Messenger, Telegram y Web usando IA para clientes globales, incluida Time Warner.",
+    tl5_role:"Desarrollador de Software",tl5_co:"IBM · Mainframe & Sistemas Corporativos",tl5_p:"Analista programador en proyectos para Itaú, TAM y Telefónica. Mainframe (Cobol, CICS, DB2), Oracle/PL-SQL, análisis de rendimiento y soporte de software.",
+    b_sla:"de SLA en producción",b_apis:"APIs sostenidas",b_cost:"costo cloud (FinOps)",b_clients:"clientes en SaaS propio",
+    pj_kicker:"portafolio",pj_title:"Proyectos que construí",pj_sub:"Haz clic en las tarjetas con video para ver. De la IA embebida a la realidad aumentada y al IoT a escala.",
+    pj1_t:"Marvin — Robot con Llama",pj1_p:"Robot impreso en 3D corriendo Llama 2 en Raspberry Pi, con hotword offline (Porcupine), Vosk y voz ElevenLabs. 93 reacciones en LinkedIn.",
+    pj2_t:"FastrackGPS — Rastreo Vehicular",pj2_p:"Plataforma SaaS completa de rastreo con mapa interactivo, app Android y hardware GPS. ~10.000 clientes.",
+    pj3_t:"Harlio — Plataforma de ChatBots",pj3_p:"Asistentes virtuales con IA para Slack, Messenger, Telegram y Web. Clientes globales, incluida Time Warner.",
+    pj4_tag:"Realidad Aumentada",pj4_t:"SVDMP-RA — RA para Muebles",pj4_p:"Prueba de concepto de realidad aumentada para visualizar muebles a medida, explorando engines de AR/VR.",
+    pj5_t:"ATOM Echo — Voz del Tamaño de una Moneda",pj5_p:"Un asistente de voz completo en un ESP32 del tamaño de una moneda: transcripción, ChatGPT y ElevenLabs en un wearable.",
+    link_code:"Código →",link_demo:"Plataforma →",link_app:"App →",link_more:"Saber más →",
+    os_kicker:"laboratorio abierto",os_title:"Open source, FIAP & experimentación continua",os_sub:"La tecnología es mi mayor combustible. Siempre estoy construyendo — de Tech Challenges de IA en FIAP a agentes LLM, MCP y voz embebida.",
+    fiap_t:"🎓 Tech Challenges — MBA IA para Devs (FIAP)",fiap_p:"Las cuatro fases del Tech Challenge del posgrado en Inteligencia Artificial, del fundamento de ML/Data Science a la aplicación de LLMs en problemas reales.",fv1:"Fase 1",fv2:"Fase 2",fv3:"Fase 3",fv4:"Fase 4",
+    repo1:"Cliente Open Finance: SQLite + Next.js + agente LLM (Ofinsan) + bot Telegram + MCP.",
+    repo2:"Servidor MCP para integración de datos financieros con agentes de IA.",
+    repo4:"Asistente de voz standalone en M5Stack Atom Echo: habla y recibe respuesta por voz.",
+    repo5:"Korvo V1.1 con ChatGPT — asistente de voz en placa de audio con IA.",
+    repo6:"Cloudflare Worker: proxy de preview de Deezer a MP3 mono con caché R2.",
+    os_cta:"Ver todos en GitHub →",
+    ts_kicker:"lo que dicen",ts_title:"Liderazgo que el equipo reconoce",
+    ts1_q:'"Marcus es un gestor excelente, siempre preocupado por el bienestar del equipo y que sabe valorar la individualidad de cada uno. Tiene un conocimiento técnico increíble y siempre está cerca para resolver dudas — trabajar con él ha sido un aprendizaje constante."',
+    ts1_r:"Desarrollador Backend · Santander · Open Finance",
+    ts2_q:'"Marvin es un gestor fantástico, hace excelente gestión de proyecto y de equipo. Siempre apoyando a todos en lo técnico, en los estudios y en las entregas. Hace mucha diferencia trabajar con un gestor como él en el día a día."',
+    ts2_r:"Software Engineer · Java · Microservices · AWS",
+    pr_kicker:"cómo trabajo",pr_title:"Del problema confuso al próximo paso ejecutable",
+    pr1_t:"Contexto antes de la solución",pr1_p:"Entiendo el negocio, el riesgo, la operación y qué está impidiendo avanzar.",
+    pr2_t:"Elecciones con criterio",pr2_p:"Transformo complejidad en arquitectura, prioridades y decisiones claras.",
+    pr3_t:"Ejecución acompañada",pr3_p:"Trabajo cerca del equipo para sacar el plan del papel con calidad.",
+    pr4_t:"Autonomía para evolucionar",pr4_p:"Dejo conocimiento, métricas y un camino sostenible para el equipo.",
+    ed_kicker:"base sólida",ed_title:"Formación, certificaciones e idiomas",ed_form:"Formación académica",ed_cert:"Certificaciones & Idiomas",
+    ed1_t:"MBA en TI — IA para Devs",ed2_t:"Gestión Empresarial",ed3_t:"Tecnología de la Información",ed4_t:"Análisis de Sistemas",
+    lng_pt:"Portugués",lng_en:"Inglés",lng_es:"Español",lng_native:"Nativo",lng_adv:"Avanzado",lng_int:"Intermedio",
+    ct_kicker:"una conversación objetiva",ct_title:"Si el desafío es relevante, vale la pena poner el contexto sobre la mesa.",ct_sub:"Cuéntame dónde está trabado el proyecto o qué necesita ganar escala. En una conversación inicial, ayudo a organizar el escenario e identificar el próximo paso.",
+    ct_wpp:"Escribir por WhatsApp →",ct_mail:"Enviar email",ct_cv:"Descargar CV (PDF)",ct_loc:"São Paulo, Brasil",float_cta:"Hablar de un proyecto",
+    foot_p:"Consultoría práctica en tecnología: arquitectura, Open Finance, Cloud, IA aplicada y ejecución cercana al equipo.",
+    foot_nav:"Navegación",foot_contact:"Contacto",foot_rights:"Todos los derechos reservados."
+  }
+};
+const PT={};
+document.querySelectorAll('[data-i18n]').forEach(el=>{PT[el.getAttribute('data-i18n')]=el.innerHTML;});
+function applyLang(lang){
+  const map=I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(lang==='pt')el.innerHTML=PT[k];
+    else if(map&&map[k]!==undefined)el.innerHTML=map[k];
+    else if(PT[k]!==undefined)el.innerHTML=PT[k];
+  });
+  document.documentElement.lang=lang==='pt'?'pt-BR':lang;
+  document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+}
+document.querySelectorAll('#lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+
+/* scroll + nav */
+const header=document.getElementById('header'),prog=document.getElementById('prog');
+addEventListener('scroll',()=>{header.classList.toggle('scrolled',scrollY>20);const h=document.documentElement.scrollHeight-innerHeight;prog.style.width=(scrollY/h*100)+'%';});
+const burger=document.getElementById('burger'),mm=document.getElementById('mobileMenu');
+burger.addEventListener('click',()=>mm.classList.toggle('open'));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+
+/* reveal + bars */
+document.querySelectorAll('.format-grid,.services-grid,.dog-feats,.prod-grid,.skills-grid,.proj-grid,.repo-grid,.testi-grid,.edu-grid').forEach(group=>{
+  [...group.children].forEach((el,index)=>el.style.setProperty('--delay',(Math.min(index,5)*75)+'ms'));
+});
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('.bar i').forEach(i=>i.style.width=i.dataset.w+'%');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal,.skill-col,.edu-box').forEach(el=>io.observe(el));
+
+/* objective story */
+const objectiveCards=[...document.querySelectorAll('.objective-card')],objectiveCurrent=document.getElementById('objectiveCurrent');
+function activateObjective(step){
+  objectiveCards.forEach(card=>{
+    const n=Number(card.dataset.step);
+    card.classList.toggle('active',n===step);
+    card.classList.toggle('passed',n<step);
+  });
+  if(objectiveCurrent)objectiveCurrent.textContent=String(step).padStart(2,'0');
+  const progress=objectiveCards.length>1?(step-1)/(objectiveCards.length-1)*100:100;
+  document.documentElement.style.setProperty('--objective-progress',progress+'%');
+}
+if(objectiveCards.length){
+  activateObjective(1);
+  const objectiveObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{if(entry.isIntersecting)activateObjective(Number(entry.target.dataset.step));});
+  },{rootMargin:'-28% 0px -44% 0px',threshold:.12});
+  objectiveCards.forEach(card=>objectiveObserver.observe(card));
+  let objectiveTick=false;
+  function syncObjectiveFromScroll(){
+    const focus=innerHeight*.43;
+    const closest=objectiveCards.reduce((best,card)=>{
+      const distance=Math.abs(card.getBoundingClientRect().top+card.offsetHeight*.38-focus);
+      return !best||distance<best.distance?{card,distance}:best;
+    },null);
+    if(closest)activateObjective(Number(closest.card.dataset.step));
+    objectiveTick=false;
+  }
+  addEventListener('scroll',()=>{
+    if(!objectiveTick){objectiveTick=true;requestAnimationFrame(syncObjectiveFromScroll);}
+  },{passive:true});
+  addEventListener('resize',syncObjectiveFromScroll);
+  requestAnimationFrame(syncObjectiveFromScroll);
+}
+
+/* glow follow on cards */
+document.querySelectorAll('.glowcard').forEach(card=>{
+  card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');card.style.setProperty('--my',(e.clientY-r.top)+'px');});
+});
+
+/* subtle depth on the hero portrait */
+const heroVisual=document.getElementById('heroVisual');
+if(heroVisual&&matchMedia('(pointer:fine)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+  heroVisual.addEventListener('pointermove',e=>{
+    const r=heroVisual.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    heroVisual.style.transform='perspective(1000px) rotateY('+(x*5)+'deg) rotateX('+(-y*4)+'deg)';
+  });
+  heroVisual.addEventListener('pointerleave',()=>heroVisual.style.transform='');
+}
+
+/* modal */
+const modal=document.getElementById('modal'),box=document.getElementById('modalBox');
+function openVid(id){box.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>';modal.classList.add('open');document.body.style.overflow='hidden';}
+function openImg(src){box.innerHTML='<img src="'+src+'" alt="DoguIA">';modal.classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){modal.classList.remove('open');box.innerHTML='';document.body.style.overflow='';}
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+const hero3dCanvas=document.getElementById('hero3d'),hero3dSection=document.querySelector('.hero');
+if(hero3dCanvas&&hero3dSection){
+  document.documentElement.dataset.hero3d='booting';
+  try{
+    const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const compact=matchMedia('(max-width: 1000px)').matches;
+    const renderer=new THREE.WebGLRenderer({canvas:hero3dCanvas,alpha:true,antialias:!compact,powerPreference:'high-performance'});
+    renderer.setClearColor(0x000000,0);
+    renderer.setPixelRatio(Math.min(devicePixelRatio,compact?1.15:1.65));
+
+    const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(43,1,.1,40),clock=new THREE.Clock();
+    camera.position.set(0,0,8.4);
+    const system=new THREE.Group(),core=new THREE.Group();
+    scene.add(system);system.add(core);
+
+    const addMesh=(geometry,material,parent=core)=>{const mesh=new THREE.Mesh(geometry,material);parent.add(mesh);return mesh;};
+    const wire=new THREE.MeshBasicMaterial({color:0xa7a4ff,wireframe:true,transparent:true,opacity:.36,blending:THREE.AdditiveBlending,depthWrite:false});
+    const wireInner=new THREE.MeshBasicMaterial({color:0x6fb4ff,wireframe:true,transparent:true,opacity:.16,blending:THREE.AdditiveBlending,depthWrite:false});
+    const aura=new THREE.MeshBasicMaterial({color:0x685fff,transparent:true,opacity:.055,blending:THREE.AdditiveBlending,depthWrite:false});
+    const mainCore=addMesh(new THREE.IcosahedronGeometry(2.14,2),wire);
+    const innerCore=addMesh(new THREE.IcosahedronGeometry(1.64,1),wireInner);
+    addMesh(new THREE.SphereGeometry(1.42,28,28),aura);
+
+    const ringMaterial=new THREE.MeshBasicMaterial({color:0x8f8bff,transparent:true,opacity:.23,blending:THREE.AdditiveBlending,depthWrite:false});
+    const ringBlue=new THREE.MeshBasicMaterial({color:0x68b4ff,transparent:true,opacity:.19,blending:THREE.AdditiveBlending,depthWrite:false});
+    const ringA=addMesh(new THREE.TorusGeometry(2.82,.013,6,180),ringMaterial);
+    const ringB=addMesh(new THREE.TorusGeometry(3.2,.01,6,180),ringBlue);
+    const ringC=addMesh(new THREE.TorusGeometry(2.52,.009,6,180),ringMaterial);
+    ringA.rotation.x=1.16;ringA.rotation.y=.22;
+    ringB.rotation.x=.48;ringB.rotation.y=1.03;
+    ringC.rotation.x=1.66;ringC.rotation.z=.52;
+
+    function makePoints(count,radiusMin,radiusMax,color,size,spreadY=1){
+      const positions=new Float32Array(count*3);
+      for(let i=0;i<count;i++){
+        const radius=radiusMin+Math.random()*(radiusMax-radiusMin),theta=Math.random()*Math.PI*2,phi=Math.acos(2*Math.random()-1);
+        positions[i*3]=radius*Math.sin(phi)*Math.cos(theta);
+        positions[i*3+1]=radius*Math.cos(phi)*spreadY;
+        positions[i*3+2]=radius*Math.sin(phi)*Math.sin(theta);
+      }
+      const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.BufferAttribute(positions,3));
+      const points=new THREE.Points(geometry,new THREE.PointsMaterial({color,size,transparent:true,opacity:.75,blending:THREE.AdditiveBlending,depthWrite:false,sizeAttenuation:true}));
+      core.add(points);return points;
+    }
+    const nodeCloud=makePoints(compact?120:220,2.24,3.72,0xbcb9f7,compact?.035:.045);
+    const blueCloud=makePoints(compact?70:140,1.85,4.16,0x68b4ff,compact?.026:.035,.72);
+
+    const starsGeometry=new THREE.BufferGeometry(),starsCount=compact?260:640,stars=new Float32Array(starsCount*3);
+    for(let i=0;i<starsCount;i++){stars[i*3]=(Math.random()-.5)*22;stars[i*3+1]=(Math.random()-.5)*12;stars[i*3+2]=-2-Math.random()*9;}
+    starsGeometry.setAttribute('position',new THREE.BufferAttribute(stars,3));
+    const starField=new THREE.Points(starsGeometry,new THREE.PointsMaterial({color:0x86aaff,size:compact?.018:.026,transparent:true,opacity:.45,blending:THREE.AdditiveBlending,depthWrite:false}));
+    scene.add(starField);
+
+    const satelliteMaterial=new THREE.MeshBasicMaterial({color:0xd8d7ff,transparent:true,opacity:.88,blending:THREE.AdditiveBlending});
+    const satellites=[];
+    for(let i=0;i<7;i++){
+      const satellite=addMesh(new THREE.SphereGeometry(i%3===0?.075:.045,12,12),satelliteMaterial);
+      satellite.userData={radius:2.7+(i%3)*.37,speed:.24+i*.045,phase:i*.9,yScale:.42+(i%2)*.2};
+      satellites.push(satellite);
+    }
+
+    const linePositions=[];
+    for(let i=0;i<20;i++){
+      const a=(i/20)*Math.PI*2,b=a+.28+(i%4)*.07,r=3.42+(i%3)*.18;
+      linePositions.push(Math.cos(a)*r,Math.sin(a)*r*.44,Math.sin(a*1.7)*.52,Math.cos(b)*r,Math.sin(b)*r*.44,Math.sin(b*1.7)*.52);
+    }
+    const linesGeometry=new THREE.BufferGeometry();linesGeometry.setAttribute('position',new THREE.Float32BufferAttribute(linePositions,3));
+    const signalLines=new THREE.LineSegments(linesGeometry,new THREE.LineBasicMaterial({color:0x79b5ff,transparent:true,opacity:.15,blending:THREE.AdditiveBlending}));
+    core.add(signalLines);
+
+    const pointer={x:0,y:0},target={x:0,y:0};let active=true,scrollShift=0;
+    function resize(){
+      const width=hero3dSection.clientWidth,height=hero3dSection.clientHeight;
+      renderer.setSize(width,height,false);camera.aspect=width/height;camera.updateProjectionMatrix();
+      const mobile=innerWidth<1000;
+      system.position.set(mobile?.55:3.68,mobile?-1.16:.08,mobile?-1.1:-.42);
+      system.scale.setScalar(mobile?.84:1);
+    }
+    function move(e){target.x=(e.clientX/innerWidth-.5)*2;target.y=(e.clientY/innerHeight-.5)*2;}
+    addEventListener('pointermove',move,{passive:true});
+    addEventListener('scroll',()=>{scrollShift=Math.min(scrollY/Math.max(hero3dSection.offsetHeight,1),1);},{passive:true});
+    addEventListener('resize',resize,{passive:true});resize();
+    document.documentElement.dataset.hero3d='active';
+    new IntersectionObserver(([entry])=>{active=entry.isIntersecting;},{threshold:.01}).observe(hero3dSection);
+
+    function draw(){
+      const elapsed=clock.getElapsedTime();
+      pointer.x+=(target.x-pointer.x)*.035;pointer.y+=(target.y-pointer.y)*.035;
+      core.rotation.y=elapsed*.11+pointer.x*.2+scrollShift*.55;
+      core.rotation.x=-.14+Math.sin(elapsed*.22)*.065-pointer.y*.14;
+      mainCore.rotation.y=-elapsed*.075;mainCore.rotation.z=elapsed*.04;
+      innerCore.rotation.y=elapsed*.16;innerCore.rotation.x=-elapsed*.09;
+      ringA.rotation.z=elapsed*.085;ringB.rotation.z=-elapsed*.065;ringC.rotation.y=elapsed*.055;
+      nodeCloud.rotation.y=-elapsed*.045;blueCloud.rotation.x=elapsed*.035;
+      signalLines.rotation.y=elapsed*.095;starField.rotation.z=elapsed*.0025;
+      satellites.forEach((satellite,index)=>{
+        const data=satellite.userData,angle=elapsed*data.speed+data.phase;
+        satellite.position.set(Math.cos(angle)*data.radius,Math.sin(angle)*data.radius*data.yScale,Math.sin(angle*1.37)*.82);
+        satellite.scale.setScalar(1+Math.sin(elapsed*2+index)*.18);
+      });
+      system.rotation.z=-scrollShift*.11;
+      renderer.render(scene,camera);
+    }
+    function animate(){requestAnimationFrame(animate);if(active&&!document.hidden)draw();}
+    reduceMotion?draw():animate();
+  }catch(error){
+    document.documentElement.dataset.hero3d='fallback';
+    hero3dSection.classList.add('hero-webgl-fallback');
+    console.warn('Hero WebGL fallback enabled.',error);
+  }
+}
+</script>
+</body>
+</ht

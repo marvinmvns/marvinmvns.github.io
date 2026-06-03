@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60">
+  <defs>
+    <linearGradient id="fastGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E88E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0D47A1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="60" fill="url(#fastGrad)" rx="4"/>
+  <path d="M30,25 L40,30 L30,35 Z" fill="#FFC107"/>
+  <text x="110" y="38" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">FastrackGPS</text>
+</svg>
