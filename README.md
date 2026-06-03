@@ -24,7 +24,6 @@ assets/
   docs/                 cv-marcus-segundo.pdf (currículo)
 ```
 > Three.js é carregado via CDN (cdnjs, r128), não fica versionado no repositório.
-> Pendência: `assets/img/1.jpg` é referenciado pela galeria mas ainda não existe.
 
 ## Deploy (GitHub Pages)
 Repositório `marvinmvns.github.io` — o GitHub Pages publica automaticamente a partir da **raiz do branch padrão**. Qualquer `commit` na raiz atualiza o site em ~1 minuto.

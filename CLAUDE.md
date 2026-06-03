@@ -50,6 +50,6 @@ assets/docs/    cv-marcus-segundo.pdf
 
 `index.html`, `README.md`, `CLAUDE.md`, and `.nojekyll` stay at the repo root. Three.js is **not** vendored here — it loads `r128` from cdnjs (see the script-blocks note above).
 
-**Known missing file:** `assets/img/1.jpg` is referenced by the gallery but is not present in this checkout (returns 404). Add the real image or remove that gallery item.
+The DoguIA gallery (`.dog-gallery`) now lists images `2.jpg`…`8.png`; the original `1.jpg` was never present in this material, so that broken entry was removed rather than faked.
 
 Before assuming an asset is broken vs. missing: the deployed `marvinmvns.github.io` repo is expected to have the real `assets/` folder layout. If you change an image/script reference, keep it consistent with the `assets/...` convention the HTML already uses, and confirm whether the target file actually exists in the tree you're editing.
