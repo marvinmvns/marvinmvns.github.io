@@ -823,7 +823,7 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
 .localiza-proof-grid span{display:block;color:var(--txt-2);font-size:.78rem;font-weight:300;line-height:1.45}
 
 /* EXPERTISE */
-.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .market-exp{max-width:1040px;margin:0 auto 30px;text-align:center}
 .market-exp .me-k{font-family:'JetBrains Mono';font-size:11px;letter-spacing:.06em;color:var(--neon-2);display:block;margin-bottom:14px}
 .market-exp .me-k::before{content:'// '}
@@ -1303,38 +1303,52 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
     </div>
     <div class="skills-grid">
       <div class="skill-col glowcard reveal">
-        <h4><span class="i">⬡</span> <span data-i18n="exp_c1">Cloud, Dados &amp; Infra</span></h4>
+        <h4><span class="i">◆</span> <span data-i18n="exp_c1">Liderança Técnica &amp; Gestão de Engenharia</span></h4>
+        <div class="row"><div class="top"><span>Liderança de squads</span><span class="v">30+ eng.</span></div><div class="bar"><i data-w="95"></i></div></div>
+        <div class="row"><div class="top"><span>Decisão &amp; trade-offs técnicos</span><span class="v">arquitetura</span></div><div class="bar"><i data-w="93"></i></div></div>
+        <div class="row"><div class="top"><span>Chapter Lead &amp; mentoria</span><span class="v">pessoas</span></div><div class="bar"><i data-w="90"></i></div></div>
+        <div class="row"><div class="top"><span>Discovery → roadmap → entrega</span><span class="v">execução</span></div><div class="bar"><i data-w="91"></i></div></div>
+        <div class="row"><div class="top"><span>Gestão de stakeholders</span><span class="v">negócio</span></div><div class="bar"><i data-w="88"></i></div></div>
+      </div>
+      <div class="skill-col glowcard reveal">
+        <h4><span class="i">⬡</span> <span data-i18n="exp_c2">Arquitetura &amp; Open Finance</span></h4>
+        <div class="row"><div class="top"><span>Open Finance &amp; Insurance</span><span class="v">produção</span></div><div class="bar"><i data-w="96"></i></div></div>
+        <div class="row"><div class="top"><span>FAPI / OAuth 2.0</span><span class="v">segurança</span></div><div class="bar"><i data-w="91"></i></div></div>
+        <div class="row"><div class="top"><span>Arquitetura de sistemas críticos</span><span class="v">99,95% SLA</span></div><div class="bar"><i data-w="94"></i></div></div>
+        <div class="row"><div class="top"><span>Conformidade regulatória</span><span class="v">ambiente regulado</span></div><div class="bar"><i data-w="90"></i></div></div>
+        <div class="row"><div class="top"><span>Microsserviços &amp; integrações</span><span class="v">40+ APIs</span></div><div class="bar"><i data-w="93"></i></div></div>
+      </div>
+      <div class="skill-col glowcard reveal">
+        <h4><span class="i">☁</span> <span data-i18n="exp_c3">Cloud, Dados &amp; FinOps</span></h4>
         <div class="row"><div class="top"><span>AWS</span><span class="v">Lambda · Glue · Athena</span></div><div class="bar"><i data-w="96"></i></div></div>
-        <div class="row"><div class="top"><span>Azure Cloud</span><span class="v">multi-cloud</span></div><div class="bar"><i data-w="85"></i></div></div>
-        <div class="row"><div class="top"><span>Databricks</span><span class="v">analytics</span></div><div class="bar"><i data-w="84"></i></div></div>
-        <div class="row"><div class="top"><span>Data Lake</span><span class="v">eng. de dados</span></div><div class="bar"><i data-w="90"></i></div></div>
+        <div class="row"><div class="top"><span>Azure · multi-cloud</span><span class="v">infra</span></div><div class="bar"><i data-w="85"></i></div></div>
+        <div class="row"><div class="top"><span>Data Lake &amp; Databricks</span><span class="v">eng. de dados</span></div><div class="bar"><i data-w="89"></i></div></div>
         <div class="row"><div class="top"><span>DevOps · K8s · CI/CD</span><span class="v">entrega</span></div><div class="bar"><i data-w="91"></i></div></div>
         <div class="row"><div class="top"><span>FinOps</span><span class="v">-60% cloud</span></div><div class="bar"><i data-w="88"></i></div></div>
       </div>
       <div class="skill-col glowcard reveal">
-        <h4><span class="i">◈</span> <span data-i18n="exp_c2">Desenvolvimento</span></h4>
+        <h4><span class="i">✦</span> <span data-i18n="exp_c4">IA Aplicada, LLMs &amp; Automação</span></h4>
+        <div class="row"><div class="top"><span>LLM &amp; RAG</span><span class="v">produto</span></div><div class="bar"><i data-w="90"></i></div></div>
+        <div class="row"><div class="top"><span>Agentes &amp; MCP</span><span class="v">automação</span></div><div class="bar"><i data-w="88"></i></div></div>
+        <div class="row"><div class="top"><span>IA embarcada / local</span><span class="v">edge</span></div><div class="bar"><i data-w="87"></i></div></div>
+        <div class="row"><div class="top"><span>Treino de modelos</span><span class="v">ML</span></div><div class="bar"><i data-w="82"></i></div></div>
+        <div class="row"><div class="top"><span>IA generativa aplicada</span><span class="v">negócio</span></div><div class="bar"><i data-w="89"></i></div></div>
+      </div>
+      <div class="skill-col glowcard reveal">
+        <h4><span class="i">◈</span> <span data-i18n="exp_c5">Desenvolvimento de Software &amp; APIs</span></h4>
         <div class="row"><div class="top"><span>Java &amp; Spring Boot</span><span class="v">core</span></div><div class="bar"><i data-w="96"></i></div></div>
-        <div class="row"><div class="top"><span>Node.js &amp; JavaScript</span><span class="v">APIs</span></div><div class="bar"><i data-w="91"></i></div></div>
-        <div class="row"><div class="top"><span>React</span><span class="v">front-end</span></div><div class="bar"><i data-w="82"></i></div></div>
+        <div class="row"><div class="top"><span>Node.js &amp; TypeScript</span><span class="v">APIs</span></div><div class="bar"><i data-w="91"></i></div></div>
         <div class="row"><div class="top"><span>Python</span><span class="v">dados · IA</span></div><div class="bar"><i data-w="88"></i></div></div>
-        <div class="row"><div class="top"><span>Microserviços &amp; APIs</span><span class="v">40+ em prod</span></div><div class="bar"><i data-w="94"></i></div></div>
+        <div class="row"><div class="top"><span>Microsserviços &amp; APIs</span><span class="v">40+ em prod</span></div><div class="bar"><i data-w="94"></i></div></div>
         <div class="row"><div class="top"><span>Mainframe</span><span class="v">Cobol · DB2 (legado)</span></div><div class="bar"><i data-w="80"></i></div></div>
       </div>
       <div class="skill-col glowcard reveal">
-        <h4><span class="i">✦</span> <span data-i18n="exp_c3">IA Aplicada</span></h4>
-        <div class="row"><div class="top"><span>LLM &amp; RAG</span><span class="v">produto</span></div><div class="bar"><i data-w="90"></i></div></div>
-        <div class="row"><div class="top"><span>Treino de modelos</span><span class="v">ML</span></div><div class="bar"><i data-w="82"></i></div></div>
-        <div class="row"><div class="top"><span>Agentes &amp; MCP</span><span class="v">automação</span></div><div class="bar"><i data-w="88"></i></div></div>
-        <div class="row"><div class="top"><span>Open Finance &amp; Insurance</span><span class="v">produção</span></div><div class="bar"><i data-w="96"></i></div></div>
-        <div class="row"><div class="top"><span>FAPI / OAuth 2.0</span><span class="v">segurança</span></div><div class="bar"><i data-w="91"></i></div></div>
-      </div>
-      <div class="skill-col glowcard reveal">
-        <h4><span class="i">◉</span> <span data-i18n="exp_c4">Hardware &amp; Maker</span></h4>
-        <div class="row"><div class="top"><span>ESP32 &amp; Embarcados</span><span class="v">IoT</span></div><div class="bar"><i data-w="92"></i></div></div>
+        <h4><span class="i">◉</span> <span data-i18n="exp_c6">IoT &amp; Hardware Embarcado</span></h4>
+        <div class="row"><div class="top"><span>ESP32 / ESP32-S3</span><span class="v">IoT</span></div><div class="bar"><i data-w="92"></i></div></div>
         <div class="row"><div class="top"><span>Raspberry Pi</span><span class="v">edge</span></div><div class="bar"><i data-w="90"></i></div></div>
-        <div class="row"><div class="top"><span>Automação residencial</span><span class="v">DIY</span></div><div class="bar"><i data-w="85"></i></div></div>
         <div class="row"><div class="top"><span>Impressão 3D</span><span class="v">prototipação</span></div><div class="bar"><i data-w="88"></i></div></div>
         <div class="row"><div class="top"><span>Eletrônica &amp; sensores</span><span class="v">maker</span></div><div class="bar"><i data-w="86"></i></div></div>
+        <div class="row"><div class="top"><span>Automação residencial</span><span class="v">DIY</span></div><div class="bar"><i data-w="85"></i></div></div>
       </div>
     </div>
   </div>
@@ -1707,7 +1721,7 @@ const I18N={
     loc_kicker:"platform evolution",loc_p:"A renewed tracking experience, with web and mobile operations connected to the product's real use.",loc_watch:"Watch demo →",
     loc_proof_kicker:"features demonstrated in the video",loc_f1_t:"Administrative management",loc_f1_p:"Web dashboard for users, devices and operational links.",loc_f2_t:"Detailed vehicle registration",loc_f2_p:"Tracker and vehicle data such as plate, make, model and identification.",loc_f3_t:"Fleet monitoring",loc_f3_p:"Device status, last update and position centralized in one place.",loc_f4_t:"Mobile map",loc_f4_p:"Vehicle location, detail view and map controls on mobile.",
     exp_kicker:"technical mastery",exp_title:"Technical depth to talk to the business and the code",exp_sub:"Over 20 years of market experience — from regulated banking to my own product — with technical depth spanning cloud and data, generative AI and embedded hardware.",
-    exp_c1:"Cloud, Data & Infra",exp_c2:"Development",exp_c3:"Applied AI",exp_c4:"Hardware & Maker",mx_kicker:"market experience · 20+ years",
+    exp_c1:"Technical Leadership & Engineering Management",exp_c2:"Architecture & Open Finance",exp_c3:"Cloud, Data & FinOps",exp_c4:"Applied AI, LLMs & Automation",exp_c5:"Software Development & APIs",exp_c6:"IoT & Embedded Hardware",mx_kicker:"market experience · 20+ years",
     srv1_t:"Architecture for critical decisions",srv1_s:"Technical Advisory",srv1_p:"When a project is stuck or the design must support scale, security and regulation, I expose risks, define priorities and build an executable roadmap.",
     srv2_t:"Modernization without interrupting operations",srv2_s:"Software Engineering",srv2_p:"I work close to the code and the team to evolve APIs, microservices and integrations with production-grade quality, observability and security.",
     srv3_t:"Applied AI with a working product",srv3_s:"Solution Engineering",srv3_p:"I turn AI, LLMs, automation and IoT into usable solutions. From the first prototype to deployment, integrated into the business.",
@@ -1833,7 +1847,7 @@ const I18N={
     loc_kicker:"evolución de la plataforma",loc_p:"Una experiencia renovada de rastreo, con operación web y mobile conectada al uso real del producto.",loc_watch:"Ver demostración →",
     loc_proof_kicker:"funcionalidades demostradas en el video",loc_f1_t:"Gestión administrativa",loc_f1_p:"Panel web para usuarios, dispositivos y vínculos operativos.",loc_f2_t:"Registro vehicular detallado",loc_f2_p:"Datos del rastreador y del vehículo, como placa, marca, modelo e identificación.",loc_f3_t:"Monitoreo de flota",loc_f3_p:"Estado de dispositivos, última actualización y posición centralizados.",loc_f4_t:"Mapa mobile",loc_f4_p:"Ubicación del vehículo, visualización de detalles y controles de mapa en el celular.",
     exp_kicker:"dominio técnico",exp_title:"Profundidad técnica para hablar con el negocio y con el código",exp_sub:"Más de 20 años de experiencia de mercado — del sector bancario regulado a producto propio — con profundidad técnica que va de cloud y datos a IA generativa y hardware embebido.",
-    exp_c1:"Cloud, Datos & Infra",exp_c2:"Desarrollo",exp_c3:"IA Aplicada",exp_c4:"Hardware & Maker",mx_kicker:"experiencia de mercado · 20+ años",
+    exp_c1:"Liderazgo Técnico & Gestión de Ingeniería",exp_c2:"Arquitectura & Open Finance",exp_c3:"Cloud, Datos & FinOps",exp_c4:"IA Aplicada, LLMs & Automatización",exp_c5:"Desarrollo de Software & APIs",exp_c6:"IoT & Hardware Embebido",mx_kicker:"experiencia de mercado · 20+ años",
     srv1_t:"Arquitectura para decisiones críticas",srv1_s:"Technical Advisory",srv1_p:"Cuando el proyecto se trabó o el diseño debe soportar escala, seguridad y regulación, expongo riesgos, defino prioridades y construyo un roadmap ejecutable.",
     srv2_t:"Modernización sin interrumpir la operación",srv2_s:"Software Engineering",srv2_p:"Trabajo cerca del código y del equipo para evolucionar APIs, microservicios e integraciones con calidad, observabilidad y seguridad para producción.",
     srv3_t:"IA aplicada con producto funcionando",srv3_s:"Solution Engineering",srv3_p:"Transformo IA, LLM, automatización e IoT en soluciones utilizables. Del primer prototipo al deploy, con integración real al negocio.",
