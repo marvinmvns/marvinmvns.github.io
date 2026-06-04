@@ -720,6 +720,18 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
 .case-metrics div{text-align:center}
 .case-metrics b{font-family:'Space Grotesk';font-size:2.5rem;font-weight:700;display:block;line-height:1;color:var(--neon-2)}
 .case-metrics span{font-family:'JetBrains Mono';font-size:10.5px;color:var(--txt-3);letter-spacing:.04em;margin-top:6px;display:block}
+.cdar-intro{margin:40px 0 16px;font-family:'JetBrains Mono';font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--txt-3);display:flex;align-items:center;gap:10px}
+.cdar-intro::after{content:'';flex:1;height:1px;background:var(--line)}
+.cdar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cdar-card{padding:22px 21px;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:.3s}
+.cdar-card:hover{border-color:var(--line-2);transform:translateY(-4px);box-shadow:0 22px 50px -26px rgba(0,0,0,.7)}
+.cdar-card h4{font-family:'Space Grotesk';font-size:1.06rem;letter-spacing:-.01em;margin-bottom:3px}
+.cdar-card .tag{font-family:'JetBrains Mono';font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--neon-2);display:block;margin-bottom:13px}
+.cdar-row{margin-bottom:8px}
+.cdar-row .l{font-family:'JetBrains Mono';font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-2);display:block;margin-bottom:2px}
+.cdar-row p{margin:0;font-size:.8rem;color:var(--txt-2);font-weight:300;line-height:1.45}
+.cdar-row.r p{color:var(--txt)}
+@media(max-width:880px){.cdar-grid{grid-template-columns:1fr}}
 @media(max-width:680px){.case-grid{grid-template-columns:1fr}.case-metrics{gap:26px}.case-metrics b{font-size:2.1rem}}
 </style>
 
@@ -740,6 +752,30 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
       <div><b>-60%</b><span data-i18n="case_m1">custo base de cloud</span></div>
       <div><b>99,95%</b><span data-i18n="case_m2">SLA preservado</span></div>
       <div><b>40+</b><span data-i18n="case_m3">APIs em produção</span></div>
+    </div>
+    <div class="cdar-intro reveal" data-i18n="cdar_intro">Outros cases no mesmo formato — Contexto · Desafio · Ação · Resultado</div>
+    <div class="cdar-grid">
+      <div class="cdar-card glowcard reveal">
+        <h4 data-i18n="cdar1_t">FastrackGPS → LocalizaAuto</h4><span class="tag" data-i18n="cdar1_tag">IoT · SaaS · 13 anos</span>
+        <div class="cdar-row"><span class="l" data-i18n="cd_c">Contexto</span><p data-i18n="cdar1_c">Mercado de rastreamento veicular pulverizado, com operação técnica e comercial própria.</p></div>
+        <div class="cdar-row"><span class="l" data-i18n="cd_d">Desafio</span><p data-i18n="cdar1_d">Construir e escalar um SaaS confiável de rastreamento em tempo real — do hardware ao cliente final.</p></div>
+        <div class="cdar-row"><span class="l" data-i18n="cd_a">Ação</span><p data-i18n="cdar1_a">Desenvolvi a plataforma (IoT/GPS, app, backend) e operei o negócio por 13 anos, liderando time técnico e comercial.</p></div>
+        <div class="cdar-row r"><span class="l" data-i18n="cd_r">Resultado</span><p data-i18n="cdar1_r">~10.000 clientes ativos; base que evoluiu para a plataforma LocalizaAuto.</p></div>
+      </div>
+      <div class="cdar-card glowcard reveal">
+        <h4 data-i18n="cdar2_t">Open Finance — Santander / F1RST</h4><span class="tag" data-i18n="cdar2_tag">Regulado · APIs · Liderança</span>
+        <div class="cdar-row"><span class="l" data-i18n="cd_c">Contexto</span><p data-i18n="cdar2_c">Jornadas de Open Finance e Open Insurance do Santander em produção crítica.</p></div>
+        <div class="cdar-row"><span class="l" data-i18n="cd_d">Desafio</span><p data-i18n="cdar2_d">Implementar e sustentar APIs reguladas com segurança FAPI e SLA de 99,95%.</p></div>
+        <div class="cdar-row"><span class="l" data-i18n="cd_a">Ação</span><p data-i18n="cdar2_a">Liderei a Fase 2 do Open Finance (segurança FAPI/OAuth, Data Lake) e um squad de 30+ engenheiros.</p></div>
+        <div class="cdar-row r"><span class="l" data-i18n="cd_r">Resultado</span><p data-i18n="cdar2_r">40+ APIs a 99,95% de SLA, conformidade ponta a ponta e -60% de custo de cloud com FinOps.</p></div>
+      </div>
+      <div class="cdar-card glowcard reveal">
+        <h4 data-i18n="cdar3_t">DoguIA — IA embarcada</h4><span class="tag" data-i18n="cdar3_tag">IA · Hardware · Produto</span>
+        <div class="cdar-row"><span class="l" data-i18n="cd_c">Contexto</span><p data-i18n="cdar3_c">Assistentes com IA dependem de nuvem, com latência, custo e questões de privacidade.</p></div>
+        <div class="cdar-row"><span class="l" data-i18n="cd_d">Desafio</span><p data-i18n="cdar3_d">Levar IA generativa para rodar localmente em hardware embarcado de baixo custo.</p></div>
+        <div class="cdar-row"><span class="l" data-i18n="cd_a">Ação</span><p data-i18n="cdar3_a">Projetei o DoguIA em ESP32-C3 com IA local, 47 habilidades via MCP e interação multimodal.</p></div>
+        <div class="cdar-row r"><span class="l" data-i18n="cd_r">Resultado</span><p data-i18n="cdar3_r">Produto autoral funcional e extensível, demonstrando IA embarcada de ponta a ponta.</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1464,9 +1500,9 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
 <section class="sec" id="projetos" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="kicker" data-i18n="pj_kicker">portfólio</span>
-      <h2 data-i18n="pj_title">Projetos que construí</h2>
-      <p data-i18n="pj_sub">Clique nos cards com vídeo para assistir. Da IA embarcada à realidade aumentada e ao IoT em escala.</p>
+      <span class="kicker" data-i18n="pj_kicker">cases de inovação aplicada</span>
+      <h2 data-i18n="pj_title">Inovação aplicada: do protótipo ao produto</h2>
+      <p data-i18n="pj_sub">Projetos autorais que demonstram prototipação rápida, integração de hardware e software, automação e IA embarcada — da prova de conceito ao produto em uso. Clique nos cards com vídeo para assistir.</p>
     </div>
     <div class="proj-grid">
       <div class="proj glowcard reveal">
@@ -1732,6 +1768,11 @@ const I18N={
     case_p2:"I ran end-to-end FinOps: rightsizing, chargeback/showback, usage review and cost observability — aligning engineering, security and product, without compromising SLA or compliance.",
     case_p3:"Up to 60% reduction in the team's base cloud cost, with SLA preserved at 99.95% and more predictability. Metrics and knowledge transferred so the team keeps evolving.",
     case_m1:"base cloud cost",case_m2:"SLA preserved",case_m3:"APIs in production",
+    cdar_intro:"More cases in the same format — Context · Challenge · Action · Result",
+    cd_c:"Context",cd_d:"Challenge",cd_a:"Action",cd_r:"Result",
+    cdar1_t:"FastrackGPS → LocalizaAuto",cdar1_tag:"IoT · SaaS · 13 years",cdar1_c:"A fragmented vehicle-tracking market, with my own technical and commercial operation.",cdar1_d:"Build and scale a reliable real-time tracking SaaS — from hardware to the end customer.",cdar1_a:"Built the platform (IoT/GPS, app, backend) and ran the business for 13 years, leading technical and sales teams.",cdar1_r:"~10,000 active clients; the base that evolved into the LocalizaAuto platform.",
+    cdar2_t:"Open Finance — Santander / F1RST",cdar2_tag:"Regulated · APIs · Leadership",cdar2_c:"Santander's Open Finance and Open Insurance journeys in mission-critical production.",cdar2_d:"Implement and sustain regulated APIs with FAPI security and a 99.95% SLA.",cdar2_a:"Led Open Finance Phase 2 (FAPI/OAuth security, Data Lake) and a squad of 30+ engineers.",cdar2_r:"40+ APIs at 99.95% SLA, end-to-end compliance and -60% cloud cost via FinOps.",
+    cdar3_t:"DoguIA — embedded AI",cdar3_tag:"AI · Hardware · Product",cdar3_c:"AI assistants depend on the cloud, with latency, cost and privacy concerns.",cdar3_d:"Bring generative AI to run locally on low-cost embedded hardware.",cdar3_a:"Designed DoguIA on ESP32-C3 with local AI, 47 skills via MCP and multimodal interaction.",cdar3_r:"A functional, extensible original product demonstrating end-to-end embedded AI.",
     dog_badge:"Applied engineering · Hardware + local AI",dog_title:"— a robotic base expanded to talk, react and evolve",
     dog_lead:"The project starts from a Chinese robotic model and evolves far beyond the original hardware. The platform combines local AI, voice, movements, lights and automations to create thousands of interaction possibilities.",
     dog_s1:"Movements",dog_s2:"MCP skills",dog_s3:"Local",dog_s4:"Combinations",
@@ -1772,7 +1813,7 @@ const I18N={
     tl4_role:"Chief Technology Officer (CTO)",tl4_co:"Harlio Bots · AI Chatbots",tl4_p:"We built virtual assistants on Slack, Messenger, Telegram and Web using AI for global clients, including Time Warner.",
     tl5_role:"Software Developer",tl5_co:"IBM · Mainframe & Corporate Systems",tl5_p:"Programmer-analyst on projects for Itaú, TAM and Telefônica. Mainframe (Cobol, CICS, DB2), Oracle/PL-SQL, performance analysis and software support.",
     b_sla:"SLA in production",b_apis:"APIs sustained",b_cost:"cloud cost (FinOps)",b_clients:"clients on my own SaaS",
-    pj_kicker:"portfolio",pj_title:"Projects I've built",pj_sub:"Click the video cards to watch. From embedded AI to augmented reality and IoT at scale.",
+    pj_kicker:"applied innovation cases",pj_title:"Applied innovation: from prototype to product",pj_sub:"Personal projects that demonstrate rapid prototyping, hardware-software integration, automation and embedded AI — from proof of concept to product in use. Click the video cards to watch.",
     pj1_t:"Marvin — Llama-powered Robot",pj1_p:"3D-printed robot running Llama 2 on a Raspberry Pi, with offline hotword (Porcupine), Vosk and ElevenLabs voice. 93 reactions on LinkedIn.",
     pj2_t:"FastrackGPS — Vehicle Tracking",pj2_p:"Complete SaaS tracking platform with interactive map, Android app and GPS hardware. ~10,000 clients.",
     pj3_t:"Harlio — AI ChatBot Platform",pj3_p:"AI virtual assistants for Slack, Messenger, Telegram and Web. Global clients, including Time Warner.",
@@ -1861,6 +1902,11 @@ const I18N={
     case_p2:"Conduje FinOps de punta a punta: rightsizing, chargeback/showback, revisión de uso y observabilidad de costo — alineando ingeniería, seguridad y producto, sin comprometer SLA ni cumplimiento.",
     case_p3:"Reducción de hasta 60% del costo base de cloud del equipo, con el SLA preservado en 99,95% y más previsibilidad. Indicadores y conocimiento transferidos para que el equipo siga evolucionando.",
     case_m1:"costo base de cloud",case_m2:"SLA preservado",case_m3:"APIs en producción",
+    cdar_intro:"Más casos en el mismo formato — Contexto · Desafío · Acción · Resultado",
+    cd_c:"Contexto",cd_d:"Desafío",cd_a:"Acción",cd_r:"Resultado",
+    cdar1_t:"FastrackGPS → LocalizaAuto",cdar1_tag:"IoT · SaaS · 13 años",cdar1_c:"Mercado de rastreo vehicular pulverizado, con operación técnica y comercial propia.",cdar1_d:"Construir y escalar un SaaS confiable de rastreo en tiempo real — del hardware al cliente final.",cdar1_a:"Desarrollé la plataforma (IoT/GPS, app, backend) y operé el negocio durante 13 años, liderando equipo técnico y comercial.",cdar1_r:"~10.000 clientes activos; base que evolucionó hacia la plataforma LocalizaAuto.",
+    cdar2_t:"Open Finance — Santander / F1RST",cdar2_tag:"Regulado · APIs · Liderazgo",cdar2_c:"Jornadas de Open Finance y Open Insurance del Santander en producción crítica.",cdar2_d:"Implementar y sostener APIs reguladas con seguridad FAPI y SLA del 99,95%.",cdar2_a:"Lideré la Fase 2 del Open Finance (seguridad FAPI/OAuth, Data Lake) y un squad de 30+ ingenieros.",cdar2_r:"40+ APIs al 99,95% de SLA, conformidad de punta a punta y -60% de costo cloud con FinOps.",
+    cdar3_t:"DoguIA — IA embebida",cdar3_tag:"IA · Hardware · Producto",cdar3_c:"Los asistentes con IA dependen de la nube, con latencia, costo y cuestiones de privacidad.",cdar3_d:"Llevar IA generativa a ejecutarse localmente en hardware embebido de bajo costo.",cdar3_a:"Diseñé el DoguIA en ESP32-C3 con IA local, 47 habilidades vía MCP e interacción multimodal.",cdar3_r:"Producto propio funcional y extensible, demostrando IA embebida de punta a punta.",
     dog_badge:"Ingeniería aplicada · Hardware + IA local",dog_title:"— una base robótica ampliada para conversar, reaccionar y evolucionar",
     dog_lead:"El proyecto parte de un modelo robótico chino y evoluciona mucho más allá del hardware original. La plataforma combina IA local, voz, movimientos, luces y automatizaciones para crear miles de posibilidades de interacción.",
     dog_s1:"Movimientos",dog_s2:"Habilidades MCP",dog_s3:"Local",dog_s4:"Combinaciones",
@@ -1901,7 +1947,7 @@ const I18N={
     tl4_role:"Chief Technology Officer (CTO)",tl4_co:"Harlio Bots · Chatbots con IA",tl4_p:"Creamos asistentes virtuales en Slack, Messenger, Telegram y Web usando IA para clientes globales, incluida Time Warner.",
     tl5_role:"Desarrollador de Software",tl5_co:"IBM · Mainframe & Sistemas Corporativos",tl5_p:"Analista programador en proyectos para Itaú, TAM y Telefónica. Mainframe (Cobol, CICS, DB2), Oracle/PL-SQL, análisis de rendimiento y soporte de software.",
     b_sla:"de SLA en producción",b_apis:"APIs sostenidas",b_cost:"costo cloud (FinOps)",b_clients:"clientes en SaaS propio",
-    pj_kicker:"portafolio",pj_title:"Proyectos que construí",pj_sub:"Haz clic en las tarjetas con video para ver. De la IA embebida a la realidad aumentada y al IoT a escala.",
+    pj_kicker:"casos de innovación aplicada",pj_title:"Innovación aplicada: del prototipo al producto",pj_sub:"Proyectos propios que demuestran prototipado rápido, integración de hardware y software, automatización e IA embebida — de la prueba de concepto al producto en uso. Haz clic en las tarjetas con video para ver.",
     pj1_t:"Marvin — Robot con Llama",pj1_p:"Robot impreso en 3D corriendo Llama 2 en Raspberry Pi, con hotword offline (Porcupine), Vosk y voz ElevenLabs. 93 reacciones en LinkedIn.",
     pj2_t:"FastrackGPS — Rastreo Vehicular",pj2_p:"Plataforma SaaS completa de rastreo con mapa interactivo, app Android y hardware GPS. ~10.000 clientes.",
     pj3_t:"Harlio — Plataforma de ChatBots",pj3_p:"Asistentes virtuales con IA para Slack, Messenger, Telegram y Web. Clientes globales, incluida Time Warner.",
