@@ -6,7 +6,7 @@ Marcus Segundo é um profissional sênior de tecnologia brasileiro, baseado em S
 
 ## Resumo executivo
 
-- **Cargo atual:** Senior Lead / IT Lead na F1RST Digital Services (Santander), desde 2021.
+- **Cargo atual:** Senior Lead Data & AI na F1RST Digital Services (Santander), desde 2021.
 - **Senioridade:** Gerente Sênior de Tecnologia, com mais de 20 anos de experiência.
 - **Áreas de atuação:** liderança técnica e gestão de engenharia; arquitetura de software; Open Finance e Open Insurance (FAPI, OAuth 2.0); Cloud (AWS, Azure, Kubernetes); Dados e Data Lake; FinOps; IA aplicada, LLMs e automação; desenvolvimento de software e APIs; IoT e hardware embarcado.
 - **Setores:** bancário, pagamentos, seguros, SaaS e IoT.
@@ -33,7 +33,7 @@ Marcus Segundo é um profissional sênior de tecnologia brasileiro, baseado em S
 
 ## Trajetória profissional
 
-- **2021–presente — Senior Lead / IT Lead — F1RST Digital Services (Santander):** lidera squad de 30+ engenheiros sustentando 40+ APIs a 99,95% de SLA nas jornadas de Open Finance e Open Insurance. FAPI/OAuth, Data Lake, FinOps (-60% custo cloud) e IA generativa aplicada.
+- **2021–presente — Senior Lead Data & AI — F1RST Digital Services (Santander):** lidera squad de 30+ engenheiros sustentando 40+ APIs a 99,95% de SLA nas jornadas de Open Finance e Open Insurance. FAPI/OAuth, Data Lake, FinOps (-60% custo cloud) e IA generativa aplicada.
 - **2011–2021 — Coordenador de Engenharia / Especialista QA — Itaú Unibanco:** 10 anos no Itaú; Chapter Lead na Comunidade de Finanças, liderando a célula do IFRS 17 com 30 pessoas; automação de testes para Conta Corrente, Pagamentos e Empréstimos. AWS, Java, IFRS 17, Selenium.
 - **2006–2019 — Founder & CTO — FastrackGPS (SaaS / IoT):** fundou e operou por 13 anos um SaaS de rastreamento veicular que chegou a quase 10.000 clientes ativos. Desenvolvimento IoT, integração GPS e gestão de equipe técnica e comercial. Evoluiu para a plataforma LocalizaAuto.
 - **2016–2017 — CTO — Harlio Bots (Chatbots com IA):** assistentes virtuais com IA para Slack, Messenger, Telegram e Web; clientes globais, incluindo a Time Warner.
