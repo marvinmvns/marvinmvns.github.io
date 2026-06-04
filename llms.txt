@@ -1,0 +1,80 @@
+# Marcus Segundo
+
+> Gerente Sênior de Tecnologia, Arquitetura e IA Aplicada. Mais de 20 anos liderando engenharia, dados e plataformas críticas em ambientes regulados — Open Finance, Open Insurance, Cloud, Dados, FinOps e IA aplicada. Atua na interseção entre estratégia de negócio e execução técnica hands-on.
+
+Marcus Segundo é um profissional sênior de tecnologia brasileiro, baseado em São Paulo (SP, Brasil). Combina liderança de engenharia em grandes empresas reguladas (setor bancário, pagamentos e seguros) com experiência de fundador/CTO em produto próprio (SaaS/IoT) e produção contínua de projetos autorais de IA aplicada, robótica e hardware embarcado. Site oficial: https://marvinmvns.github.io/
+
+## Resumo executivo
+
+- **Cargo atual:** Senior Lead / IT Lead na F1RST Digital Services (Santander), desde 2021.
+- **Senioridade:** Gerente Sênior de Tecnologia, com mais de 20 anos de experiência.
+- **Áreas de atuação:** liderança técnica e gestão de engenharia; arquitetura de software; Open Finance e Open Insurance (FAPI, OAuth 2.0); Cloud (AWS, Azure, Kubernetes); Dados e Data Lake; FinOps; IA aplicada, LLMs e automação; desenvolvimento de software e APIs; IoT e hardware embarcado.
+- **Setores:** bancário, pagamentos, seguros, SaaS e IoT.
+- **Escopo de liderança:** squads de 30+ engenheiros; sustentação de 40+ APIs críticas.
+- **Idiomas:** português (nativo), inglês, espanhol.
+
+## Principais resultados de carreira
+
+- 20+ anos em tecnologia.
+- 30+ engenheiros liderados.
+- 40+ APIs críticas sustentadas.
+- 99,95% de SLA em produção regulada.
+- Redução de até 60% de custo de cloud com FinOps, sem impacto no SLA.
+- Quase 10.000 clientes ativos em SaaS próprio (FastrackGPS).
+
+## Competências técnicas
+
+- **Liderança técnica e gestão de engenharia:** formação de squads, chapter lead, definição de arquitetura, decisão técnica com consequência de negócio.
+- **Arquitetura e Open Finance:** Open Finance e Open Insurance, FAPI, OAuth 2.0, segurança e conformidade em ambientes regulados.
+- **Cloud, Dados e FinOps:** AWS, Azure, Kubernetes, Data Lake, otimização de custo (FinOps).
+- **IA aplicada, LLMs e automação:** agentes LLM, MCP (Model Context Protocol), IA embarcada e local, automação.
+- **Desenvolvimento de software e APIs:** Java, Spring, Node.js, Python, TypeScript, PostgreSQL, design e sustentação de APIs críticas.
+- **IoT e hardware embarcado:** ESP32 / ESP32-S3, Raspberry Pi, Arduino, prototipação e integração.
+
+## Trajetória profissional
+
+- **2021–presente — Senior Lead / IT Lead — F1RST Digital Services (Santander):** lidera squad de 30+ engenheiros sustentando 40+ APIs a 99,95% de SLA nas jornadas de Open Finance e Open Insurance. FAPI/OAuth, Data Lake, FinOps (-60% custo cloud) e IA generativa aplicada.
+- **2011–2021 — Coordenador de Engenharia / Especialista QA — Itaú Unibanco:** 10 anos no Itaú; Chapter Lead na Comunidade de Finanças, liderando a célula do IFRS 17 com 30 pessoas; automação de testes para Conta Corrente, Pagamentos e Empréstimos. AWS, Java, IFRS 17, Selenium.
+- **2006–2019 — Founder & CTO — FastrackGPS (SaaS / IoT):** fundou e operou por 13 anos um SaaS de rastreamento veicular que chegou a quase 10.000 clientes ativos. Desenvolvimento IoT, integração GPS e gestão de equipe técnica e comercial. Evoluiu para a plataforma LocalizaAuto.
+- **2016–2017 — CTO — Harlio Bots (Chatbots com IA):** assistentes virtuais com IA para Slack, Messenger, Telegram e Web; clientes globais, incluindo a Time Warner.
+- **2007–2011 — Desenvolvedor de Software — IBM:** mainframe e sistemas corporativos para Itaú, TAM e Telefônica. Cobol, CICS, DB2, Oracle/PL-SQL.
+
+## Caso em destaque (FinOps)
+
+- **Contexto:** produção bancária em cloud com SLA crítico.
+- **Desafio:** reduzir custo de cloud sem comprometer disponibilidade.
+- **Ação:** estratégia de FinOps aplicada à arquitetura e operação.
+- **Resultado:** -60% de custo de cloud mantendo 99,95% de SLA.
+
+## Projetos autorais (inovação aplicada)
+
+- **DoguIA:** robô/assistente com IA local e embarcada, interação multimodal (voz, movimentos, luzes), 47 habilidades via MCP e 50+ movimentos coordenados, em ESP32-C3. https://www.doguia.com.br
+- **Marvin:** robô impresso em 3D rodando Llama 2 em Raspberry Pi, com hotword offline (Porcupine), Vosk e voz ElevenLabs.
+- **Cubo Copa 2026:** porta-figurinhas inteligente (ESP32-S3 + impressão 3D) com display colorido, assistente de voz em português, placares ao vivo, contagem regressiva e alerta de gols; prototipado em ~3h com IA generativa.
+- **ATOM Echo — Voz de Moeda:** assistente de voz completo em um ESP32 do tamanho de uma moeda (transcrição, ChatGPT, ElevenLabs).
+- **FastrackGPS / LocalizaAuto:** plataforma SaaS de rastreamento veicular com mapa em tempo real, app Android e hardware GPS.
+- **Open source:** clientes e servidores Open Finance, agentes LLM, integrações MCP e voz embarcada (GitHub: https://github.com/marvinmvns).
+
+## Consultoria técnica
+
+Atuação consultiva com proximidade técnica e execução hands-on. Formatos: diagnóstico técnico e priorização; arquitetura e roadmap; execução assistida; mentoria técnica; IA aplicada.
+
+## Formação
+
+- MBA em Inteligência Artificial para Devs — FIAP.
+- Formação complementar — FGV, Universidade Presbiteriana Mackenzie, Oswaldo Cruz.
+
+## Contato
+
+- E-mail: marcus@segundo.me
+- WhatsApp / telefone: +55 11 98741-5290
+- Localização: São Paulo, Brasil
+- Para recrutadores, headhunters e executive search: contato por LinkedIn, e-mail ou WhatsApp; currículo resumido em PDF disponível no site.
+
+## Links
+
+- [Site oficial](https://marvinmvns.github.io/)
+- [LinkedIn](https://www.linkedin.com/in/marvin1986/)
+- [GitHub](https://github.com/marvinmvns)
+- [DoguIA](https://www.doguia.com.br)
+- [Currículo (PDF)](https://marvinmvns.github.io/assets/docs/cv-marcus-segundo.pdf)
