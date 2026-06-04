@@ -299,6 +299,19 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
     transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+/* ===== FastrackGPS — mapa ao vivo (Leaflet + OpenStreetMap/CARTO) ===== */
+.prod .vis.map{padding:0}
+#fgmap{position:absolute;inset:0;width:100%;height:100%;z-index:0;background:#0a0c12}
+#fgmap .leaflet-tile{filter:saturate(.92) brightness(.9) contrast(1.03)}
+#fgmap .leaflet-control-attribution{background:rgba(5,6,10,.55);color:#6b7280;font-size:9px;padding:1px 6px}
+#fgmap .leaflet-control-attribution a{color:#8b90a0}
+.fg-veh span{display:block;width:13px;height:13px;border-radius:50%;background:var(--c,#43E5C4);border:2px solid #eafffb;box-shadow:0 0 12px var(--c,#43E5C4),0 0 0 3px rgba(255,255,255,.08)}
+.fg-veh span::after{content:'';position:absolute;left:50%;top:50%;width:13px;height:13px;border-radius:50%;border:1.5px solid var(--c,#43E5C4);transform:translate(-50%,-50%);animation:fgPulse 1.7s ease-out infinite}
+@keyframes fgPulse{0%{transform:translate(-50%,-50%) scale(.7);opacity:.85}100%{transform:translate(-50%,-50%) scale(2.6);opacity:0}}
+.map-edge{position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 50px 8px rgba(5,6,10,.5)}
+</style>
 </head>
 <body>
 <canvas id="bgcanvas"></canvas>
@@ -1159,31 +1172,9 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
     <div class="prod-grid prod-grid-single">
       <div class="prod glowcard reveal">
         <div class="vis map">
-          <div class="maphud" style="position:absolute;top:9px;left:11px;z-index:3;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.04em;color:#7BB8FF;display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:50%;background:#28c840;box-shadow:0 0 8px #28c840;display:inline-block;animation:blink 1.6s infinite"></span>LIVE TRACKING &middot; 62 km/h</div>
-          <svg viewBox="0 0 420 200" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <defs>
-              <linearGradient id="trailg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#43E5C4"/><stop offset="1" stop-color="#4D9FFF"/></linearGradient>
-              <radialGradient id="vglow"><stop offset="0" stop-color="#43E5C4" stop-opacity=".55"/><stop offset="1" stop-color="#43E5C4" stop-opacity="0"/></radialGradient>
-            </defs>
-            <g stroke="#5fa8b8" stroke-width="1" opacity="0.07">
-              <line x1="70" y1="0" x2="70" y2="200"/><line x1="140" y1="0" x2="140" y2="200"/><line x1="210" y1="0" x2="210" y2="200"/><line x1="280" y1="0" x2="280" y2="200"/><line x1="350" y1="0" x2="350" y2="200"/>
-              <line x1="0" y1="50" x2="420" y2="50"/><line x1="0" y1="100" x2="420" y2="100"/><line x1="0" y1="150" x2="420" y2="150"/>
-            </g>
-            <line x1="0" y1="200" x2="420" y2="20" stroke="#5fa8b8" stroke-width="6" opacity="0.04"/>
-            <path id="route" d="M16,184 C58,160 64,104 116,104 C162,104 176,150 226,134 C282,116 300,58 360,54 C384,52 400,50 404,46" fill="none" stroke="rgba(255,255,255,.13)" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/>
-            <path d="M16,184 C58,160 64,104 116,104 C162,104 176,150 226,134 C282,116 300,58 360,54 C384,52 400,50 404,46" fill="none" stroke="url(#trailg)" stroke-width="2.6" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" from="1" to="0" dur="6.5s" repeatCount="indefinite"/></path>
-            <circle cx="16" cy="184" r="3.5" fill="#4D9FFF"/>
-            <circle cx="404" cy="46" r="3" fill="none" stroke="#43E5C4" stroke-width="1.4"><animate attributeName="r" values="3;13" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".8;0" dur="2s" repeatCount="indefinite"/></circle>
-            <circle cx="404" cy="46" r="3.5" fill="#43E5C4"/>
-            <circle cx="150" cy="60" r="2.5" fill="#4D9FFF"><animate attributeName="r" values="2;9" dur="2.4s" begin="0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0" dur="2.4s" begin="0.6s" repeatCount="indefinite"/></circle>
-            <circle cx="300" cy="150" r="2.5" fill="#43E5C4"><animate attributeName="r" values="2;9" dur="2.4s" begin="1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".7;0" dur="2.4s" begin="1.4s" repeatCount="indefinite"/></circle>
-            <g>
-              <circle r="11" fill="url(#vglow)"/>
-              <circle r="8" fill="none" stroke="#43E5C4" stroke-width="1.3" opacity=".5"><animate attributeName="r" values="5;12" dur="1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;0" dur="1.5s" repeatCount="indefinite"/></circle>
-              <circle r="4.5" fill="#43E5C4"/><circle r="2" fill="#eafffb"/>
-              <animateMotion dur="6.5s" repeatCount="indefinite" rotate="auto"><mpath href="#route" xlink:href="#route"/></animateMotion>
-            </g>
-          </svg>
+          <div class="maphud" style="position:absolute;top:9px;left:11px;z-index:3;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.04em;color:#7BB8FF;display:flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:50%;background:#28c840;box-shadow:0 0 8px #28c840;display:inline-block;animation:blink 1.6s infinite"></span>LIVE TRACKING &middot; <span id="fgkmh">62</span>&nbsp;km/h</div>
+          <div id="fgmap"></div>
+          <div class="map-edge"></div>
         </div>
         <div class="ph"><span class="tag">SaaS · IoT</span><span class="live mono" data-i18n="prd_live">no ar</span></div>
         <div class="pc">
@@ -1374,6 +1365,10 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
       <div class="proj glowcard reveal">
         <div class="thumb novid" style="display:grid;place-items:center;background:#0a0c12"><img src="assets/logos/harlio-logo.svg" alt="Harlio" style="width:auto;height:48%;object-fit:contain;opacity:.92"></div>
         <div class="pbody"><div class="pmeta"><span class="tag">IA · Chatbots</span><span class="yr">2016—2017</span></div><h3 data-i18n="pj3_t">Harlio — Plataforma de ChatBots</h3><p data-i18n="pj3_p">Assistentes virtuais com IA para Slack, Messenger, Telegram e Web. Clientes globais, incluindo a Time Warner.</p><div class="stack"><span>NLP</span><span>Slack</span><span>Messenger</span><span>Telegram</span></div><div class="links"><a href="https://www.linkedin.com/in/marvin1986/" target="_blank" rel="noopener" data-i18n="link_more">Saiba mais →</a></div></div>
+      </div>
+      <div class="proj glowcard reveal">
+        <div class="thumb novid" style="display:grid;place-items:center;color:var(--neon-2);font-size:3rem">⚽</div>
+        <div class="pbody"><div class="pmeta"><span class="tag">IoT · IA</span><span class="yr">2026</span></div><h3 data-i18n="pj6_t">Cubo Copa 2026 — Porta-figurinhas inteligente</h3><p data-i18n="pj6_p">Porta-figurinhas com display colorido, assistente de voz em português, placares ao vivo, contagem regressiva e alerta de gols. ESP32-S3 + impressão 3D, prototipado em ~3h com IA generativa.</p><div class="stack"><span>ESP32-S3</span><span>Impressão 3D</span><span>Voz PT</span><span>Wi-Fi</span></div><div class="links"><a href="https://www.linkedin.com/posts/marvin1986_diy-3dprint-esp32s3-activity-7464116228975026176-U16D" target="_blank" rel="noopener" data-i18n="link_more">Ver no LinkedIn →</a></div></div>
       </div>
     </div>
   </div>
@@ -1644,6 +1639,7 @@ const I18N={
     pj3_t:"Harlio — AI ChatBot Platform",pj3_p:"AI virtual assistants for Slack, Messenger, Telegram and Web. Global clients, including Time Warner.",
     pj4_tag:"Augmented Reality",pj4_t:"SVDMP-RA — AR for Furniture",pj4_p:"Augmented-reality proof of concept for visualizing custom furniture, exploring AR/VR engines.",
     pj5_t:"ATOM Echo — Coin-sized Voice",pj5_p:"A full voice assistant on a coin-sized ESP32: transcription, ChatGPT and ElevenLabs in a wearable.",
+    pj6_t:"Cubo Copa 2026 — Smart figurine holder",pj6_p:"A figurine holder with a color display, Portuguese voice assistant, live scores, countdown and goal alerts. ESP32-S3 + 3D printing, prototyped in ~3h with generative AI.",
     link_code:"Code →",link_demo:"Platform →",link_app:"App →",link_more:"Learn more →",
     os_kicker:"open lab",os_title:"Open source, FIAP & continuous experimentation",os_sub:"Technology is my greatest fuel. I'm always building — from AI Tech Challenges at FIAP to LLM agents, MCP and embedded voice.",
     fiap_t:"🎓 Tech Challenges — MBA in AI for Devs (FIAP)",fiap_p:"The four phases of the AI postgrad Tech Challenge, from ML/Data Science foundations to applying LLMs to real problems.",fv1:"Phase 1",fv2:"Phase 2",fv3:"Phase 3",fv4:"Phase 4",
@@ -1759,6 +1755,7 @@ const I18N={
     pj3_t:"Harlio — Plataforma de ChatBots",pj3_p:"Asistentes virtuales con IA para Slack, Messenger, Telegram y Web. Clientes globales, incluida Time Warner.",
     pj4_tag:"Realidad Aumentada",pj4_t:"SVDMP-RA — RA para Muebles",pj4_p:"Prueba de concepto de realidad aumentada para visualizar muebles a medida, explorando engines de AR/VR.",
     pj5_t:"ATOM Echo — Voz del Tamaño de una Moneda",pj5_p:"Un asistente de voz completo en un ESP32 del tamaño de una moneda: transcripción, ChatGPT y ElevenLabs en un wearable.",
+    pj6_t:"Cubo Copa 2026 — Portafiguritas inteligente",pj6_p:"Un portafiguritas con pantalla a color, asistente de voz en portugués, marcadores en vivo, cuenta regresiva y alertas de gol. ESP32-S3 + impresión 3D, prototipado en ~3h con IA generativa.",
     link_code:"Código →",link_demo:"Plataforma →",link_app:"App →",link_more:"Saber más →",
     os_kicker:"laboratorio abierto",os_title:"Open source, FIAP & experimentación continua",os_sub:"La tecnología es mi mayor combustible. Siempre estoy construyendo — de Tech Challenges de IA en FIAP a agentes LLM, MCP y voz embebida.",
     fiap_t:"🎓 Tech Challenges — MBA IA para Devs (FIAP)",fiap_p:"Las cuatro fases del Tech Challenge del posgrado en Inteligencia Artificial, del fundamento de ML/Data Science a la aplicación de LLMs en problemas reales.",fv1:"Fase 1",fv2:"Fase 2",fv3:"Fase 3",fv4:"Fase 4",
@@ -1988,6 +1985,58 @@ if(hero3dCanvas&&hero3dSection){
     console.warn('Hero WebGL fallback enabled.',error);
   }
 }
+</script>
+<script>
+/* ===== FastrackGPS — mapa ao vivo com veículos animados (Leaflet + CARTO, sem API key) ===== */
+(function(){
+  var host=document.getElementById('fgmap'); if(!host) return;
+  var ROUTES=[
+    {c:'#43E5C4',p:[[-23.5710,-46.6390],[-23.5690,-46.6440],[-23.5665,-46.6495],[-23.5640,-46.6550],[-23.5615,-46.6600],[-23.5590,-46.6650]]},
+    {c:'#4D9FFF',p:[[-23.5520,-46.6580],[-23.5560,-46.6595],[-23.5605,-46.6610],[-23.5650,-46.6625],[-23.5700,-46.6610],[-23.5745,-46.6585]]},
+    {c:'#FBC02D',p:[[-23.5660,-46.6470],[-23.5695,-46.6520],[-23.5725,-46.6575],[-23.5755,-46.6630],[-23.5785,-46.6685]]}
+  ];
+  function init(){
+    if(!window.L){host.style.display='none';return;}
+    var map=L.map(host,{zoomControl:false,attributionControl:true,dragging:false,scrollWheelZoom:false,doubleClickZoom:false,boxZoom:false,keyboard:false,touchZoom:false,tap:false,inertia:false});
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+    var all=[]; ROUTES.forEach(function(r){r.p.forEach(function(pt){all.push(pt);});});
+    map.fitBounds(all,{padding:[26,26]});
+    ROUTES.forEach(function(r,i){
+      L.polyline(r.p,{color:r.c,weight:2,opacity:.2,dashArray:'3 7',lineCap:'round'}).addTo(map);
+      r._trail=L.polyline([],{color:r.c,weight:3,opacity:.85,lineCap:'round',lineJoin:'round'}).addTo(map);
+      var icon=L.divIcon({className:'fg-veh',html:'<span style="--c:'+r.c+'"></span>',iconSize:[17,17],iconAnchor:[8,8]});
+      r._mk=L.marker(r.p[0],{icon:icon,interactive:false}).addTo(map);
+      r._seg=0; r._t=i*0.34; r._sp=0.006+Math.random()*0.004;
+    });
+    var kmh=document.getElementById('fgkmh'), frame=0;
+    function tick(){
+      ROUTES.forEach(function(r){
+        var a=r.p[r._seg], b=r.p[(r._seg+1)%r.p.length];
+        r._t+=r._sp;
+        if(r._t>=1){r._t=0;r._seg=(r._seg+1)%r.p.length;a=r.p[r._seg];b=r.p[(r._seg+1)%r.p.length];}
+        var lat=a[0]+(b[0]-a[0])*r._t, lng=a[1]+(b[1]-a[1])*r._t;
+        r._mk.setLatLng([lat,lng]);
+        var pts=r._trail.getLatLngs(); pts.push(L.latLng(lat,lng)); if(pts.length>46)pts.shift(); r._trail.setLatLngs(pts);
+      });
+      if(kmh && (++frame)%26===0){ kmh.textContent = 54 + Math.round(Math.sin(frame/120)*12 + Math.random()*6); }
+      requestAnimationFrame(tick);
+    }
+    tick();
+    setTimeout(function(){map.invalidateSize();},220);
+  }
+  function load(){
+    if(window.L){init();return;}
+    var s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+    s.crossOrigin='anonymous'; s.referrerPolicy='no-referrer';
+    s.onload=init; s.onerror=function(){host.style.display='none';};
+    document.head.appendChild(s);
+  }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){io.disconnect();load();}});},{threshold:.08});
+    io.observe(host);
+  } else { load(); }
+})();
 </script>
 </body>
 </ht

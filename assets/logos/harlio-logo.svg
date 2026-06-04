@@ -1,4 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 60" role="img" aria-label="Harlio">
-  <text x="0" y="44" font-family="'Space Grotesk','Segoe UI',Arial,sans-serif" font-size="42" font-weight="700" letter-spacing="-1.5" fill="#EEF1F6">harlio</text>
-  <circle cx="197" cy="40" r="6" fill="#9B98EC"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Harlio">
+  <!-- balão de fala amarelo (corpo + cauda inferior-esquerda) -->
+  <path fill="#FBC02D" d="M64 12
+    C92 12 114 31.6 114 56
+    C114 80.4 92 100 64 100
+    C57.8 100 51.8 99.1 46.3 97.4
+    L26 116
+    C24 117.8 21 116.2 21.4 113.5
+    L25 90.2
+    C16.2 81.2 12 69.2 12 56
+    C12 31.6 36 12 64 12 Z"/>
+  <!-- olho preto -->
+  <circle cx="58" cy="56" r="25" fill="#0B0B0B"/>
+  <!-- brilho branco -->
+  <circle cx="79" cy="41" r="11" fill="#FFFFFF"/>
 </svg>
