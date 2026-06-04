@@ -312,6 +312,32 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
 @keyframes fgPulse{0%{transform:translate(-50%,-50%) scale(.7);opacity:.85}100%{transform:translate(-50%,-50%) scale(2.6);opacity:0}}
 .map-edge{position:absolute;inset:0;z-index:2;pointer-events:none;box-shadow:inset 0 0 50px 8px rgba(5,6,10,.5)}
 </style>
+<style>
+/* ===== RESUMO EXECUTIVO + RESULTADOS (perfil executivo p/ RH) ===== */
+#resumo{padding-top:62px}
+.exec-head{max-width:760px;margin:0 0 30px}
+.exec-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:26px;align-items:stretch;margin-bottom:30px}
+.exec-summary p{color:var(--txt-2);font-size:1.04rem;font-weight:300;margin-bottom:14px;line-height:1.78}
+.exec-summary p strong{color:var(--txt);font-weight:600}
+.exec-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}
+.exec-tags span{font-family:'JetBrains Mono';font-size:11px;color:var(--neon-2);background:var(--neon-soft);border:1px solid var(--line);border-radius:6px;padding:5px 10px}
+.exec-paths{display:flex;flex-direction:column;gap:12px}
+.exec-path{display:flex;flex-direction:column;padding:20px 21px;border:1px solid var(--line);border-radius:15px;background:var(--surface);transition:.25s;flex:1}
+.exec-path:hover{border-color:var(--neon);transform:translateY(-3px);box-shadow:0 20px 44px -24px rgba(0,0,0,.75)}
+.exec-path .pk{font-family:'JetBrains Mono';font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--neon-2)}
+.exec-path strong{font-family:'Space Grotesk';font-size:1.12rem;letter-spacing:-.01em;margin:7px 0 5px}
+.exec-path p{font-size:.86rem;color:var(--txt-2);font-weight:300;line-height:1.55;margin:0}
+.exec-path .go{margin-top:auto;padding-top:12px;font-family:'JetBrains Mono';font-size:12px;color:var(--neon-2)}
+.results-title{font-family:'Space Grotesk';font-size:1.2rem;font-weight:600;letter-spacing:-.01em;margin:6px 0 16px;display:flex;align-items:center;gap:10px}
+.results-title::before{content:'';width:22px;height:2px;background:var(--grad-tech)}
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.result-card{padding:22px 20px;border:1px solid var(--line);border-radius:14px;background:var(--surface);transition:.3s}
+.result-card:hover{border-color:var(--line-2);transform:translateY(-3px)}
+.result-card .rn{font-family:'Space Grotesk';font-size:2.25rem;font-weight:700;line-height:1;letter-spacing:-.035em}
+.result-card .rl{margin-top:8px;color:var(--txt-2);font-size:.88rem;font-weight:300;line-height:1.45}
+@media(max-width:880px){.exec-grid{grid-template-columns:1fr}.results-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.results-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 <canvas id="bgcanvas"></canvas>
@@ -321,13 +347,11 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
   <div class="nav">
     <a href="#top" class="brand"><span class="logo">M</span><span>Marcus Segundo</span></a>
     <nav class="nav-links">
-      <a href="#servicos" data-i18n="nav_services">./serviços</a>
-      <a href="#perfil" data-i18n="nav_profile">./perfil</a>
-      <a href="#abordagem" data-i18n="nav_about">./abordagem</a>
-      <a href="#formatos" data-i18n="nav_formats">./formatos</a>
-      <a href="#doguia">./doguia</a>
-      <a href="#produtos" data-i18n="nav_products2">./produtos</a>
+      <a href="#resumo" data-i18n="nav_summary">./resumo</a>
       <a href="#trajetoria" data-i18n="nav_path">./trajetória</a>
+      <a href="#expertise" data-i18n="nav_skills">./competências</a>
+      <a href="#formatos" data-i18n="nav_consulting">./consultoria</a>
+      <a href="#projetos" data-i18n="nav_projects">./projetos</a>
       <a href="#contato" data-i18n="nav_contact">./contato</a>
     </nav>
     <div class="nav-right">
@@ -341,13 +365,12 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
     </div>
   </div>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#servicos" data-i18n="nav_services">./serviços</a>
-    <a href="#perfil" data-i18n="nav_profile">./perfil</a>
-      <a href="#abordagem" data-i18n="nav_about">./abordagem</a>
-      <a href="#formatos" data-i18n="nav_formats">./formatos</a>
-    <a href="#doguia">./doguia</a>
-    <a href="#produtos" data-i18n="nav_products2">./produtos</a>
+    <a href="#resumo" data-i18n="nav_summary">./resumo</a>
     <a href="#trajetoria" data-i18n="nav_path">./trajetória</a>
+    <a href="#expertise" data-i18n="nav_skills">./competências</a>
+    <a href="#formatos" data-i18n="nav_consulting">./consultoria</a>
+    <a href="#produtos" data-i18n="nav_products2">./produtos</a>
+    <a href="#projetos" data-i18n="nav_projects">./projetos</a>
     <a href="#contato" data-i18n="nav_contact">./contato</a>
     <a href="#contato" class="btn btn-gold" data-i18n="nav_cta">Falar com Marcus</a>
   </div>
@@ -360,16 +383,16 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
   <div class="hero-webgl" aria-hidden="true"><canvas id="hero3d"></canvas></div>
   <div class="wrap hero-inner">
     <div class="hero-copy">
-      <span class="eyebrow"><span class="dot"></span><span data-i18n="hero_eyebrow">Gerente Sênior de Tecnologia · Data, AI & Open Finance</span></span>
-      <h1 class="hero-title" data-i18n="hero_title">Lidero engenharia, dados e IA em <span class="accent">produção crítica.</span></h1>
-      <p class="hero-sub" data-i18n="hero_sub">Mais de 20 anos liderando times e operação crítica em Data, IA, Open Finance e Cloud. Conecto estratégia, decisão técnica e execução para empresas que precisam avançar com clareza.</p>
+      <span class="eyebrow"><span class="dot"></span><span data-i18n="hero_eyebrow">Gerente Sênior de Tecnologia · Arquitetura &amp; IA Aplicada</span></span>
+      <h1 class="hero-title" data-i18n="hero_title">Lidero engenharia, dados e IA em <span class="accent">plataformas críticas e reguladas.</span></h1>
+      <p class="hero-sub" data-i18n="hero_sub">Gerente Sênior de Tecnologia, Arquitetura e IA Aplicada. Há mais de 20 anos liderando engenharia, dados e plataformas críticas em ambientes regulados — de Open Finance e Cloud a FinOps e IA aplicada —, conectando estratégia, decisão técnica e execução.</p>
       <div class="hero-context">
         <span data-i18n="hero_context1">produção crítica com 99,95% de SLA</span>
         <span data-i18n="hero_context2">produto próprio com quase 10 mil clientes</span>
       </div>
       <div class="hero-cta">
-        <a href="#contato" class="btn btn-gold" data-i18n="hero_cta1">Conversar sobre um desafio →</a>
-        <a href="#perfil" class="btn btn-ghost" data-i18n="hero_cta2">Ver perfil executivo</a>
+        <a href="#resumo" class="btn btn-gold" data-i18n="hero_cta1">Ver perfil executivo →</a>
+        <a href="#formatos" class="btn btn-ghost" data-i18n="hero_cta2">Contratar consultoria técnica</a>
       </div>
       <div class="hero-stats">
         <div class="st"><div class="n gold-text">20+</div><div class="l" data-i18n="stat_years">anos em tecnologia</div></div>
@@ -431,6 +454,49 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
   </div>
 </div>
 
+<section class="sec" id="resumo">
+  <div class="wrap">
+    <div class="sec-head exec-head reveal">
+      <span class="kicker" data-i18n="exec_kicker">resumo executivo</span>
+      <h2 data-i18n="exec_title">Liderança técnica sênior em engenharia, dados e IA para ambientes regulados</h2>
+    </div>
+    <div class="exec-grid">
+      <div class="exec-summary reveal">
+        <p data-i18n="exec_p1"><strong>Gerente Sênior de Tecnologia</strong> com mais de 20 anos de experiência em liderança técnica, arquitetura e engenharia de plataformas críticas. Atuo na interseção entre estratégia de negócio e execução técnica — lidero squads, defino arquitetura e sustento operação regulada de missão crítica.</p>
+        <p data-i18n="exec_p2">Experiência consolidada nos setores <strong>bancário, de pagamentos, seguros e SaaS/IoT</strong>, com domínio em Open Finance e Open Insurance, Cloud, Dados, FinOps e IA aplicada. Escopo de liderança de 30+ engenheiros e 40+ APIs críticas a 99,95% de SLA, com histórico de resultados mensuráveis — incluindo até 60% de redução de custo de cloud.</p>
+        <div class="exec-tags">
+          <span data-i18n="exec_tag1">Bancário</span><span data-i18n="exec_tag2">Pagamentos</span><span data-i18n="exec_tag3">Seguros</span><span data-i18n="exec_tag4">Open Finance</span><span data-i18n="exec_tag5">Cloud &amp; Dados</span><span data-i18n="exec_tag6">SaaS / IoT</span>
+        </div>
+      </div>
+      <div class="exec-paths reveal">
+        <a class="exec-path" href="#trajetoria">
+          <span class="pk" data-i18n="path1_k">Para recrutadores &amp; headhunters</span>
+          <strong data-i18n="path1_t">Perfil executivo</strong>
+          <p data-i18n="path1_p">Trajetória, cargos, responsabilidades, resultados, competências e formação para avaliação rápida.</p>
+          <span class="go" data-i18n="path1_go">Ver trajetória &amp; competências →</span>
+        </a>
+        <a class="exec-path" href="#formatos">
+          <span class="pk" data-i18n="path2_k">Para clientes de consultoria</span>
+          <strong data-i18n="path2_t">Consultoria técnica</strong>
+          <p data-i18n="path2_p">Formatos de atuação, cases, serviços e contato para destravar e escalar o seu projeto.</p>
+          <span class="go" data-i18n="path2_go">Ver formatos de consultoria →</span>
+        </a>
+      </div>
+    </div>
+    <div class="results-band reveal">
+      <h3 class="results-title" data-i18n="results_title">Principais resultados de carreira</h3>
+      <div class="results-grid">
+        <div class="result-card"><div class="rn gold-text">20+</div><div class="rl" data-i18n="res1">anos em tecnologia</div></div>
+        <div class="result-card"><div class="rn gold-text">30+</div><div class="rl" data-i18n="res2">engenheiros liderados</div></div>
+        <div class="result-card"><div class="rn gold-text">40+</div><div class="rl" data-i18n="res3">APIs críticas sustentadas</div></div>
+        <div class="result-card"><div class="rn neon-text">99,95%</div><div class="rl" data-i18n="res4">SLA em produção regulada</div></div>
+        <div class="result-card"><div class="rn neon-text">-60%</div><div class="rl" data-i18n="res5">custo de cloud com FinOps</div></div>
+        <div class="result-card"><div class="rn neon-text">~10 mil</div><div class="rl" data-i18n="res6">clientes em SaaS próprio</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="market-sec" id="perfil">
   <div class="wrap">
     <div class="market-shell reveal">
@@ -443,19 +509,19 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
       </div>
       <div class="market-grid">
         <article class="market-card" data-index="01">
-          <span class="mk" data-i18n="market_label">quando vale me chamar</span>
+          <span class="mk" data-i18n="market_label">áreas em que gero impacto</span>
           <h3 data-i18n="market1_title">Escala, confiabilidade e arquitetura crítica</h3>
           <p data-i18n="market1_p">Para modernizar sistemas, organizar integrações e sustentar decisões que precisam respeitar segurança, regulação e continuidade operacional.</p>
           <div class="market-tags"><span>Open Finance</span><span>APIs</span><span>Cloud</span><span>FinOps</span></div>
         </article>
         <article class="market-card" data-index="02">
-          <span class="mk" data-i18n="market_label">quando vale me chamar</span>
+          <span class="mk" data-i18n="market_label">áreas em que gero impacto</span>
           <h3 data-i18n="market2_title">Liderança técnica para destravar a execução</h3>
           <p data-i18n="market2_p">Para transformar cenário difuso em prioridades, critérios de decisão e um roadmap que o time consiga realmente colocar em produção.</p>
           <div class="market-tags"><span>Tech Lead</span><span>Roadmap</span><span>Mentoria</span><span>Qualidade</span></div>
         </article>
         <article class="market-card" data-index="03">
-          <span class="mk" data-i18n="market_label">quando vale me chamar</span>
+          <span class="mk" data-i18n="market_label">áreas em que gero impacto</span>
           <h3 data-i18n="market3_title">IA aplicada que sai do laboratório</h3>
           <p data-i18n="market3_p">Para converter IA, automação e IoT em experiências demonstráveis, integradas ao negócio e prontas para evoluir além do primeiro protótipo.</p>
           <div class="market-tags"><span>LLM</span><span>MCP</span><span>IoT</span><span>Produto</span></div>
@@ -580,7 +646,7 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
     <div class="sec-head reveal">
       <span class="kicker" data-i18n="off_kicker">vamos construir juntos</span>
       <h2 data-i18n="off_title">Soluções, automações com IA e troca de conhecimento</h2>
-      <p data-i18n="off_sub">De software sob medida a um bate-papo para destravar seu time — escolha o tipo de ajuda que faz sentido agora.</p>
+      <p data-i18n="off_sub">De software sob medida a uma sessão de diagnóstico técnico e priorização — escolha o nível de apoio que o cenário exige.</p>
     </div>
     <div class="offer-grid">
       <div class="svc glowcard reveal"><div class="ic">◆</div><h3 data-i18n="of1_t">Soluções sob medida</h3><p data-i18n="of1_p">Software construído para o seu problema real, do MVP ao deploy em produção.</p></div>
@@ -599,7 +665,7 @@ html{scrollbar-color:var(--gold-3) transparent;scrollbar-width:thin}
     <div class="about">
       <div class="about-txt reveal">
         <span class="kicker" data-i18n="about_kicker">quem entra no projeto</span>
-        <h2 data-i18n="about_title">Não sou consultor de slide. Continuo perto da arquitetura, do código e da operação.</h2>
+        <h2 data-i18n="about_title">Atuação consultiva com proximidade técnica e execução hands-on — perto da arquitetura, do código e da operação.</h2>
         <p data-i18n="about_p1">Minha carreira foi construída em ambientes onde confiabilidade não é detalhe. Hoje sou Senior Lead na F1RST Digital Services, braço de tecnologia do Santander, liderando 30+ engenheiros e sustentando 40+ APIs de Open Finance e Open Insurance com <strong>99,95% de SLA em produção</strong>.</p>
         <p data-i18n="about_p2">Antes, passei 10 anos no Itaú e construí a FastrackGPS, um SaaS de rastreamento que chegou a quase 10.000 clientes. Essa combinação de empresa grande, produto próprio e execução técnica me ajuda a separar tendência de solução útil.</p>
         <div class="about-pillars">
@@ -1457,6 +1523,14 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
         <a href="https://wa.me/5511987415290" target="_blank" rel="noopener"><span class="i">☎</span> +55 11 98741-5290</a>
         <span><span class="i">⚲</span> <span data-i18n="ct_loc">São Paulo, Brasil</span></span>
       </div>
+      <div class="recruiter-note reveal" style="margin-top:24px;padding:18px 20px;border:1px solid var(--line);border-left:3px solid var(--neon);border-radius:12px;background:var(--neon-soft)">
+        <strong style="font-family:'Space Grotesk';font-weight:600;letter-spacing:-.01em" data-i18n="rec_t">Para recrutadores, headhunters e executive search</strong>
+        <p style="color:var(--txt-2);font-size:.92rem;font-weight:300;line-height:1.6;margin-top:6px" data-i18n="rec_p">Para oportunidades executivas, liderança técnica ou arquitetura em ambientes críticos, fale comigo por LinkedIn, e-mail ou WhatsApp. Para processos seletivos, baixe a versão resumida do currículo em PDF.</p>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-family:'JetBrains Mono';font-size:13px">
+          <a href="https://www.linkedin.com/in/marvin1986/" target="_blank" rel="noopener" style="color:var(--neon-2)">LinkedIn →</a>
+          <a href="assets/docs/cv-marcus-segundo.pdf" target="_blank" rel="noopener" style="color:var(--neon-2)" data-i18n="rec_cv">Baixar CV resumido (PDF) →</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1552,17 +1626,26 @@ footer{border-top:1px solid var(--line);padding:50px 0 36px;margin-top:88px}
 /* ===== i18n ===== */
 const I18N={
   en:{
-    nav_services:"./services",nav_about:"./approach",nav_formats:"./formats",nav_profile:"./profile",nav_products2:"./products",nav_path:"./journey",nav_projects:"Projects",nav_contact:"./contact",nav_cta:"Talk to Marcus",
-    hero_eyebrow:"Senior Technology Manager · Data, AI & Open Finance",
-    hero_title:'I lead engineering, data and AI in <span class="accent">critical production.</span>',
-    hero_sub:"Over 20 years leading teams and critical operations across Data, AI, Open Finance and Cloud. I connect strategy, technical decisions and execution for companies that need to move with clarity.",
+    nav_services:"./services",nav_about:"./approach",nav_formats:"./formats",nav_profile:"./profile",nav_products2:"./products",nav_path:"./career",nav_projects:"./projects",nav_contact:"./contact",nav_cta:"Talk to Marcus",nav_summary:"./summary",nav_skills:"./skills",nav_consulting:"./consulting",
+    hero_eyebrow:"Senior Technology Manager · Architecture &amp; Applied AI",
+    hero_title:'I lead engineering, data and AI in <span class="accent">critical, regulated platforms.</span>',
+    hero_sub:"Senior Technology Manager — Architecture and Applied AI. For 20+ years I've led engineering, data and mission-critical platforms in regulated environments — from Open Finance and Cloud to FinOps and applied AI — connecting strategy, technical decisions and execution.",
     hero_context1:"critical production with 99.95% SLA",hero_context2:"own product with nearly 10,000 clients",
-    hero_cta1:"Discuss a challenge →",hero_cta2:"View executive profile",
+    hero_cta1:"View executive profile →",hero_cta2:"Hire technical consulting",
+    exec_kicker:"executive summary",
+    exec_title:"Senior technical leadership in engineering, data and AI for regulated environments",
+    exec_p1:"<strong>Senior Technology Manager</strong> with 20+ years in technical leadership, architecture and engineering of mission-critical platforms. I work at the intersection of business strategy and technical execution — leading squads, defining architecture and sustaining regulated, mission-critical operations.",
+    exec_p2:"Proven experience across <strong>banking, payments, insurance and SaaS/IoT</strong>, with depth in Open Finance and Open Insurance, Cloud, Data, FinOps and applied AI. Leadership scope of 30+ engineers and 40+ critical APIs at 99.95% SLA, with a track record of measurable results — including up to 60% cloud cost reduction.",
+    exec_tag1:"Banking",exec_tag2:"Payments",exec_tag3:"Insurance",exec_tag4:"Open Finance",exec_tag5:"Cloud &amp; Data",exec_tag6:"SaaS / IoT",
+    path1_k:"For recruiters &amp; headhunters",path1_t:"Executive profile",path1_p:"Career, roles, responsibilities, results, skills and education for quick assessment.",path1_go:"See career &amp; skills →",
+    path2_k:"For consulting clients",path2_t:"Technical consulting",path2_p:"Engagement formats, cases, services and contact to unblock and scale your project.",path2_go:"See consulting formats →",
+    results_title:"Key career results",
+    res1:"years in technology",res2:"engineers led",res3:"critical APIs sustained",res4:"SLA in regulated production",res5:"cloud cost via FinOps",res6:"clients on own SaaS",
     stat_years:"years in technology",stat_team:"engineers led",stat_clients:"critical APIs",
     visual_kicker:"senior technology manager · data & ai",visual_role:"Data, AI, Open Finance and engineering leadership",visual_sla:"critical production",visual_team:"technical leadership",scroll_label:"explore profile",
     trust_label:"// experience built through real operations, technology and products",
     market_kicker:"hands-on executive profile",market_title:"Enough strategy to guide the business. Enough technical depth to join the execution.",market_sub:"My experience connects regulated environments, digital products, engineering leadership and AI experimentation. I join when a company needs better decisions and must turn direction into concrete delivery.",
-    market_label:"when to bring me in",market1_title:"Scale, reliability and critical architecture",market1_p:"To modernize systems, organize integrations and support decisions that must respect security, regulation and operational continuity.",market2_title:"Technical leadership to unblock execution",market2_p:"To turn a diffuse scenario into priorities, decision criteria and a roadmap the team can actually put into production.",market3_title:"Applied AI that leaves the lab",market3_p:"To turn AI, automation and IoT into demonstrable experiences, integrated into the business and ready to evolve beyond the first prototype.",market_proof1:"SLA in critical production",market_proof2:"cloud cost with FinOps",market_proof3:"clients on my own SaaS",market_cta1:"Talk directly →",market_cta2:"Explore cases",
+    market_label:"where I create impact",market1_title:"Scale, reliability and critical architecture",market1_p:"To modernize systems, organize integrations and support decisions that must respect security, regulation and operational continuity.",market2_title:"Technical leadership to unblock execution",market2_p:"To turn a diffuse scenario into priorities, decision criteria and a roadmap the team can actually put into production.",market3_title:"Applied AI that leaves the lab",market3_p:"To turn AI, automation and IoT into demonstrable experiences, integrated into the business and ready to evolve beyond the first prototype.",market_proof1:"SLA in critical production",market_proof2:"cloud cost with FinOps",market_proof3:"clients on my own SaaS",market_cta1:"Talk directly →",market_cta2:"Explore cases",
     obj_kicker:"consulting objectives",obj_title:"At every step, the project must become clearer and easier to execute.",obj_sub:"Scroll to follow the working logic. The objective is not to add ceremony: it is to reduce uncertainty and create momentum.",
     obj_result:"result",
     obj1_phase:"first move",obj1_title:"Understand the problem without oversimplifying it",obj1_p:"I map context, dependencies, risks, constraints and business impact. Before discussing technology, we clarify what needs to change.",obj1_d1:"current scenario",obj1_d2:"priority risks",obj1_d3:"quick wins",obj1_result:"A shared reading of the challenge and what deserves attention first.",
@@ -1580,7 +1663,7 @@ const I18N={
     svc4_t:"Data Engineering",svc4_p:"Data Lake, ingestion pipelines, Big Data, AWS Glue/Athena and data-driven governance.",
     svc5_t:"Quality & Automation",svc5_p:"Test strategy and pyramid, massive automation (Selenium, Appium, RobotFramework) and CI.",
     svc6_t:"IoT & Embedded",svc6_p:"End-to-end IoT, embedded systems, ESP32, Raspberry Pi, hardware integration and SaaS.",
-    about_kicker:"who joins the project",about_title:"I am not a slide-deck consultant. I stay close to the architecture, the code and the operation.",
+    about_kicker:"who joins the project",about_title:"Consultative work with technical proximity and hands-on execution — close to the architecture, the code and the operation.",
     about_p1:"My career was built in environments where reliability is not a detail. Today I am Senior Lead at F1RST Digital Services, Santander's technology arm, leading 30+ engineers and sustaining 40+ Open Finance and Open Insurance APIs with <strong>99.95% SLA in production</strong>.",
     about_p2:"Before that, I spent 10 years at Itaú and built FastrackGPS, a tracking SaaS that reached nearly 10,000 clients. This mix of enterprise experience, product ownership and technical execution helps me separate trends from useful solutions.",
     pill1_t:"Decisions with context",pill1_p:"Technology connected to business, risk and regulation.",
@@ -1618,7 +1701,7 @@ const I18N={
     srv3_t:"Applied AI with a working product",srv3_s:"Solution Engineering",srv3_p:"I turn AI, LLMs, automation and IoT into usable solutions. From the first prototype to deployment, integrated into the business.",
     srv4_t:"Technical leadership at decisive moments",srv4_s:"Tech Lead as a Service",srv4_p:"I step in to provide direction, organize decisions and elevate the team's execution. With context, mentoring and responsibility for results.",
     stack_lbl:"// the stack I use every day",
-    off_kicker:"let's build together",off_title:"Solutions, AI automations and knowledge sharing",off_sub:"From custom software to a quick chat to unblock your team — pick the kind of help that makes sense now.",
+    off_kicker:"let's build together",off_title:"Solutions, AI automations and knowledge sharing",off_sub:"From custom software to a technical diagnosis and prioritization session — pick the level of support the scenario calls for.",
     of1_t:"Custom solutions",of1_p:"Software built for your real problem, from MVP to production deployment.",
     of2_t:"AI automations",of2_p:"I automate processes and workflows with LLMs, agents and MCP. Less manual work, more results.",
     of3_t:"Frameworks & accelerators",of3_p:"Reusable foundations and patterns that speed up your team's delivery.",
@@ -1664,21 +1747,31 @@ const I18N={
     lng_pt:"Portuguese",lng_en:"English",lng_es:"Spanish",lng_native:"Native",lng_adv:"Advanced",lng_int:"Intermediate",
     ct_kicker:"an objective conversation",ct_title:"If the challenge matters, it is worth putting the context on the table.",ct_sub:"Tell me where the project is stuck or what needs to scale. In an initial conversation, I help organize the scenario and identify the next step.",
     ct_wpp:"Message on WhatsApp →",ct_mail:"Send email",ct_cv:"Download CV (PDF)",ct_loc:"São Paulo, Brazil",float_cta:"Discuss a project",
+    rec_t:"For recruiters, headhunters and executive search",rec_p:"For executive opportunities, technical leadership or architecture in critical environments, reach me via LinkedIn, email or WhatsApp. For selection processes, download the concise résumé in PDF.",rec_cv:"Download concise résumé (PDF) →",
     foot_p:"Practical technology consulting: architecture, Open Finance, Cloud, applied AI and execution close to the team.",
     foot_nav:"Navigation",foot_contact:"Contact",foot_rights:"All rights reserved."
   },
   es:{
-    nav_services:"./servicios",nav_about:"./abordaje",nav_formats:"./formatos",nav_profile:"./perfil",nav_products2:"./productos",nav_path:"./trayectoria",nav_projects:"Proyectos",nav_contact:"./contacto",nav_cta:"Hablar con Marcus",
-    hero_eyebrow:"Gerente Sénior de Tecnología · Data, AI & Open Finance",
-    hero_title:'Lidero ingeniería, datos e IA en <span class="accent">producción crítica.</span>',
-    hero_sub:"Más de 20 años liderando equipos y operación crítica en Data, IA, Open Finance y Cloud. Conecto estrategia, decisiones técnicas y ejecución para empresas que necesitan avanzar con claridad.",
+    nav_services:"./servicios",nav_about:"./abordaje",nav_formats:"./formatos",nav_profile:"./perfil",nav_products2:"./productos",nav_path:"./trayectoria",nav_projects:"./proyectos",nav_contact:"./contacto",nav_cta:"Hablar con Marcus",nav_summary:"./resumen",nav_skills:"./competencias",nav_consulting:"./consultoría",
+    hero_eyebrow:"Gerente Sénior de Tecnología · Arquitectura e IA Aplicada",
+    hero_title:'Lidero ingeniería, datos e IA en <span class="accent">plataformas críticas y reguladas.</span>',
+    hero_sub:"Gerente Sénior de Tecnología, Arquitectura e IA Aplicada. Desde hace más de 20 años lidero ingeniería, datos y plataformas críticas en entornos regulados — de Open Finance y Cloud a FinOps e IA aplicada —, conectando estrategia, decisión técnica y ejecución.",
     hero_context1:"producción crítica con 99,95% de SLA",hero_context2:"producto propio con casi 10.000 clientes",
-    hero_cta1:"Conversar sobre un desafío →",hero_cta2:"Ver perfil ejecutivo",
+    hero_cta1:"Ver perfil ejecutivo →",hero_cta2:"Contratar consultoría técnica",
+    exec_kicker:"resumen ejecutivo",
+    exec_title:"Liderazgo técnico sénior en ingeniería, datos e IA para entornos regulados",
+    exec_p1:"<strong>Gerente Sénior de Tecnología</strong> con más de 20 años en liderazgo técnico, arquitectura e ingeniería de plataformas críticas. Trabajo en la intersección entre estrategia de negocio y ejecución técnica — lidero squads, defino arquitectura y sostengo operación regulada de misión crítica.",
+    exec_p2:"Experiencia consolidada en los sectores <strong>bancario, de pagos, seguros y SaaS/IoT</strong>, con dominio en Open Finance y Open Insurance, Cloud, Datos, FinOps e IA aplicada. Alcance de liderazgo de 30+ ingenieros y 40+ APIs críticas a 99,95% de SLA, con historial de resultados medibles — incluyendo hasta 60% de reducción de costo cloud.",
+    exec_tag1:"Bancario",exec_tag2:"Pagos",exec_tag3:"Seguros",exec_tag4:"Open Finance",exec_tag5:"Cloud y Datos",exec_tag6:"SaaS / IoT",
+    path1_k:"Para reclutadores y headhunters",path1_t:"Perfil ejecutivo",path1_p:"Trayectoria, cargos, responsabilidades, resultados, competencias y formación para evaluación rápida.",path1_go:"Ver trayectoria y competencias →",
+    path2_k:"Para clientes de consultoría",path2_t:"Consultoría técnica",path2_p:"Formatos de actuación, casos, servicios y contacto para destrabar y escalar tu proyecto.",path2_go:"Ver formatos de consultoría →",
+    results_title:"Principales resultados de carrera",
+    res1:"años en tecnología",res2:"ingenieros liderados",res3:"APIs críticas sostenidas",res4:"SLA en producción regulada",res5:"costo cloud con FinOps",res6:"clientes en SaaS propio",
     stat_years:"años en tecnología",stat_team:"ingenieros liderados",stat_clients:"APIs críticas",
     visual_kicker:"gerente sénior de tecnología · data & ai",visual_role:"Data, IA, Open Finance y liderazgo de ingeniería",visual_sla:"producción crítica",visual_team:"liderazgo técnico",scroll_label:"explorar perfil",
     trust_label:"// experiencia construida en operación real, tecnología y producto",
     market_kicker:"perfil ejecutivo hands-on",market_title:"Estrategia suficiente para orientar el negocio. Profundidad técnica para entrar en la ejecución.",market_sub:"Mi experiencia conecta entornos regulados, producto digital, liderazgo de ingeniería y experimentación con IA. Entro cuando la empresa necesita tomar mejores decisiones y transformar dirección en entrega concreta.",
-    market_label:"cuándo vale llamarme",market1_title:"Escala, confiabilidad y arquitectura crítica",market1_p:"Para modernizar sistemas, organizar integraciones y sostener decisiones que deben respetar seguridad, regulación y continuidad operativa.",market2_title:"Liderazgo técnico para destrabar la ejecución",market2_p:"Para transformar un escenario difuso en prioridades, criterios de decisión y un roadmap que el equipo realmente pueda poner en producción.",market3_title:"IA aplicada que sale del laboratorio",market3_p:"Para convertir IA, automatización e IoT en experiencias demostrables, integradas al negocio y listas para evolucionar más allá del primer prototipo.",market_proof1:"SLA en producción crítica",market_proof2:"costo cloud con FinOps",market_proof3:"clientes en SaaS propio",market_cta1:"Conversar directamente →",market_cta2:"Explorar casos",
+    market_label:"áreas donde genero impacto",market1_title:"Escala, confiabilidad y arquitectura crítica",market1_p:"Para modernizar sistemas, organizar integraciones y sostener decisiones que deben respetar seguridad, regulación y continuidad operativa.",market2_title:"Liderazgo técnico para destrabar la ejecución",market2_p:"Para transformar un escenario difuso en prioridades, criterios de decisión y un roadmap que el equipo realmente pueda poner en producción.",market3_title:"IA aplicada que sale del laboratorio",market3_p:"Para convertir IA, automatización e IoT en experiencias demostrables, integradas al negocio y listas para evolucionar más allá del primer prototipo.",market_proof1:"SLA en producción crítica",market_proof2:"costo cloud con FinOps",market_proof3:"clientes en SaaS propio",market_cta1:"Conversar directamente →",market_cta2:"Explorar casos",
     obj_kicker:"objetivos de la consultoría",obj_title:"En cada etapa, el proyecto debe quedar más claro y más ejecutable.",obj_sub:"Desplázate para seguir la lógica del trabajo. El objetivo no es agregar ceremonia: es reducir incertidumbre y crear movimiento.",
     obj_result:"resultado",
     obj1_phase:"primer movimiento",obj1_title:"Entender el problema sin simplificar demasiado",obj1_p:"Mapeo contexto, dependencias, riesgos, restricciones e impacto en el negocio. Antes de hablar de tecnología, aclaramos qué debe cambiar.",obj1_d1:"escenario actual",obj1_d2:"riesgos prioritarios",obj1_d3:"quick wins",obj1_result:"Una lectura compartida del desafío y de lo que merece atención primero.",
@@ -1696,7 +1789,7 @@ const I18N={
     svc4_t:"Ingeniería de Datos",svc4_p:"Data Lake, pipelines de ingesta, Big Data, AWS Glue/Athena y gobernanza basada en datos.",
     svc5_t:"Calidad & Automatización",svc5_p:"Estrategia y pirámide de pruebas, automatización masiva (Selenium, Appium, RobotFramework) y CI.",
     svc6_t:"IoT & Embebidos",svc6_p:"IoT de punta a punta, sistemas embebidos, ESP32, Raspberry Pi, integración de hardware y SaaS.",
-    about_kicker:"quién entra al proyecto",about_title:"No soy consultor de presentaciones. Sigo cerca de la arquitectura, el código y la operación.",
+    about_kicker:"quién entra al proyecto",about_title:"Actuación consultiva con proximidad técnica y ejecución hands-on — cerca de la arquitectura, el código y la operación.",
     about_p1:"Mi carrera se construyó en entornos donde la confiabilidad no es un detalle. Hoy soy Senior Lead en F1RST Digital Services, brazo tecnológico del Santander, liderando 30+ ingenieros y sosteniendo 40+ APIs de Open Finance y Open Insurance con <strong>99,95% de SLA en producción</strong>.",
     about_p2:"Antes, pasé 10 años en Itaú y construí FastrackGPS, un SaaS de rastreo que llegó a casi 10.000 clientes. Esta combinación de gran empresa, producto propio y ejecución técnica me ayuda a separar tendencias de soluciones útiles.",
     pill1_t:"Decisiones con contexto",pill1_p:"Tecnología conectada con negocio, riesgo y regulación.",
@@ -1734,7 +1827,7 @@ const I18N={
     srv3_t:"IA aplicada con producto funcionando",srv3_s:"Solution Engineering",srv3_p:"Transformo IA, LLM, automatización e IoT en soluciones utilizables. Del primer prototipo al deploy, con integración real al negocio.",
     srv4_t:"Liderazgo técnico en momentos decisivos",srv4_s:"Tech Lead as a Service",srv4_p:"Entro para dar dirección, organizar decisiones y elevar la ejecución del equipo. Con contexto, mentoría y responsabilidad por el resultado.",
     stack_lbl:"// el stack que uso cada día",
-    off_kicker:"construyamos juntos",off_title:"Soluciones, automatizaciones con IA e intercambio de conocimiento",off_sub:"De software a medida a una charla rápida para destrabar a tu equipo — elige el tipo de ayuda que tiene sentido ahora.",
+    off_kicker:"construyamos juntos",off_title:"Soluciones, automatizaciones con IA e intercambio de conocimiento",off_sub:"De software a medida a una sesión de diagnóstico técnico y priorización — elige el nivel de apoyo que el escenario exige.",
     of1_t:"Soluciones a medida",of1_p:"Software construido para tu problema real, del MVP al deploy en producción.",
     of2_t:"Automatizaciones con IA",of2_p:"Automatizo procesos y flujos con LLMs, agentes y MCP. Menos trabajo manual, más resultado.",
     of3_t:"Frameworks & aceleradores",of3_p:"Bases reutilizables y patrones que aceleran la entrega de tu equipo.",
@@ -1780,6 +1873,7 @@ const I18N={
     lng_pt:"Portugués",lng_en:"Inglés",lng_es:"Español",lng_native:"Nativo",lng_adv:"Avanzado",lng_int:"Intermedio",
     ct_kicker:"una conversación objetiva",ct_title:"Si el desafío es relevante, vale la pena poner el contexto sobre la mesa.",ct_sub:"Cuéntame dónde está trabado el proyecto o qué necesita ganar escala. En una conversación inicial, ayudo a organizar el escenario e identificar el próximo paso.",
     ct_wpp:"Escribir por WhatsApp →",ct_mail:"Enviar email",ct_cv:"Descargar CV (PDF)",ct_loc:"São Paulo, Brasil",float_cta:"Hablar de un proyecto",
+    rec_t:"Para reclutadores, headhunters y executive search",rec_p:"Para oportunidades ejecutivas, liderazgo técnico o arquitectura en entornos críticos, contáctame por LinkedIn, email o WhatsApp. Para procesos de selección, descarga la versión resumida del currículum en PDF.",rec_cv:"Descargar CV resumido (PDF) →",
     foot_p:"Consultoría práctica en tecnología: arquitectura, Open Finance, Cloud, IA aplicada y ejecución cercana al equipo.",
     foot_nav:"Navegación",foot_contact:"Contacto",foot_rights:"Todos los derechos reservados."
   }
