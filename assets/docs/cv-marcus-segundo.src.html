@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --ink:#1b2230; --ink2:#475066; --ink3:#6b7385; --accent:#5b4fe0; --accent2:#7E7BE8; --line:#e3e6ef; --soft:#f4f5fb; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  @page{ size:A4; margin:0; }
+  html{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body{ font-family:'Inter',Arial,sans-serif; color:var(--ink); font-size:9.0px; line-height:1.4; }
+  .page{ width:210mm; padding:6mm 12mm; }
+  /* HEADER */
+  header{ border-bottom:2.5px solid var(--accent); padding-bottom:7px; margin-bottom:8px; }
+  h1{ font-family:'Space Grotesk',sans-serif; font-size:23px; font-weight:700; letter-spacing:-.4px; color:var(--ink); }
+  .role{ font-size:11px; font-weight:600; color:var(--accent); margin-top:2px; letter-spacing:.1px; }
+  .contact{ margin-top:7px; font-size:9px; color:var(--ink2); display:flex; flex-wrap:wrap; gap:5px 14px; }
+  .contact b{ color:var(--accent); font-weight:600; }
+  /* SECTIONS */
+  section{ margin-bottom:5px; }
+  h2{ font-family:'Space Grotesk',sans-serif; font-size:10.5px; font-weight:700; text-transform:uppercase; letter-spacing:1.1px; color:var(--ink); padding-bottom:3px; margin-bottom:6px; border-bottom:1px solid var(--line); display:flex; align-items:center; gap:7px; }
+  h2::before{ content:''; width:9px; height:9px; border-radius:3px; background:var(--accent); display:inline-block; }
+  .summary{ font-size:9.3px; color:var(--ink2); line-height:1.5; text-align:justify; }
+  /* RESULTS */
+  .results{ display:grid; grid-template-columns:1fr 1fr; gap:2px 26px; }
+  .results li{ list-style:none; font-size:9.2px; color:var(--ink2); padding-left:15px; position:relative; line-height:1.5; }
+  .results li::before{ content:'▸'; color:var(--accent); position:absolute; left:0; font-size:9px; }
+  .results b{ color:var(--ink); font-weight:700; }
+  /* SKILLS */
+  .skills{ display:grid; gap:3px; }
+  .skill-row{ font-size:9.4px; color:var(--ink2); }
+  .skill-row b{ display:inline-block; min-width:152px; color:var(--ink); font-weight:600; }
+  /* EXPERIENCE */
+  .job{ margin-bottom:4px; }
+  .job-h{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+  .company{ font-size:10.6px; font-weight:700; color:var(--ink); }
+  .period{ font-size:8.6px; color:var(--ink3); white-space:nowrap; font-weight:500; }
+  .place{ font-size:8.4px; color:var(--ink3); }
+  .subrole{ margin-top:2px; }
+  .subrole .t{ font-size:9.4px; font-weight:600; color:var(--accent); }
+  .subrole .t span{ color:var(--ink3); font-weight:500; font-size:8.4px; }
+  ul.bul{ margin:2px 0 0; padding-left:14px; }
+  ul.bul li{ font-size:9.1px; color:var(--ink2); line-height:1.4; margin-bottom:.4px; }
+  ul.bul li::marker{ color:var(--accent2); }
+  .edu-row,.lang-row{ font-size:9.4px; color:var(--ink2); margin-bottom:2px; }
+  .edu-row b{ color:var(--ink); font-weight:600; }
+  .edu-row .yr{ color:var(--ink3); font-size:8.8px; }
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:0 26px; }
+  .muted{ color:var(--ink3); }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <h1>Marcus Segundo</h1>
+    <div class="role">Gerente Sênior de Tecnologia · Liderança de Engenharia, Arquitetura e IA Aplicada</div>
+    <div class="contact">
+      <span><b>E-mail:</b> marcus@segundo.me</span>
+      <span><b>Tel:</b> +55 11 98741-5290</span>
+      <span><b>Local:</b> São Paulo/SP, Brasil</span>
+      <span><b>LinkedIn:</b> linkedin.com/in/marvin1986</span>
+      <span><b>GitHub:</b> github.com/marvinmvns</span>
+      <span><b>Portfólio:</b> marvinmvns.github.io</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Resumo Profissional</h2>
+    <p class="summary">Gerente Sênior de Tecnologia com mais de 20 anos de experiência em liderança técnica, arquitetura e engenharia de plataformas críticas no setor financeiro regulado. Atualmente lidero squads de até 30 engenheiros sustentando mais de 40 APIs em produção a 99,95% de SLA nas jornadas de Open Finance e Open Insurance do Santander. Histórico consistente de resultados mensuráveis — incluindo redução de até 60% no custo de cloud com FinOps — e domínio de Cloud (AWS/Azure), Dados, segurança (FAPI/OAuth 2.0) e IA aplicada. Busco posição de liderança técnica e arquitetura com foco em execução de profundidade e impacto direto no negócio.</p>
+  </section>
+
+  <section>
+    <h2>Principais Resultados</h2>
+    <ul class="results">
+      <li><b>30+</b> engenheiros liderados em squads multidisciplinares</li>
+      <li><b>40+</b> APIs críticas sustentadas a <b>99,95%</b> de SLA</li>
+      <li><b>-60%</b> de custo de cloud com FinOps, sem impacto em SLA</li>
+      <li><b>-30%</b> de esforço em obsolescência/vulnerabilidades com IA generativa</li>
+      <li><b>~10.000</b> clientes ativos em SaaS próprio (FastrackGPS)</li>
+      <li><b>10 anos</b> no Itaú Unibanco · <b>20+ anos</b> em tecnologia</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Competências Técnicas</h2>
+    <div class="skills">
+      <div class="skill-row"><b>Liderança &amp; Gestão</b>liderança de squads, chapter lead, mentoria, plano de carreira, gestão de stakeholders</div>
+      <div class="skill-row"><b>Arquitetura &amp; Open Finance</b>Open Finance/Insurance, FAPI, OAuth 2.0/OpenID Connect, microsserviços, sistemas críticos regulados</div>
+      <div class="skill-row"><b>Cloud, Dados &amp; FinOps</b>AWS (Lambda, Glue, Athena, EC2, Fargate, RDS), Azure, Kubernetes, Data Lake, Databricks, FinOps</div>
+      <div class="skill-row"><b>Desenvolvimento &amp; APIs</b>Java/Spring Boot, Node.js, Python, TypeScript, microsserviços, PostgreSQL</div>
+      <div class="skill-row"><b>IA Aplicada</b>LLMs, RAG, agentes/MCP, IA generativa, automação, IA embarcada</div>
+      <div class="skill-row"><b>DevOps &amp; Qualidade</b>GitHub Actions, CloudBees, Docker, ServiceNow, Selenium, automação de testes</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experiência Profissional</h2>
+
+    <div class="job">
+      <div class="job-h"><span class="company">F1RST Digital Services (Santander)</span><span class="period">set/2021 – atual</span></div>
+      <div class="place">São Paulo/SP · Braço de tecnologia do Santander</div>
+      <div class="subrole">
+        <div class="t">Senior Lead <span>· dez/2023 – atual</span></div>
+        <ul class="bul">
+          <li>Lidero squad de ~30 engenheiros (backend, dados, SRE e QA) sustentando 40+ APIs a 99,95% de SLA em Open Finance/Insurance; responsável por arquitetura, hiring, mentoria e plano de carreira.</li>
+          <li>FinOps (rightsizing, chargeback/showback): redução de até <b>60% do custo de cloud</b> sem impacto em SLA ou performance.</li>
+          <li>Segurança e conformidade OAuth 2.0/OpenID Connect no padrão FAPI, com governança e rastreabilidade ponta a ponta.</li>
+          <li>IA generativa aplicada (LLMs): redução de até 30% do esforço em obsolescência e remediação de vulnerabilidades.</li>
+        </ul>
+      </div>
+      <div class="subrole">
+        <div class="t">IT Lead <span>· set/2021 – dez/2023</span></div>
+        <ul class="bul">
+          <li>Liderança ponta a ponta da Fase 2 do Open Finance Brasil (PF/PJ, contas, cartões, crédito), com 10+ APIs em produção, camada de segurança FAPI e equipe de Data Lake de assets Open Finance.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-h"><span class="company">Itaú Unibanco</span><span class="period">ago/2011 – ago/2021 · 10 anos</span></div>
+      <div class="place">São Paulo/SP</div>
+      <div class="subrole">
+        <div class="t">Coordenador de Engenharia de TI <span>· ago/2020 – ago/2021</span></div>
+        <ul class="bul">
+          <li>Chapter Lead na Comunidade de Finanças; liderança da célula do projeto IFRS 17 (atuarial e contábil) com 30 pessoas.</li>
+          <li>Plataforma de dados em AWS (Glue, EC2, Fargate, RDS, Athena, Lambda); Java, Python e JavaScript.</li>
+        </ul>
+      </div>
+      <div class="subrole">
+        <div class="t">Especialista / Coordenador de Qualidade de TI <span>· mar/2019 – ago/2020</span></div>
+        <ul class="bul">
+          <li>Coordenação de automação de testes de sistemas bancários (Conta Corrente, Pagamentos, Empréstimos, Cash); definição de frameworks e estruturação de equipe.</li>
+        </ul>
+      </div>
+      <div class="subrole">
+        <div class="t">Engenheiro de QA Sênior <span>· fev/2016 – mar/2019</span></div>
+        <ul class="bul">
+          <li>Testes automatizados para Conta Corrente, Pagamentos e Empréstimos (Selenium, Appium, Robot Framework, JUnit/xUnit, Stryker).</li>
+        </ul>
+      </div>
+      <div class="subrole">
+        <div class="t">Engenheiro de Desenvolvimento de Software <span>· ago/2011 – fev/2016</span></div>
+        <ul class="bul">
+          <li>Mainframe (Cobol, CICS, DB2, JCL) e plataforma distribuída (Java, MySQL, MS SQL Server, DB2).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-h"><span class="company">FastrackGPS</span><span class="period">2006 – 2019 · 13 anos</span></div>
+      <div class="subrole"><div class="t">Founder &amp; CTO <span>· São Paulo/SP</span></div>
+        <ul class="bul">
+          <li>Fundei e operei um SaaS de rastreamento veicular (IoT/GPS) que alcançou <b>~10.000 clientes ativos</b>; responsável pela tecnologia e pela gestão técnica e comercial. Evoluiu para a plataforma LocalizaAuto.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-h"><span class="company">Harlio Bots</span><span class="period">jan/2016 – mar/2017</span></div>
+      <div class="subrole"><div class="t">Chief Technology Officer (CTO)</div>
+        <ul class="bul"><li>Assistentes virtuais com IA em Slack, Messenger, Telegram e Web para clientes globais, incluindo a Time Warner.</li></ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-h"><span class="company">IBM</span><span class="period">jul/2007 – out/2011</span></div>
+      <div class="subrole"><div class="t">Desenvolvedor de Software (Mainframe &amp; Sistemas Corporativos)</div>
+        <ul class="bul"><li>Projetos para Itaú, TAM e Telefônica. Mainframe (Cobol, CICS, DB2), Oracle/PL-SQL, análise de performance e suporte de software.</li></ul>
+      </div>
+    </div>
+
+    <div class="job">
+      <div class="job-h"><span class="company">Systemplan Consultoria</span><span class="period">jul/2005 – jun/2007</span></div>
+      <div class="subrole"><div class="t">Analista de Sistemas Júnior</div>
+        <ul class="bul"><li>Desenvolvimento em ambiente Mainframe (COBOL, CICS, DB2, JCL); análise de rotinas e ferramentas Control-M, Harvest, Endevor.</li></ul>
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <h2>Formação Acadêmica</h2>
+    <div class="two">
+      <div>
+        <div class="edu-row"><b>MBA em Inteligência Artificial / TI</b> — FIAP <span class="yr">· 2025</span></div>
+        <div class="edu-row"><b>Gestão Empresarial</b> — Fundação Getulio Vargas (FGV) <span class="yr">· 2017–2021</span></div>
+      </div>
+      <div>
+        <div class="edu-row"><b>Tecnologia da Informação</b> — Faculdades Oswaldo Cruz <span class="yr">· 2009–2011</span></div>
+        <div class="edu-row"><b>Análise de Sistemas</b> — Univ. Presbiteriana Mackenzie <span class="yr">· 2005–2009</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div style="border-top:1px solid var(--line); padding-top:6px; margin-top:2px; font-size:9px; color:var(--ink2); line-height:1.55">
+    <b style="color:var(--ink)">Idiomas:</b> Português (nativo) · Inglês · Espanhol &nbsp;·&nbsp; <b style="color:var(--ink)">Projetos autorais (IA &amp; IoT):</b> DoguIA, Marvin (Llama 2 / Raspberry Pi), Cubo Copa 2026 (ESP32-S3) &nbsp;·&nbsp; github.com/marvinmvns
+  </div>
+
+</div>
+</body>
+</html>
