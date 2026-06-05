@@ -48,6 +48,7 @@ Marcus Segundo é um profissional sênior de tecnologia brasileiro, baseado em S
 
 ## Projetos autorais (inovação aplicada)
 
+- **M Finance:** app de finanças pessoais local-first (roda 100% na máquina do usuário). Conecta às contas via Pierre (Open Finance), guarda os dados em banco local e oferece painel de patrimônio, fluxo de caixa, faturas, planejamento, alertas, integração com Telegram e um assistente de IA que responde sobre o próprio dinheiro. Privacidade por padrão, sem nuvem de terceiros. https://github.com/marvinmvns/mfinance
 - **DoguIA:** robô/assistente com IA local e embarcada, interação multimodal (voz, movimentos, luzes), 47 habilidades via MCP e 50+ movimentos coordenados, em ESP32-C3. https://www.doguia.com.br
 - **Marvin:** robô impresso em 3D rodando Llama 2 em Raspberry Pi, com hotword offline (Porcupine), Vosk e voz ElevenLabs.
 - **Cubo Copa 2026:** porta-figurinhas inteligente (ESP32-S3 + impressão 3D) com display colorido, assistente de voz em português, placares ao vivo, contagem regressiva e alerta de gols; prototipado em ~3h com IA generativa.
